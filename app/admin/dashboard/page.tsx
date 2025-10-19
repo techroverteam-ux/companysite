@@ -163,6 +163,7 @@ import('@/data/schedule.json')
             <TabsTrigger value="pricing">Pricing</TabsTrigger>
             <TabsTrigger value="schedule">Schedule</TabsTrigger>
             <TabsTrigger value="contacts">Contacts</TabsTrigger>
+            <TabsTrigger value="hire-team">Hire Team</TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
 
@@ -1342,6 +1343,24 @@ import('@/data/schedule.json')
                   </div>
                   
                   <div className="flex gap-2">
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2">Shopify Services</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-blue-50 rounded-lg">
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-blue-600">₹22,500</div>
+                          <div className="text-sm text-gray-600">Custom Shopify Store</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-blue-600">₹25,000</div>
+                          <div className="text-sm text-gray-600">WordPress Migration</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-blue-600">₹45,000</div>
+                          <div className="text-sm text-gray-600">Shopify Plus</div>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <Button 
                       onClick={() => {
                         const newSlot = {
@@ -1485,6 +1504,107 @@ import('@/data/schedule.json')
                       <Save className="mr-2 h-4 w-4" />
                       Save Contacts
                     </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="hire-team" className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Hire Team Requests</CardTitle>
+                <CardDescription>
+                  Manage freelance team requests and assignments
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <div className="text-center p-4 bg-blue-50 rounded-lg">
+                      <div className="text-2xl font-bold text-blue-600">50+</div>
+                      <div className="text-sm text-gray-600">Available Developers</div>
+                    </div>
+                    <div className="text-center p-4 bg-green-50 rounded-lg">
+                      <div className="text-2xl font-bold text-green-600">15</div>
+                      <div className="text-sm text-gray-600">Active Projects</div>
+                    </div>
+                    <div className="text-center p-4 bg-orange-50 rounded-lg">
+                      <div className="text-2xl font-bold text-orange-600">8</div>
+                      <div className="text-sm text-gray-600">Pending Requests</div>
+                    </div>
+                    <div className="text-center p-4 bg-purple-50 rounded-lg">
+                      <div className="text-2xl font-bold text-purple-600">₹25L</div>
+                      <div className="text-sm text-gray-600">Monthly Revenue</div>
+                    </div>
+                  </div>
+                  
+                  <div className="border rounded-lg p-4">
+                    <h4 className="font-semibold mb-3">Recent Requests</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
+                        <div>
+                          <div className="font-medium">E-commerce Mobile App</div>
+                          <div className="text-sm text-gray-600">John Doe • ₹8,00,000 • 4 months</div>
+                        </div>
+                        <div className="flex gap-2">
+                          <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Pending</span>
+                          <Button size="sm" variant="outline">Review</Button>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
+                        <div>
+                          <div className="font-medium">SaaS Dashboard</div>
+                          <div className="text-sm text-gray-600">Sarah Wilson • ₹12,00,000 • 6 months</div>
+                        </div>
+                        <div className="flex gap-2">
+                          <span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Assigned</span>
+                          <Button size="sm" variant="outline">View</Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="border rounded-lg p-4">
+                    <h4 className="font-semibold mb-3">Team Availability</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-sm text-gray-600 mb-2">Frontend Developers</div>
+                        <div className="flex items-center gap-2">
+                          <div className="flex-1 bg-gray-200 rounded-full h-2">
+                            <div className="bg-green-500 h-2 rounded-full" style={{width: '75%'}}></div>
+                          </div>
+                          <span className="text-sm">12/16 available</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-gray-600 mb-2">Backend Developers</div>
+                        <div className="flex items-center gap-2">
+                          <div className="flex-1 bg-gray-200 rounded-full h-2">
+                            <div className="bg-yellow-500 h-2 rounded-full" style={{width: '50%'}}></div>
+                          </div>
+                          <span className="text-sm">8/16 available</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-gray-600 mb-2">UI/UX Designers</div>
+                        <div className="flex items-center gap-2">
+                          <div className="flex-1 bg-gray-200 rounded-full h-2">
+                            <div className="bg-green-500 h-2 rounded-full" style={{width: '83%'}}></div>
+                          </div>
+                          <span className="text-sm">10/12 available</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-gray-600 mb-2">Mobile Developers</div>
+                        <div className="flex items-center gap-2">
+                          <div className="flex-1 bg-gray-200 rounded-full h-2">
+                            <div className="bg-red-500 h-2 rounded-full" style={{width: '25%'}}></div>
+                          </div>
+                          <span className="text-sm">2/8 available</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </CardContent>

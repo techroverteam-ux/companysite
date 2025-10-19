@@ -15,58 +15,68 @@
     "specializations": ["Artificial Intelligence", "Machine Learning", "Business Development", "Strategic Planning"]
   },
   {
-    "id": "team-2",
-    "name": "Rahul Singh",
-    "role": "CTO",
-    "image": "/team/rahul-singh.jpg",
-    "linkedin": "https://linkedin.com/in/rahulsingh",
-    "bio": "Full-stack architect specializing in scalable enterprise solutions.",
-    "skills": ["System Architecture", "Cloud Computing", "DevOps"],
-    "experience": "6+ years",
-    "education": "M.Tech Software Engineering, BITS Pilani",
-    "certifications": ["Kubernetes Administrator", "Docker Certified", "Azure Solutions Expert"],
-    "projects": ["Architected 30+ enterprise systems", "Managed cloud infrastructure for 1M+ users", "Built microservices for Fortune 500"],
-    "achievements": ["Tech Innovation Award 2022", "Published 15+ research papers", "Open source contributor"],
-    "specializations": ["Cloud Architecture", "Microservices", "DevOps", "System Design"]
+    "id": "yogesh-sharma",
+    "name": "Yogesh Sharma",
+    "role": "Senior Backend Developer",
+    "image": "/team/yogesh-sharma.jpg",
+    "linkedin": "https://linkedin.com/in/yogeshsharma",
+    "bio": "Backend specialist with strong expertise in Python, Django, and cloud infrastructure.",
+    "skills": ["Python", "Django", "PostgreSQL", "AWS"],
+    "experience": "5+ years",
+    "education": "B.Tech - Computer Science",
+    "achievements": ["Backend Architecture Expert", "Performance Optimization", "Cloud Migration Specialist"]
+
+
+
   },
   {
-    "id": "team-3",
-    "name": "Neha Patel",
-    "role": "Head of Design",
-    "image": "/team/neha-patel.jpg",
-    "linkedin": "https://linkedin.com/in/nehapatel",
-    "bio": "Creative director with expertise in UI/UX and brand identity design.",
-    "skills": ["UI/UX Design", "Brand Identity", "User Research"],
+    "id": "yashshvi-singh",
+    "name": "Yashshvi Singh",
+    "role": "Frontend Developer",
+    "image": "/team/yashshvi-singh.jpg",
+    "linkedin": "https://linkedin.com/in/yashshvisingh",
+    "bio": "Creative frontend developer specializing in modern React applications and user interfaces.",
+    "skills": ["React", "Next.js", "Vue.js", "Tailwind CSS"],
     "experience": "5+ years"
   },
   {
     "id": "team-4",
-    "name": "David Miller",
-    "role": "International Business Head",
-    "image": "/team/david-miller.jpg",
-    "linkedin": "https://linkedin.com/in/davidmiller",
-    "bio": "Global business strategist managing international client relationships.",
-    "skills": ["Business Development", "Client Relations", "Market Analysis"],
-    "experience": "7+ years"
+    "name": "Yashashvi Parihar",
+    "role": "UI/UX Designer",
+    "image": "/team/yashashvi-parihar.jpg",
+    "linkedin": "https://linkedin.com/in/yashashviparihar",
+    "bio": "Creative designer focused on user experience and modern design systems.",
+    "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping"],
+    "experience": "3+ years"
   },
   {
     "id": "team-5",
-    "name": "Priya Sharma",
-    "role": "AI Engineer",
-    "image": "/team/priya-sharma.jpg",
-    "linkedin": "https://linkedin.com/in/priyasharma",
-    "bio": "Machine learning specialist building intelligent automation solutions.",
-    "skills": ["Machine Learning", "Python", "Data Science"],
-    "experience": "4+ years"
+    "name": "Naresh Kansara",
+    "role": "Mobile Developer",
+    "image": "/team/naresh-kansara.jpg",
+    "linkedin": "https://linkedin.com/in/nareshkansara",
+    "bio": "Mobile development expert with expertise in React Native and Flutter applications.",
+    "skills": ["React Native", "Flutter", "iOS", "Android"],
+    "experience": "5+ years"
   },
   {
     "id": "team-6",
-    "name": "Alex Johnson",
+    "name": "Arjun Nagar",
+    "role": "DevOps Engineer",
+    "image": "/team/arjun-nagar.jpg",
+    "linkedin": "https://linkedin.com/in/arjunnagar",
+    "bio": "DevOps specialist ensuring scalable infrastructure and seamless deployments.",
+    "skills": ["AWS", "Docker", "Kubernetes", "Jenkins"],
+    "experience": "7+ years"
+  },
+  {
+    "id": "team-7",
+    "name": "Saksham Tolambia",
     "role": "Full Stack Developer",
-    "image": "/team/alex-johnson.jpg",
-    "linkedin": "https://linkedin.com/in/alexjohnson",
-    "bio": "Expert in modern web technologies and scalable application development.",
-    "skills": ["React", "Node.js", "Database Design"],
-    "experience": "5+ years"
+    "image": "/team/saksham-tolambia.jpg",
+    "linkedin": "https://linkedin.com/in/sakshamtolambia",
+    "bio": "Versatile developer with expertise in MERN stack and modern web technologies.",
+    "skills": ["MERN Stack", "GraphQL", "Redis", "Docker"],
+    "experience": "4+ years"
   }
 ]

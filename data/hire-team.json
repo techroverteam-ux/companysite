@@ -1,0 +1,132 @@
+{
+  "teamMembers": [
+    {
+      "id": "dev-001",
+      "name": "Nitesh Verma",
+      "role": "Full Stack Developer",
+      "skills": ["React", "Node.js", "MongoDB", "TypeScript"],
+      "experience": "6 years",
+      "hourlyRate": 3500,
+      "availability": "available",
+      "rating": 4.9,
+      "completedProjects": 58,
+      "location": "Mumbai, India"
+    },
+    {
+      "id": "dev-002", 
+      "name": "Yogesh Sharma",
+      "role": "Backend Developer",
+      "skills": ["Python", "Django", "PostgreSQL", "AWS"],
+      "experience": "5 years",
+      "hourlyRate": 3200,
+      "availability": "available",
+      "rating": 4.8,
+      "completedProjects": 42,
+      "location": "Bangalore, India"
+    },
+    {
+      "id": "dev-003",
+      "name": "Yashshvi Singh",
+      "role": "Frontend Developer", 
+      "skills": ["React", "Next.js", "Vue.js", "Tailwind CSS"],
+      "experience": "4 years",
+      "hourlyRate": 2800,
+      "availability": "available",
+      "rating": 4.7,
+      "completedProjects": 35,
+      "location": "Delhi, India"
+    },
+    {
+      "id": "dev-004",
+      "name": "Yashashvi Parihar",
+      "role": "UI/UX Designer",
+      "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping"],
+      "experience": "3 years",
+      "hourlyRate": 2200,
+      "availability": "available",
+      "rating": 4.6,
+      "completedProjects": 28,
+      "location": "Pune, India"
+    },
+    {
+      "id": "dev-005",
+      "name": "Naresh Kansara",
+      "role": "Mobile Developer",
+      "skills": ["React Native", "Flutter", "iOS", "Android"],
+      "experience": "5 years",
+      "hourlyRate": 3300,
+      "availability": "busy",
+      "rating": 4.8,
+      "completedProjects": 47,
+      "location": "Ahmedabad, India"
+    },
+    {
+      "id": "dev-006",
+      "name": "Arjun Nagar",
+      "role": "DevOps Engineer",
+      "skills": ["AWS", "Docker", "Kubernetes", "Jenkins"],
+      "experience": "7 years",
+      "hourlyRate": 4000,
+      "availability": "available",
+      "rating": 4.9,
+      "completedProjects": 63,
+      "location": "Hyderabad, India"
+    },
+    {
+      "id": "dev-007",
+      "name": "Saksham Tolambia",
+      "role": "Full Stack Developer",
+      "skills": ["MERN Stack", "GraphQL", "Redis", "Docker"],
+      "experience": "4 years",
+      "hourlyRate": 3000,
+      "availability": "available",
+      "rating": 4.7,
+      "completedProjects": 39,
+      "location": "Jaipur, India"
+    }
+  ],
+  "requests": [
+    {
+      "id": "req-001",
+      "projectTitle": "E-commerce Mobile App",
+      "clientName": "John Doe",
+      "assignedTo": "Nitesh Verma",
+      "email": "john@example.com",
+      "phone": "+91 98765 43210",
+      "budget": "₹8,00,000",
+      "timeline": "4 months",
+      "description": "Need a complete e-commerce mobile app with payment integration",
+      "selectedRoles": ["Frontend Developer", "Backend Developer", "UI/UX Designer"],
+      "preferredTeam": ["Nitesh Verma", "Yashshvi Singh", "Yashashvi Parihar"],
+      "status": "pending",
+      "submittedAt": "2024-12-20T10:30:00Z",
+      "assignedTeam": []
+    }
+  ],
+  "engagementModels": [
+    {
+      "type": "dedicated",
+      "title": "Dedicated Team",
+      "description": "Full-time dedicated developers",
+      "minDuration": "1 month",
+      "pricing": "Monthly contracts",
+      "discount": "10% for 6+ months"
+    },
+    {
+      "type": "parttime",
+      "title": "Part-Time Support", 
+      "description": "Part-time developers for ongoing support",
+      "minDuration": "Flexible",
+      "pricing": "Hourly billing",
+      "discount": "5% for 100+ hours"
+    },
+    {
+      "type": "project",
+      "title": "Project-Based",
+      "description": "Complete project delivery",
+      "minDuration": "2 weeks",
+      "pricing": "Fixed cost",
+      "discount": "15% for projects above ₹10L"
+    }
+  ]
+}

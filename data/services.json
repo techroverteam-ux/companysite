@@ -78,5 +78,21 @@
       "Brand Guidelines"
     ],
     "technologies": ["Figma", "Adobe Creative Suite", "Sketch", "InVision", "Principle", "Framer"]
+  },
+  {
+    "id": "shopify-development",
+    "title": "Shopify Development",
+    "description": "Complete Shopify store development and migration services for e-commerce success",
+    "startingPrice": "₹22,500",
+    "icon": "Code",
+    "subServices": [
+      "Custom Shopify Store Development",
+      "WordPress to Shopify Migration",
+      "Shopify Theme Customization",
+      "App Integration & Development",
+      "Payment Gateway Setup",
+      "SEO & Performance Optimization"
+    ],
+    "technologies": ["Shopify Liquid", "JavaScript", "CSS3", "HTML5", "Shopify APIs", "WordPress"]
   }
 ]
