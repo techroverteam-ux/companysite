@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Mail, MapPin, Star } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import teamData from '@/data/hire-team.json'
 
 interface TeamMember {
   id: string
@@ -21,13 +21,7 @@ interface TeamMember {
 }
 
 export default function TeamPage() {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
-
-  useEffect(() => {
-    fetch('/api/hire-team')
-      .then(res => res.json())
-      .then(data => setTeamMembers(data.teamMembers))
-  }, [])
+  const teamMembers: TeamMember[] = teamData.teamMembers
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -46,7 +40,7 @@ export default function TeamPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
+          {teamMembers?.map((member, index) => (
             <motion.div
               key={member.id}
               initial={{ opacity: 0, y: 20 }}

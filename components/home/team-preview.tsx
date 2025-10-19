@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Star } from 'lucide-react'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import teamData from '@/data/hire-team.json'
 
 interface TeamMember {
   id: string
@@ -19,13 +19,7 @@ interface TeamMember {
 }
 
 export function TeamPreview() {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
-
-  useEffect(() => {
-    fetch('/api/hire-team')
-      .then(res => res.json())
-      .then(data => setTeamMembers(data.teamMembers.slice(0, 3)))
-  }, [])
+  const teamMembers: TeamMember[] = teamData.teamMembers.slice(0, 3)
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -45,7 +39,7 @@ export function TeamPreview() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {teamMembers.map((member, index) => (
+          {teamMembers?.map((member, index) => (
             <motion.div
               key={member.id}
               initial={{ opacity: 0, y: 20 }}
