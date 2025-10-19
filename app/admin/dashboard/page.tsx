@@ -64,7 +64,7 @@ export default function AdminDashboard() {
   const fetchData = async () => {
     try {
       // Load existing data from JSON files
-      const [servicesData, portfolioData, reviewsData, clientsData, teamData, migrationData, aiAgentsData, productsData, collaborationData, marketingData, calculatorData] = await Promise.all([
+      const [servicesData, portfolioData, reviewsData, clientsData, teamData, migrationData, aiAgentsData, productsData, collaborationData, marketingData, calculatorData, scheduleDataImport] = await Promise.all([
         import('@/data/services.json'),
         import('@/data/portfolio.json'),
         import('@/data/reviews.json'),
@@ -76,7 +76,7 @@ export default function AdminDashboard() {
         import('@/data/collaboration.json'),
         import('@/data/marketing.json'),
         import('@/data/calculator.json'),
-        import('@/data/schedule.json')
+import('@/data/schedule.json')
       ])
       
       // Handle both encrypted and plain data
@@ -100,9 +100,9 @@ export default function AdminDashboard() {
       setCollaboration(parseData(collaborationData.default) || {})
       setMarketing(parseData(marketingData.default) || {})
       setCalculator(parseData(calculatorData.default) || {})
-      const scheduleData = parseData(scheduleData.default) || {}
-      setSchedule(scheduleData)
-      setContacts(Array.isArray(scheduleData.contacts) ? scheduleData.contacts : [])
+      const scheduleDataParsed = parseData(scheduleDataImport.default) || {}
+      setSchedule(scheduleDataParsed)
+      setContacts(Array.isArray(scheduleDataParsed.contacts) ? scheduleDataParsed.contacts : [])
     } catch (error) {
       console.error('Error fetching data:', error)
       // Initialize with empty arrays if loading fails

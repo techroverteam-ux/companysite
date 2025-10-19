@@ -174,12 +174,12 @@ What type of website do you need?`
     }
     
     if (category === 'team') {
-      const teamInfo = teamData.slice(0, 4).map(member => `${member.name} (${member.role})`).join(', ')
+      const teamInfo = Array.isArray(teamData) ? teamData.slice(0, 4).map((member: any) => `${member.name} (${member.role})`).join(', ') : 'Our team'
       return `Our leadership team: ${teamInfo}. Total 20+ professionals with 100+ certifications. Ashok Verma (Founder, IIT Delhi, Forbes 30 Under 30), Rahul Singh (CTO, BITS Pilani, Tech Innovation Award 2022). We've managed 500+ projects, 50+ global clients, 99% satisfaction rate.`
     }
     
     if (category === 'pricing') {
-      const services = servicesData.map(s => `${s.title}: ${s.startingPrice}`).join(', ')
+      const services = Array.isArray(servicesData) ? servicesData.map((s: any) => `${s.title}: ${s.startingPrice}`).join(', ') : 'Our services'
       return `Current pricing: ${services}. Hourly rates: Senior Developer ₹3,500/hr, Project Manager ₹2,000/hr, Designer ₹2,500/hr, QA ₹1,800/hr. Use our calculator at /calculator for instant estimates with team allocation and timeline!`
     }
     
@@ -219,12 +219,12 @@ What type of website do you need?`
       if (intelligentResponse) return intelligentResponse
       
       if (input.includes('client') || input.includes('customer')) {
-        const clients = clientsData.slice(0, 3).map(c => `${c.name} (${c.country}, ${c.totalValue})`).join(', ')
+        const clients = Array.isArray(clientsData) ? clientsData.slice(0, 3).map((c: any) => `${c.name} (${c.country}, ${c.totalValue})`).join(', ') : 'Various clients'
         return `Our recent clients: ${clients}. We serve 50+ global clients across 15+ countries with 99% satisfaction. Industries: Technology, Fintech, Healthcare, Insurance, Manufacturing. Want to see our portfolio?`
       }
       
       if (input.includes('portfolio') || input.includes('project')) {
-        const projects = portfolioData.slice(0, 2).map(p => `${p.title} (${p.industry}, ${p.projectDuration})`).join(', ')
+        const projects = Array.isArray(portfolioData) ? portfolioData.slice(0, 2).map((p: any) => `${p.title} (${p.industry}, ${p.projectDuration})`).join(', ') : 'Various projects'
         return `Recent projects: ${projects}. We've completed 500+ projects including Insurance ERP, AI Chatbot Platform, E-commerce Marketplace, Hospital Management System. All with 5-star client reviews. Want to see detailed case studies?`
       }
       

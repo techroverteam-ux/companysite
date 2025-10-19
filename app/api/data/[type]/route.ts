@@ -5,10 +5,11 @@ import { validateToken, decrypt } from '@/lib/auth'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { type: string } }
+  { params }: { params: Promise<{ type: string }> }
 ) {
   try {
-    const filePath = join(process.cwd(), 'data', `${params.type}.json`)
+    const { type } = await params
+    const filePath = join(process.cwd(), 'data', `${type}.json`)
     const data = await readFile(filePath, 'utf8')
     return NextResponse.json(JSON.parse(data))
   } catch (error) {
@@ -18,9 +19,10 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { type: string } }
+  { params }: { params: Promise<{ type: string }> }
 ) {
   try {
+    const { type } = await params
     const authHeader = request.headers.get('authorization')
     
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -39,7 +41,7 @@ export async function PUT(
       return NextResponse.json({ error: 'Invalid data' }, { status: 400 })
     }
     
-    const filePath = join(process.cwd(), 'data', `${params.type}.json`)
+    const filePath = join(process.cwd(), 'data', `${type}.json`)
     await writeFile(filePath, JSON.stringify(decryptedData, null, 2))
     
     return NextResponse.json({ success: true })

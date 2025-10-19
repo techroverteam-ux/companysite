@@ -9,8 +9,29 @@
       "discount": "25% OFF",
       "description": "Get 25% discount on all services this Diwali season",
       "ctaText": "Claim Offer",
-      "backgroundColor": "from-orange-500 to-red-600"
-    }
+      "backgroundColor": "from-orange-500 to-red-600",
+      "textColor": "text-white"
+    },
+    "offers": [
+      {
+        "service": "AI Development",
+        "originalPrice": "₹4,17,000",
+        "discountedPrice": "₹3,12,750",
+        "savings": "₹1,04,250"
+      },
+      {
+        "service": "Web Development",
+        "originalPrice": "₹2,50,000",
+        "discountedPrice": "₹1,87,500",
+        "savings": "₹62,500"
+      }
+    ],
+    "features": [
+      "25% discount on all services",
+      "Free consultation included",
+      "Priority support",
+      "Extended warranty"
+    ]
   },
   "postDiwaliCampaign": {
     "isActive": false,
@@ -22,7 +43,26 @@
       "discount": "30% OFF",
       "description": "Special pricing on AI and automation solutions",
       "ctaText": "Get Started",
-      "backgroundColor": "from-blue-600 to-purple-600"
-    }
+      "backgroundColor": "from-blue-600 to-purple-600",
+      "textColor": "text-white"
+    },
+    "automationServices": [
+      {
+        "title": "AI Chatbots",
+        "description": "Intelligent customer support automation",
+        "benefit": "24/7 customer service"
+      },
+      {
+        "title": "Process Automation",
+        "description": "Streamline business workflows",
+        "benefit": "80% time savings"
+      }
+    ],
+    "features": [
+      "30% discount on automation services",
+      "Free AI consultation",
+      "Custom automation strategy",
+      "Implementation support"
+    ]
   }
 }

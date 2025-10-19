@@ -11,8 +11,8 @@ interface ClientsCarouselProps {
 
 export function ClientsCarousel({ clients }: ClientsCarouselProps) {
   // Decrypt clients data if encrypted
-  const clientsData = clientsDataRaw.data && typeof clientsDataRaw.data === 'string'
-    ? decrypt(clientsDataRaw.data) || []
+  const clientsData = (clientsDataRaw as any).data && typeof (clientsDataRaw as any).data === 'string'
+    ? decrypt((clientsDataRaw as any).data) || []
     : clientsDataRaw || []
 
   // Use detailed client data

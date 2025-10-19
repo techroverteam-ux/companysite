@@ -69,7 +69,7 @@ export default function PortfolioPage() {
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">Technologies:</h4>
                       <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, idx) => (
+                        {Array.isArray(project.technologies) && project.technologies.map((tech: string, idx: number) => (
                           <span
                             key={idx}
                             className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm"
