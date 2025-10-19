@@ -60,10 +60,14 @@ export function TechyBot() {
   useEffect(() => {
     if (!hasGreeted) {
       const timer = setTimeout(() => {
-        const langData = getCurrentLanguageData()
-        addBotMessage(`👋 ${langData.welcomeMessage} I'm here to help you!`)
+        addBotMessage(`👋 Hey there! I'm here to help you with any questions about our services.`)
         setHasGreeted(true)
-      }, 2000) // 2 second delay after page load
+        
+        // Auto-hide greeting bubble after 5 seconds
+        setTimeout(() => {
+          setHasGreeted(false)
+        }, 5000)
+      }, 3000) // 3 second delay after page load
       
       return () => clearTimeout(timer)
     }

@@ -29,13 +29,13 @@ export default function HomePage() {
     ? decrypt(portfolioDataRaw.data) || []
     : portfolioDataRaw || []
 
-  const isDiwaliActive = marketingData.activeCampaign?.isActive && 
-    new Date() >= new Date(marketingData.activeCampaign?.startDate) && 
-    new Date() <= new Date(marketingData.activeCampaign?.endDate)
+  const isDiwaliActive = true // Force show Diwali banner
 
   const isPostDiwaliActive = marketingData.postDiwaliCampaign?.isActive && 
     new Date() >= new Date(marketingData.postDiwaliCampaign?.startDate) && 
     new Date() <= new Date(marketingData.postDiwaliCampaign?.endDate)
+
+  console.log('Campaign Status:', { isDiwaliActive, isPostDiwaliActive, marketingData })
 
   return (
     <div className="pt-16">

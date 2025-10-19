@@ -29,8 +29,7 @@ export function MarketingBanner({ campaign }: MarketingBannerProps) {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden"
-      style={{ background: campaign.banner.backgroundColor }}
+      className={`relative overflow-hidden bg-gradient-to-r ${campaign.banner.backgroundColor}`}
     >
       <div className="absolute inset-0">
         <div className="absolute top-4 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse" />

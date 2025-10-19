@@ -194,39 +194,50 @@ export function AboutPreview({ data }: AboutPreviewProps) {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold mb-8">Meet Our Team</h3>
-          <div className="flex justify-center items-center space-x-4 mb-8">
+          <div className="flex items-center justify-center mb-8">
+            <Sparkles className="h-6 w-6 text-primary mr-2" />
+            <h3 className="text-3xl font-bold gradient-text">Meet Our Expert Team</h3>
+            <Sparkles className="h-6 w-6 text-secondary ml-2" />
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {data.team.slice(0, 4).map((member, index) => (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.1, y: -5 }}
-                className="relative group"
+                whileHover={{ y: -10, scale: 1.05 }}
+                className="group cursor-pointer"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-xs whitespace-nowrap"
-                >
-                  {member.name}
-                </motion.div>
+                <Card className="border-0 shadow-lg group-hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50">
+                  <CardContent className="p-6 text-center">
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.8 }}
+                      className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl"
+                    >
+                      <span className="text-2xl font-bold text-white">
+                        {member.name.charAt(0)}
+                      </span>
+                    </motion.div>
+                    <h4 className="font-bold text-lg mb-1 group-hover:gradient-text transition-all duration-300">
+                      {member.name}
+                    </h4>
+                    <p className="text-sm text-gray-600 group-hover:text-primary transition-colors duration-300">
+                      {member.role}
+                    </p>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: '100%' }}
+                      transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
+                      className="h-0.5 bg-gradient-to-r from-primary to-secondary mt-3 mx-auto"
+                    />
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="w-16 h-16 border-2 border-dashed border-gray-300 rounded-full flex items-center justify-center"
-            >
-              <span className="text-gray-400 text-sm">+{data.team.length - 4}</span>
-            </motion.div>
           </div>
 
           <motion.div
@@ -234,9 +245,17 @@ export function AboutPreview({ data }: AboutPreviewProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link href="/about">
+            <Link href="/team">
               <Button size="lg" variant="gradient" className="group">
+                <Users className="mr-2 h-5 w-5" />
+                Meet Full Team
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button size="lg" variant="outline" className="group">
                 Learn More About Us
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
