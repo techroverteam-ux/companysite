@@ -12,12 +12,7 @@ export function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
-    { href: '/shopify', label: 'Shopify' },
-    { href: '/products', label: 'Products' },
-    { href: '/calculator', label: 'Calculator' },
-    { href: '/migration', label: 'Migration' },
-    { href: '/ai-agents', label: 'AI Agents' },
-    { href: '/collaborate', label: 'Collaborate' },
+    { href: '/team', label: 'Team' },
     { href: '/hire-team', label: 'Hire Team' },
     { href: '/contact', label: 'Contact' }
   ]
