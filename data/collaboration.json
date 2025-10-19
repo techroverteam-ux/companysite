@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "title": "Collaborate with Us",
+    "subtitle": "Building the future of Indian technology together",
+    "description": "Join our mission to create innovative solutions for India. We're looking for passionate developers, entrepreneurs, and innovators to collaborate on groundbreaking projects."
+  },
+  "opportunities": [
+    {
+      "id": "developer-partnership",
+      "title": "Developer Partnership Program",
+      "description": "Partner with us to build next-generation products for the Indian market. Share ideas, contribute code, and grow together.",
+      "benefits": ["Revenue sharing", "Skill development", "Mentorship", "Product ownership"],
+      "requirements": ["2+ years experience", "Strong technical skills", "Passion for innovation", "India-focused mindset"],
+      "commitment": "Part-time or Full-time"
+    },
+    {
+      "id": "startup-collaboration",
+      "title": "Startup Collaboration",
+      "description": "Have a unique idea for the Indian market? Let's build it together. We provide technical expertise, you bring the vision.",
+      "benefits": ["Technical development", "Market validation", "Funding guidance", "Go-to-market strategy"],
+      "requirements": ["Unique business idea", "Market research", "Commitment to execution", "India-first approach"],
+      "commitment": "6-12 months"
+    },
+    {
+      "id": "open-source",
+      "title": "Open Source Contributions",
+      "description": "Contribute to our open-source projects and help build tools that benefit the entire Indian developer community.",
+      "benefits": ["Community recognition", "Skill building", "Portfolio enhancement", "Networking opportunities"],
+      "requirements": ["GitHub profile", "Coding skills", "Collaborative mindset", "Quality contributions"],
+      "commitment": "Flexible"
+    },
+    {
+      "id": "innovation-lab",
+      "title": "Innovation Lab",
+      "description": "Join our innovation lab to experiment with cutting-edge technologies and create solutions for uniquely Indian problems.",
+      "benefits": ["Access to latest tech", "Research opportunities", "Patent opportunities", "Industry exposure"],
+      "requirements": ["Technical expertise", "Research mindset", "Problem-solving skills", "Innovation focus"],
+      "commitment": "3-6 months"
+    }
+  ],
+  "focus_areas": [
+    {
+      "area": "Fintech for Bharat",
+      "description": "Financial solutions for tier-2 and tier-3 cities",
+      "technologies": ["Blockchain", "AI/ML", "Mobile-first", "Regional languages"]
+    },
+    {
+      "area": "EdTech Innovation",
+      "description": "Educational technology preserving Indian culture and values",
+      "technologies": ["AR/VR", "Gamification", "Adaptive learning", "Vernacular content"]
+    },
+    {
+      "area": "AgriTech Solutions",
+      "description": "Technology solutions for Indian farmers and agriculture",
+      "technologies": ["IoT", "Satellite imagery", "Weather prediction", "Market linkage"]
+    },
+    {
+      "area": "HealthTech for Rural India",
+      "description": "Healthcare solutions for underserved communities",
+      "technologies": ["Telemedicine", "AI diagnostics", "Mobile health", "Preventive care"]
+    }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Submit Your Idea",
+      "description": "Share your innovative idea or express interest in collaboration through our form."
+    },
+    {
+      "step": 2,
+      "title": "Initial Discussion",
+      "description": "We'll schedule a call to discuss your idea, background, and potential collaboration."
+    },
+    {
+      "step": 3,
+      "title": "Proposal Review",
+      "description": "Our team evaluates the technical feasibility and market potential of the idea."
+    },
+    {
+      "step": 4,
+      "title": "Partnership Agreement",
+      "description": "Define collaboration terms, responsibilities, and revenue sharing model."
+    },
+    {
+      "step": 5,
+      "title": "Development Phase",
+      "description": "Start building together with regular milestones and progress reviews."
+    },
+    {
+      "step": 6,
+      "title": "Launch & Scale",
+      "description": "Launch the product and scale it across the Indian market together."
+    }
+  ]
+}

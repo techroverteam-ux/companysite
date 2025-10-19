@@ -1,0 +1,30 @@
+{
+  "contactInfo": {
+    "email": "hello@techrover.co.in",
+    "phone": "+91 98765 43210",
+    "address": "Mumbai, India",
+    "businessHours": "Mon - Fri: 9:00 AM - 6:00 PM IST"
+  },
+  "socialMedia": {
+    "linkedin": "https://linkedin.com/company/techrover",
+    "twitter": "https://twitter.com/techrover",
+    "facebook": "https://facebook.com/techrover"
+  },
+  "offices": [
+    {
+      "city": "Mumbai",
+      "country": "India",
+      "address": "Andheri East, Mumbai 400069",
+      "phone": "+91 98765 43210",
+      "type": "Headquarters"
+    },
+    {
+      "city": "New York",
+      "country": "USA",
+      "address": "Manhattan, NY 10001",
+      "phone": "+1 555 123 4567",
+      "type": "Branch Office"
+    }
+  ],
+  "inquiries": []
+}

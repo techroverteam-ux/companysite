@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "title": "AI Agents for Business Automation",
+    "subtitle": "Intelligent automation solutions that work 24/7 to streamline your business operations",
+    "description": "Custom AI agents that handle repetitive tasks, customer interactions, and complex workflows with human-like intelligence."
+  },
+  "agents": [
+    {
+      "id": "customer-support",
+      "name": "Customer Support Agent",
+      "description": "AI-powered chatbot that handles customer queries, provides instant support, and escalates complex issues",
+      "features": ["24/7 availability", "Multi-language support", "CRM integration", "Sentiment analysis"],
+      "pricing": "$299/month",
+      "setup": "$2,000",
+      "roi": "60% reduction in support costs"
+    },
+    {
+      "id": "sales-assistant",
+      "name": "Sales Assistant Agent",
+      "description": "Intelligent lead qualification, follow-ups, and appointment scheduling automation",
+      "features": ["Lead scoring", "Automated follow-ups", "Calendar integration", "Pipeline management"],
+      "pricing": "$499/month",
+      "setup": "$3,500",
+      "roi": "40% increase in qualified leads"
+    },
+    {
+      "id": "data-processor",
+      "name": "Data Processing Agent",
+      "description": "Automated data extraction, validation, and processing from various sources",
+      "features": ["Document processing", "Data validation", "Report generation", "API integrations"],
+      "pricing": "$399/month",
+      "setup": "$2,500",
+      "roi": "80% time savings on data tasks"
+    },
+    {
+      "id": "content-creator",
+      "name": "Content Creation Agent",
+      "description": "AI-powered content generation for blogs, social media, and marketing materials",
+      "features": ["SEO optimization", "Brand voice consistency", "Multi-format content", "Publishing automation"],
+      "pricing": "$199/month",
+      "setup": "$1,500",
+      "roi": "70% faster content production"
+    }
+  ],
+  "capabilities": [
+    {
+      "category": "Natural Language Processing",
+      "features": ["Text analysis", "Language translation", "Sentiment detection", "Intent recognition"]
+    },
+    {
+      "category": "Machine Learning",
+      "features": ["Pattern recognition", "Predictive analytics", "Anomaly detection", "Recommendation systems"]
+    },
+    {
+      "category": "Automation",
+      "features": ["Workflow automation", "Task scheduling", "Process optimization", "Integration management"]
+    },
+    {
+      "category": "Intelligence",
+      "features": ["Decision making", "Learning from data", "Adaptive responses", "Context awareness"]
+    }
+  ],
+  "implementation": [
+    {
+      "phase": "Discovery & Planning",
+      "duration": "1 week",
+      "activities": ["Business process analysis", "Use case identification", "Technical requirements", "ROI projections"]
+    },
+    {
+      "phase": "Agent Development",
+      "duration": "2-4 weeks",
+      "activities": ["AI model training", "Integration development", "Testing & validation", "Performance optimization"]
+    },
+    {
+      "phase": "Deployment & Training",
+      "duration": "1 week",
+      "activities": ["Production deployment", "Team training", "Documentation", "Go-live support"]
+    },
+    {
+      "phase": "Monitoring & Optimization",
+      "duration": "Ongoing",
+      "activities": ["Performance monitoring", "Continuous learning", "Feature updates", "Support & maintenance"]
+    }
+  ]
+}

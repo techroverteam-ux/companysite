@@ -1,0 +1,72 @@
+[
+  {
+    "id": "team-1",
+    "name": "Ashok Verma",
+    "role": "Founder & CEO",
+    "image": "/team/ashok-verma.jpg",
+    "linkedin": "https://linkedin.com/in/ashokverma",
+    "bio": "Technology visionary with 8+ years of experience in AI and web development.",
+    "skills": ["AI Development", "Business Strategy", "Team Leadership"],
+    "experience": "8+ years",
+    "education": "B.Tech Computer Science, IIT Delhi",
+    "certifications": ["AWS Solutions Architect", "Google Cloud Professional", "Certified Scrum Master"],
+    "projects": ["Led 50+ AI projects", "Built 3 successful startups", "Managed teams of 100+ developers"],
+    "achievements": ["Forbes 30 Under 30", "Best Tech Entrepreneur 2023", "Speaker at 20+ conferences"],
+    "specializations": ["Artificial Intelligence", "Machine Learning", "Business Development", "Strategic Planning"]
+  },
+  {
+    "id": "team-2",
+    "name": "Rahul Singh",
+    "role": "CTO",
+    "image": "/team/rahul-singh.jpg",
+    "linkedin": "https://linkedin.com/in/rahulsingh",
+    "bio": "Full-stack architect specializing in scalable enterprise solutions.",
+    "skills": ["System Architecture", "Cloud Computing", "DevOps"],
+    "experience": "6+ years",
+    "education": "M.Tech Software Engineering, BITS Pilani",
+    "certifications": ["Kubernetes Administrator", "Docker Certified", "Azure Solutions Expert"],
+    "projects": ["Architected 30+ enterprise systems", "Managed cloud infrastructure for 1M+ users", "Built microservices for Fortune 500"],
+    "achievements": ["Tech Innovation Award 2022", "Published 15+ research papers", "Open source contributor"],
+    "specializations": ["Cloud Architecture", "Microservices", "DevOps", "System Design"]
+  },
+  {
+    "id": "team-3",
+    "name": "Neha Patel",
+    "role": "Head of Design",
+    "image": "/team/neha-patel.jpg",
+    "linkedin": "https://linkedin.com/in/nehapatel",
+    "bio": "Creative director with expertise in UI/UX and brand identity design.",
+    "skills": ["UI/UX Design", "Brand Identity", "User Research"],
+    "experience": "5+ years"
+  },
+  {
+    "id": "team-4",
+    "name": "David Miller",
+    "role": "International Business Head",
+    "image": "/team/david-miller.jpg",
+    "linkedin": "https://linkedin.com/in/davidmiller",
+    "bio": "Global business strategist managing international client relationships.",
+    "skills": ["Business Development", "Client Relations", "Market Analysis"],
+    "experience": "7+ years"
+  },
+  {
+    "id": "team-5",
+    "name": "Priya Sharma",
+    "role": "AI Engineer",
+    "image": "/team/priya-sharma.jpg",
+    "linkedin": "https://linkedin.com/in/priyasharma",
+    "bio": "Machine learning specialist building intelligent automation solutions.",
+    "skills": ["Machine Learning", "Python", "Data Science"],
+    "experience": "4+ years"
+  },
+  {
+    "id": "team-6",
+    "name": "Alex Johnson",
+    "role": "Full Stack Developer",
+    "image": "/team/alex-johnson.jpg",
+    "linkedin": "https://linkedin.com/in/alexjohnson",
+    "bio": "Expert in modern web technologies and scalable application development.",
+    "skills": ["React", "Node.js", "Database Design"],
+    "experience": "5+ years"
+  }
+]

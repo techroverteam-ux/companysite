@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "title": "Legacy System Migration",
+    "subtitle": "Seamlessly migrate your legacy systems to modern technologies with minimal downtime and cost",
+    "description": "We specialize in migrating outdated systems to cutting-edge platforms, ensuring data integrity, improved performance, and reduced operational costs."
+  },
+  "strategies": [
+    {
+      "id": "lift-shift",
+      "name": "Lift & Shift",
+      "description": "Quick migration with minimal changes to existing architecture",
+      "timeline": "2-4 weeks",
+      "costRange": "$5,000 - $15,000",
+      "benefits": ["Fastest migration", "Minimal disruption", "Lower initial cost"],
+      "bestFor": "Simple applications with tight deadlines"
+    },
+    {
+      "id": "replatform",
+      "name": "Re-platform",
+      "description": "Optimize for cloud while maintaining core architecture",
+      "timeline": "4-8 weeks", 
+      "costRange": "$15,000 - $35,000",
+      "benefits": ["Better performance", "Cloud optimization", "Moderate cost"],
+      "bestFor": "Applications needing cloud benefits"
+    },
+    {
+      "id": "refactor",
+      "name": "Refactor & Modernize",
+      "description": "Complete modernization with latest technologies and best practices",
+      "timeline": "8-16 weeks",
+      "costRange": "$35,000 - $75,000", 
+      "benefits": ["Maximum performance", "Future-proof", "Scalable architecture"],
+      "bestFor": "Critical systems requiring long-term investment"
+    }
+  ],
+  "technologies": [
+    {
+      "from": "Legacy .NET Framework",
+      "to": ".NET Core/5+",
+      "effort": "Medium",
+      "savings": "40% performance improvement"
+    },
+    {
+      "from": "Monolithic PHP",
+      "to": "Microservices (Node.js/Python)",
+      "effort": "High",
+      "savings": "60% faster deployment"
+    },
+    {
+      "from": "On-premise SQL Server",
+      "to": "Cloud Database (AWS RDS/Azure SQL)",
+      "effort": "Low",
+      "savings": "50% infrastructure cost reduction"
+    },
+    {
+      "from": "jQuery Frontend",
+      "to": "React/Next.js",
+      "effort": "Medium",
+      "savings": "70% better user experience"
+    }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Assessment & Planning",
+      "description": "Analyze current system architecture and create migration roadmap",
+      "duration": "1 week"
+    },
+    {
+      "step": 2,
+      "title": "Environment Setup",
+      "description": "Prepare target infrastructure and development environments",
+      "duration": "1-2 weeks"
+    },
+    {
+      "step": 3,
+      "title": "Data Migration",
+      "description": "Migrate databases and ensure data integrity",
+      "duration": "1-3 weeks"
+    },
+    {
+      "step": 4,
+      "title": "Application Migration",
+      "description": "Migrate application code and update dependencies",
+      "duration": "2-8 weeks"
+    },
+    {
+      "step": 5,
+      "title": "Testing & Validation",
+      "description": "Comprehensive testing and performance validation",
+      "duration": "1-2 weeks"
+    },
+    {
+      "step": 6,
+      "title": "Go-Live & Support",
+      "description": "Production deployment and post-migration support",
+      "duration": "1 week"
+    }
+  ]
+}

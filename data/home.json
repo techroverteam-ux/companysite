@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "headline": "Transform Your Business with AI-Powered Solutions",
+    "tagline": "Global technology partner delivering cutting-edge AI, ERP, Web Development, and Digital Marketing solutions to businesses worldwide.",
+    "ctaText": "Get Started Today",
+    "backgroundVideo": "/videos/hero-bg.mp4"
+  },
+  "services": [
+    {
+      "title": "AI Development",
+      "icon": "Brain",
+      "description": "Custom AI solutions, chatbots, and automation workflows"
+    },
+    {
+      "title": "ERP Systems",
+      "icon": "Database",
+      "description": "Complete business management and automation platforms"
+    },
+    {
+      "title": "Web Development",
+      "icon": "Code",
+      "description": "Modern, responsive websites and web applications"
+    },
+    {
+      "title": "Digital Marketing",
+      "icon": "TrendingUp",
+      "description": "SEO, social media, and performance marketing campaigns"
+    },
+    {
+      "title": "Branding",
+      "icon": "Palette",
+      "description": "Complete brand identity and visual design solutions"
+    }
+  ],
+  "stats": [
+    {
+      "number": "500+",
+      "label": "Projects Delivered"
+    },
+    {
+      "number": "50+",
+      "label": "Global Clients"
+    },
+    {
+      "number": "5+",
+      "label": "Years Experience"
+    },
+    {
+      "number": "99%",
+      "label": "Client Satisfaction"
+    }
+  ],
+  "clients": [
+    "TechCorp",
+    "InnovateTech",
+    "Digital Solutions",
+    "GrowthMarketing",
+    "SecureLife",
+    "MarketHub",
+    "MediCare",
+    "FinanceFlow"
+  ]
+}

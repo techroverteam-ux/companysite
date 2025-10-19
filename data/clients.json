@@ -1,0 +1,74 @@
+[
+  {
+    "id": "client-1",
+    "name": "TechCorp USA",
+    "logo": "🏢",
+    "country": "USA",
+    "industry": "Technology",
+    "projectsCompleted": 3,
+    "totalValue": "₹37,50,000",
+    "description": "Leading technology company specializing in enterprise software solutions",
+    "services": ["AI Development", "Web Development"],
+    "testimonial": "Techrover delivered exceptional AI solutions that transformed our operations"
+  },
+  {
+    "id": "client-2", 
+    "name": "InnovateTech India",
+    "logo": "💡",
+    "country": "India",
+    "industry": "Software",
+    "projectsCompleted": 2,
+    "totalValue": "₹23,30,000",
+    "description": "Innovative software company building next-generation applications",
+    "services": ["ERP Systems", "Digital Marketing"],
+    "testimonial": "Outstanding ERP implementation with zero downtime migration"
+  },
+  {
+    "id": "client-3",
+    "name": "Digital Solutions Ltd",
+    "logo": "🌐",
+    "country": "UK", 
+    "industry": "Digital Agency",
+    "projectsCompleted": 4,
+    "totalValue": "₹51,65,000",
+    "description": "Full-service digital agency serving Fortune 500 companies",
+    "services": ["Web Development", "Branding"],
+    "testimonial": "Professional team that delivered beyond our expectations"
+  },
+  {
+    "id": "client-4",
+    "name": "GrowthMarketing Co",
+    "logo": "📈",
+    "country": "Canada",
+    "industry": "Marketing",
+    "projectsCompleted": 1,
+    "totalValue": "₹12,50,000",
+    "description": "Performance marketing agency focused on ROI-driven campaigns",
+    "services": ["Digital Marketing", "AI Development"],
+    "testimonial": "Increased our campaign performance by 300% with their AI solutions"
+  },
+  {
+    "id": "client-5",
+    "name": "SecureLife Insurance",
+    "logo": "🛡️",
+    "country": "India",
+    "industry": "Insurance",
+    "projectsCompleted": 1,
+    "totalValue": "₹70,83,000",
+    "description": "Leading insurance provider with 2M+ policyholders across India",
+    "services": ["ERP Systems"],
+    "testimonial": "Robust ERP system that improved our efficiency by 60%"
+  },
+  {
+    "id": "client-6",
+    "name": "FinanceFlow",
+    "logo": "💰",
+    "country": "Singapore",
+    "industry": "Fintech",
+    "projectsCompleted": 2,
+    "totalValue": "₹45,83,000",
+    "description": "Fintech startup revolutionizing digital payments in Southeast Asia",
+    "services": ["AI Development", "Web Development"],
+    "testimonial": "Cutting-edge fintech solutions that scaled with our growth"
+  }
+]

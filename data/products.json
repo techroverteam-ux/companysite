@@ -1,0 +1,126 @@
+{
+  "hero": {
+    "title": "Our Products",
+    "subtitle": "Innovative solutions built for the Indian market",
+    "description": "Discover our portfolio of products designed to solve real-world problems and empower businesses across India."
+  },
+  "products": [
+    {
+      "id": "gbs",
+      "name": "Geet Bal Sanskar",
+      "category": "Education & Culture",
+      "description": "Digital platform preserving and teaching Indian cultural values and traditions to children through interactive content and activities.",
+      "website": "https://gbs.org.in",
+      "status": "Live",
+      "features": ["Cultural Education", "Interactive Learning", "Parent Dashboard", "Progress Tracking"],
+      "technologies": ["React", "Node.js", "MongoDB", "AWS"],
+      "impact": "10,000+ children learning Indian values"
+    },
+    {
+      "id": "finsova",
+      "name": "Finsova",
+      "category": "Fintech",
+      "description": "Comprehensive fintech solution offering credit management, digital payments, and financial services similar to CRED but tailored for Indian users.",
+      "website": "#",
+      "status": "In Development",
+      "features": ["Credit Score Management", "Bill Payments", "Rewards System", "Financial Analytics"],
+      "technologies": ["Next.js", "Python", "PostgreSQL", "Stripe"],
+      "impact": "Targeting 1M+ users in first year"
+    },
+    {
+      "id": "radhika-tools",
+      "name": "Radhika Machine Tools",
+      "category": "Manufacturing",
+      "description": "Digital platform for machine tools manufacturing company showcasing products, services, and enabling online business operations.",
+      "website": "https://radhikamachinetools.com/",
+      "status": "Live",
+      "features": ["Product Catalog", "Quote Management", "Customer Portal", "Inventory Tracking"],
+      "technologies": ["WordPress", "PHP", "MySQL", "Custom CMS"],
+      "impact": "40% increase in online inquiries"
+    },
+    {
+      "id": "jbi-platform",
+      "name": "JBI Business Platform",
+      "category": "Business Solutions",
+      "description": "Comprehensive business management platform for small and medium enterprises with integrated CRM, inventory, and analytics.",
+      "website": "https://jbi-theta.vercel.app/",
+      "status": "Under Development",
+      "features": ["CRM Integration", "Inventory Management", "Analytics Dashboard", "Multi-tenant Architecture"],
+      "technologies": ["Next.js", "TypeScript", "Prisma", "Vercel"],
+      "impact": "Expected to serve 500+ SMEs"
+    },
+    {
+      "id": "sri-platform",
+      "name": "SRI Enterprise Solution",
+      "category": "Enterprise",
+      "description": "Enterprise-grade solution for large organizations focusing on workflow automation, resource management, and performance analytics.",
+      "website": "https://sri-two.vercel.app/",
+      "status": "Under Development",
+      "features": ["Workflow Automation", "Resource Planning", "Performance Analytics", "Enterprise Security"],
+      "technologies": ["React", "Node.js", "Docker", "Kubernetes"],
+      "impact": "Targeting enterprise clients across India"
+    },
+    {
+      "id": "bulk-mailer",
+      "name": "TechMailer Pro",
+      "category": "Marketing Solutions",
+      "description": "Advanced bulk email marketing platform with automation, analytics, and deliverability optimization for businesses of all sizes.",
+      "website": "#",
+      "status": "Live",
+      "features": ["Email Automation", "A/B Testing", "Analytics Dashboard", "SMTP Integration"],
+      "technologies": ["Node.js", "Redis", "MongoDB", "AWS SES"],
+      "impact": "Processing 1M+ emails monthly"
+    },
+    {
+      "id": "bulk-sms",
+      "name": "TechSMS Gateway",
+      "category": "Communication Solutions",
+      "description": "Reliable bulk SMS service with API integration, delivery tracking, and multi-operator support for marketing and transactional messages.",
+      "website": "#",
+      "status": "Live",
+      "features": ["API Integration", "Delivery Reports", "Scheduled SMS", "Contact Management"],
+      "technologies": ["Python", "FastAPI", "PostgreSQL", "Twilio"],
+      "impact": "500K+ SMS delivered daily"
+    },
+    {
+      "id": "it-helpdesk",
+      "name": "TechDesk Support",
+      "category": "IT Solutions",
+      "description": "Complete IT helpdesk and ticketing system with asset management, knowledge base, and automated workflows for enterprises.",
+      "website": "#",
+      "status": "In Development",
+      "features": ["Ticket Management", "Asset Tracking", "Knowledge Base", "SLA Management"],
+      "technologies": ["React", "Express.js", "MySQL", "Socket.io"],
+      "impact": "Streamlining IT operations for 100+ companies"
+    },
+    {
+      "id": "cloud-backup",
+      "name": "TechVault Backup",
+      "category": "IT Solutions",
+      "description": "Automated cloud backup solution with encryption, versioning, and disaster recovery for critical business data protection.",
+      "website": "#",
+      "status": "Live",
+      "features": ["Automated Backups", "Data Encryption", "Version Control", "Disaster Recovery"],
+      "technologies": ["Go", "AWS S3", "Docker", "Kubernetes"],
+      "impact": "Protecting 10TB+ data across 200+ clients"
+    }
+  ],
+  "stats": [
+    {
+      "number": "9",
+      "label": "Active Products"
+    },
+    {
+      "number": "100K+",
+      "label": "Total Users"
+    },
+    {
+      "number": "5",
+      "label": "Industries Served"
+    },
+    {
+      "number": "100%",
+      "label": "Made in India"
+    }
+  ]
+}

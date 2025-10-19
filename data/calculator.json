@@ -1,0 +1,62 @@
+{
+  "services": [
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "basePrice": 50000,
+      "hourlyRate": 2500,
+      "complexity": {
+        "simple": { "multiplier": 1, "hours": 80, "description": "Basic website with 5-10 pages" },
+        "medium": { "multiplier": 1.5, "hours": 160, "description": "Custom features, CMS integration" },
+        "complex": { "multiplier": 2.5, "hours": 320, "description": "Advanced functionality, integrations" }
+      }
+    },
+    {
+      "id": "ai-development", 
+      "name": "AI Development",
+      "basePrice": 150000,
+      "hourlyRate": 4000,
+      "complexity": {
+        "simple": { "multiplier": 1, "hours": 120, "description": "Basic chatbot or automation" },
+        "medium": { "multiplier": 2, "hours": 280, "description": "Custom ML models, data processing" },
+        "complex": { "multiplier": 3, "hours": 480, "description": "Advanced AI systems, deep learning" }
+      }
+    },
+    {
+      "id": "erp-systems",
+      "name": "ERP Systems", 
+      "basePrice": 300000,
+      "hourlyRate": 3500,
+      "complexity": {
+        "simple": { "multiplier": 1, "hours": 200, "description": "Basic modules, small business" },
+        "medium": { "multiplier": 1.8, "hours": 400, "description": "Multiple modules, integrations" },
+        "complex": { "multiplier": 2.5, "hours": 600, "description": "Enterprise-grade, custom workflows" }
+      }
+    },
+    {
+      "id": "mobile-app",
+      "name": "Mobile App Development",
+      "basePrice": 80000,
+      "hourlyRate": 3000,
+      "complexity": {
+        "simple": { "multiplier": 1, "hours": 100, "description": "Basic app with standard features" },
+        "medium": { "multiplier": 1.7, "hours": 200, "description": "Custom UI, API integrations" },
+        "complex": { "multiplier": 2.3, "hours": 350, "description": "Advanced features, real-time data" }
+      }
+    }
+  ],
+  "teamRoles": [
+    { "role": "Project Manager", "hourlyRate": 2000, "allocation": 0.3 },
+    { "role": "Senior Developer", "hourlyRate": 3500, "allocation": 0.4 },
+    { "role": "Junior Developer", "hourlyRate": 2000, "allocation": 0.3 },
+    { "role": "UI/UX Designer", "hourlyRate": 2500, "allocation": 0.2 },
+    { "role": "QA Engineer", "hourlyRate": 1800, "allocation": 0.2 }
+  ],
+  "additionalFeatures": [
+    { "name": "Admin Panel", "hours": 40, "cost": 100000 },
+    { "name": "Payment Integration", "hours": 24, "cost": 60000 },
+    { "name": "Third-party APIs", "hours": 32, "cost": 80000 },
+    { "name": "Real-time Features", "hours": 48, "cost": 120000 },
+    { "name": "Multi-language Support", "hours": 20, "cost": 50000 }
+  ]
+}

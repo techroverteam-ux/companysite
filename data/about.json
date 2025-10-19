@@ -1,0 +1,69 @@
+{
+  "story": {
+    "title": "From Freelancing to Global Technology Partner",
+    "content": "Founded in 2019, Techrover began as a freelancing venture and has evolved into a comprehensive technology solutions provider. We've successfully delivered 500+ projects across 15+ countries, helping businesses transform through innovative technology solutions."
+  },
+  "mission": "To empower businesses worldwide with cutting-edge technology solutions that drive growth, efficiency, and innovation.",
+  "vision": "To become the most trusted global technology partner, known for delivering exceptional AI-powered solutions and digital transformation services.",
+  "values": [
+    {
+      "title": "Innovation",
+      "description": "We stay ahead of technology trends to deliver future-ready solutions."
+    },
+    {
+      "title": "Quality",
+      "description": "Every project is delivered with meticulous attention to detail and excellence."
+    },
+    {
+      "title": "Transparency",
+      "description": "Clear communication and honest partnerships with all our clients."
+    },
+    {
+      "title": "Global Mindset",
+      "description": "Understanding diverse markets to deliver culturally relevant solutions."
+    }
+  ],
+  "team": [
+    {
+      "name": "Ashok Verma",
+      "role": "Founder & CEO",
+      "image": "/team/ashok-verma.jpg",
+      "linkedin": "https://linkedin.com/in/ashokverma",
+      "bio": "Technology visionary with 8+ years of experience in AI and web development."
+    },
+    {
+      "name": "Rahul Singh",
+      "role": "CTO",
+      "image": "/team/rahul-singh.jpg",
+      "linkedin": "https://linkedin.com/in/rahulsingh",
+      "bio": "Full-stack architect specializing in scalable enterprise solutions."
+    },
+    {
+      "name": "Neha Patel",
+      "role": "Head of Design",
+      "image": "/team/neha-patel.jpg",
+      "linkedin": "https://linkedin.com/in/nehapatel",
+      "bio": "Creative director with expertise in UI/UX and brand identity design."
+    },
+    {
+      "name": "David Miller",
+      "role": "International Business Head",
+      "image": "/team/david-miller.jpg",
+      "linkedin": "https://linkedin.com/in/davidmiller",
+      "bio": "Global business strategist managing international client relationships."
+    }
+  ],
+  "achievements": [
+    "500+ Projects Delivered Successfully",
+    "50+ Global Clients Across 15+ Countries",
+    "99% Client Satisfaction Rate",
+    "ISO 9001:2015 Certified",
+    "Google Partner Certification",
+    "AWS Solution Provider"
+  ],
+  "globalPresence": {
+    "headquarters": "Mumbai, India",
+    "offices": ["New York, USA", "London, UK", "Toronto, Canada"],
+    "serviceCountries": 15
+  }
+}

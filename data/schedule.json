@@ -1,0 +1,108 @@
+{
+  "meetingTypes": [
+    {
+      "id": "consultation",
+      "name": "Free Consultation",
+      "description": "Discuss your project requirements and get expert advice",
+      "duration": "30 minutes"
+    },
+    {
+      "id": "demo",
+      "name": "Product Demo",
+      "description": "See our solutions in action with a personalized demo",
+      "duration": "45 minutes"
+    },
+    {
+      "id": "technical",
+      "name": "Technical Discussion",
+      "description": "Deep dive into technical requirements and architecture",
+      "duration": "60 minutes"
+    }
+  ],
+  "timeSlots": [
+    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
+    "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"
+  ],
+  "bookedSlots": [
+    {
+      "id": "slot-1",
+      "date": "2024-12-20",
+      "time": "10:00",
+      "duration": 30,
+      "isAvailable": true,
+      "isBooked": false,
+      "clientInfo": null
+    },
+    {
+      "id": "slot-2", 
+      "date": "2024-12-20",
+      "time": "11:00",
+      "duration": 30,
+      "isAvailable": true,
+      "isBooked": false,
+      "clientInfo": null
+    },
+    {
+      "id": "slot-3",
+      "date": "2024-12-20", 
+      "time": "14:00",
+      "duration": 30,
+      "isAvailable": false,
+      "isBooked": true,
+      "clientInfo": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+91 98765 43210",
+        "company": "Tech Corp",
+        "purpose": "ERP Discussion",
+        "bookedAt": "2024-12-19T10:30:00Z"
+      }
+    }
+  ],
+  "contacts": [
+    {
+      "id": "contact-1",
+      "name": "Sarah Johnson",
+      "email": "sarah@techcorp.com",
+      "phone": "+1 555 0123",
+      "company": "TechCorp USA",
+      "message": "Interested in AI solutions for customer service",
+      "status": "new",
+      "priority": "high",
+      "assignedTo": "Ashok Verma",
+      "createdAt": "2024-12-19T09:15:00Z",
+      "followUpDate": "2024-12-21",
+      "notes": []
+    },
+    {
+      "id": "contact-2",
+      "name": "Raj Patel", 
+      "email": "raj@startup.in",
+      "phone": "+91 98765 43210",
+      "company": "StartupIndia",
+      "message": "Need website development for our new product",
+      "status": "contacted",
+      "priority": "medium",
+      "assignedTo": "Rahul Singh",
+      "createdAt": "2024-12-18T14:20:00Z",
+      "followUpDate": "2024-12-22",
+      "notes": [
+        {
+          "note": "Initial call completed. Interested in e-commerce solution.",
+          "addedBy": "Rahul Singh",
+          "addedAt": "2024-12-19T11:00:00Z"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "workingHours": {
+      "start": "09:00",
+      "end": "18:00"
+    },
+    "workingDays": [1, 2, 3, 4, 5],
+    "slotDuration": 30,
+    "bufferTime": 15,
+    "maxAdvanceBooking": 30
+  }
+}

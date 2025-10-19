@@ -1,0 +1,28 @@
+{
+  "activeCampaign": {
+    "isActive": true,
+    "startDate": "2024-12-01",
+    "endDate": "2024-12-31",
+    "banner": {
+      "title": "🪔 Diwali Special Offer!",
+      "subtitle": "Light up your business with our technology solutions",
+      "discount": "25% OFF",
+      "description": "Get 25% discount on all services this Diwali season",
+      "ctaText": "Claim Offer",
+      "backgroundColor": "from-orange-500 to-red-600"
+    }
+  },
+  "postDiwaliCampaign": {
+    "isActive": false,
+    "startDate": "2024-11-15",
+    "endDate": "2024-11-30",
+    "banner": {
+      "title": "🚀 Automation Revolution",
+      "subtitle": "Transform your business with AI automation",
+      "discount": "30% OFF",
+      "description": "Special pricing on AI and automation solutions",
+      "ctaText": "Get Started",
+      "backgroundColor": "from-blue-600 to-purple-600"
+    }
+  }
+}

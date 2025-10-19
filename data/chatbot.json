@@ -1,0 +1,157 @@
+{
+  "botName": "Techy",
+  "defaultLanguage": "en",
+  "languages": {
+    "en": {
+      "name": "English",
+      "welcomeMessage": "Hi! I'm Techy, your AI assistant from Techrover. How can I help you today?",
+      "responses": {
+    "greeting": [
+      "Hello! I'm Techy from Techrover. What can I help you with?",
+      "Hi there! I'm here to assist you with any questions about our services.",
+      "Welcome to Techrover! I'm Techy, your AI assistant. How may I help?"
+    ],
+    "services": [
+      "We offer 5 main services: 1) AI Development (₹4,17,000+) - Custom AI agents, chatbots, ML models 2) ERP Systems (₹12,50,000+) - Complete business management 3) Web Development (₹2,50,000+) - Modern responsive websites 4) Digital Marketing (₹1,67,000+) - SEO, social media, PPC 5) Branding (₹1,25,000+) - Logo, brand identity, UI/UX. Which interests you?",
+      "Our services include: AI Development with Python/TensorFlow, ERP Systems with React/Node.js, Web Development with Next.js/TypeScript, Digital Marketing with Google Ads/Analytics, and Branding with Figma/Adobe. We've completed 500+ projects for 50+ global clients."
+    ],
+    "website": [
+      "For a stone factory website, I recommend: 1) Product Catalog with high-quality stone images 2) Inventory Management System 3) Quote Request System 4) Customer Portal 5) Mobile-responsive design. Estimated cost: ₹3,50,000-6,00,000 (Medium complexity). Timeline: 6-10 weeks. Team: 1 Project Manager, 2 Developers, 1 Designer. Technologies: Next.js, React, CMS integration. Want detailed breakdown?",
+      "Stone factory website features: Product showcase, inventory tracking, customer inquiries, quote management, mobile optimization. Cost breakdown: Design & Development ₹2,50,000, CMS Integration ₹1,00,000, Mobile Optimization ₹50,000, Testing & Deployment ₹50,000. Total: ₹4,50,000. Timeline: 8 weeks with our team. Shall I create a detailed proposal?"
+    ],
+    "factory": [
+      "For factory/manufacturing websites, we provide: Product catalogs, inventory management, customer portals, quote systems, mobile-responsive design. Recent project: Radhika Machine Tools - 40% increase in online inquiries. Cost: ₹3,50,000-8,00,000 depending on features. Timeline: 6-12 weeks. Want to see our manufacturing portfolio?",
+      "Manufacturing website essentials: Professional design, product showcase, inquiry forms, inventory integration, mobile optimization, SEO. Technologies: Next.js, React, CMS, payment gateway. Team allocation: Project Manager (60h), Senior Developer (120h), Designer (80h), QA (40h). Total: 300 hours. Cost: ₹4,50,000. Interested?"
+    ],
+    "pricing": [
+      "Our pricing: Branding ₹1,25,000+, Web Development ₹2,50,000+, Digital Marketing ₹1,67,000+, AI Development ₹4,17,000+, ERP Systems ₹12,50,000+. Prices vary by complexity: Simple (1x), Medium (1.5-2x), Complex (2.5-3x). Use our calculator at /calculator for instant estimates!",
+      "We have transparent hourly rates: Senior Developer ₹3,500/hr, Project Manager ₹2,000/hr, UI/UX Designer ₹2,500/hr, QA Engineer ₹1,800/hr. Timeline: 2-16 weeks depending on complexity. Want a detailed quote?"
+    ],
+    "ai": [
+      "Our AI services: 1) Customer Support Agents (₹299/month) - 24/7 automated support 2) Sales Assistant Agents (₹499/month) - Lead qualification & follow-ups 3) Data Processing Agents (₹399/month) - Document processing & validation 4) Content Creation Agents (₹199/month) - SEO-optimized content. Custom AI development starts at ₹4,17,000. Technologies: Python, TensorFlow, OpenAI, LangChain.",
+      "We've built AI solutions for TechCorp USA, InnovateTech India, and FinanceFlow Singapore. Our AI agents can handle 95% of customer queries automatically, increase qualified leads by 40%, and save 80% time on data tasks. What's your use case?"
+    ],
+    "timeline": [
+      "Project timelines by service: Web Development 4-12 weeks (Simple: 4-6 weeks, Complex: 8-12 weeks), AI Development 6-20 weeks (Basic chatbot: 6-8 weeks, Advanced AI: 12-20 weeks), ERP Systems 8-24 weeks (Small business: 8-12 weeks, Enterprise: 16-24 weeks), Mobile Apps 6-16 weeks. We work 40 hours/week with dedicated teams.",
+      "Recent project examples: Insurance ERP (6 months, 8 developers), AI Chatbot Platform (4 months, 5 developers), E-commerce Marketplace (8 months, 12 developers), Hospital Management (10 months, 15 developers). Timeline depends on features, complexity, and team size."
+    ],
+    "team": [
+      "Our leadership: Ashok Verma (Founder & CEO, IIT Delhi, 8+ years, Forbes 30 Under 30), Rahul Singh (CTO, BITS Pilani, 6+ years, Tech Innovation Award 2022), Neha Patel (Head of Design, NID Ahmedabad, 5+ years, Best UI/UX Designer 2023), David Miller (International Business Head, Harvard MBA, 7+ years). Team of 20+ professionals with 100+ certifications.",
+      "Our team expertise: AI Engineers (Python, TensorFlow, OpenAI), Full Stack Developers (React, Node.js, Next.js), Cloud Architects (AWS, Azure, Kubernetes), UI/UX Designers (Figma, Adobe), Project Managers (PMP, Scrum Master). We've managed teams of 100+ developers across 50+ AI projects."
+    ],
+    "contact": [
+      "Contact us: Email hello@techrover.co.in, Phone +91 98765 43210, Office Mumbai India. Business hours: Mon-Fri 9 AM-6 PM IST. We typically respond within 2 hours. You can also schedule a free consultation at /schedule or use our cost calculator at /calculator. Would you like me to connect you with our team?",
+      "We have offices in Mumbai (HQ), New York, London, Toronto. Serving 15+ countries with 99% client satisfaction. Recent clients: TechCorp USA ($45K project), SecureLife Insurance (₹70,83,000 ERP), Digital Solutions UK (₹51,65,000). Want to schedule a call or get a quote?"
+    ],
+    "fallback": [
+      "I'm not sure about that. Let me connect you with one of our team members who can help better.",
+      "That's a great question! I'll transfer you to our human expert for detailed assistance.",
+      "I'd like to get you the best answer. Let me connect you with our team for personalized help."
+    ]
+  },
+      "keywords": {
+    "greeting": ["hi", "hello", "hey", "good morning", "good afternoon", "namaste"],
+    "services": ["service", "what do you do", "offerings", "solutions", "help with"],
+    "pricing": ["cost", "price", "budget", "quote", "estimate", "how much"],
+    "ai": ["ai", "artificial intelligence", "chatbot", "automation", "machine learning"],
+    "timeline": ["time", "duration", "how long", "when", "delivery", "timeline"],
+    "team": ["team", "who", "experience", "developers", "staff"],
+    "website": ["website", "web", "site", "online", "build", "create", "develop"],
+    "factory": ["factory", "manufacturing", "industry", "production", "stone", "marble", "granite"],
+        "contact": ["contact", "call", "email", "phone", "reach", "talk to human"]
+      }
+    },
+    "hi": {
+      "name": "हिंदी",
+      "welcomeMessage": "नमस्ते! मैं टेकी हूं, टेकरोवर का AI असिस्टेंट। आज मैं आपकी कैसे मदद कर सकता हूं?",
+      "responses": {
+        "greeting": [
+          "नमस्ते! मैं टेकरोवर का टेकी हूं। मैं आपकी कैसे मदद कर सकता हूं?",
+          "हैलो! मैं यहां आपकी सेवाओं के बारे में सवालों का जवाब देने के लिए हूं।"
+        ],
+        "services": [
+          "हमारी 5 मुख्य सेवाएं: 1) AI डेवलपमेंट (₹4,17,000+) - कस्टम AI एजेंट, चैटबॉट 2) ERP सिस्टम (₹12,50,000+) - व्यापार प्रबंधन 3) वेब डेवलपमेंट (₹2,50,000+) - आधुनिक वेबसाइट 4) डिजिटल मार्केटिंग (₹1,67,000+) - SEO, सोशल मीडिया 5) ब्रांडिंग (₹1,25,000+) - लोगो, डिजाइन। कौन सी सेवा चाहिए?",
+          "हमने 500+ प्रोजेक्ट पूरे किए हैं 50+ ग्लोबल क्लाइंट्स के लिए। टेक्नोलॉजी: Python, React, Next.js, TensorFlow। टीम: IIT/BITS के 20+ प्रोफेशनल्स। 99% क्लाइंट संतुष्टि दर।"
+        ],
+        "pricing": [
+          "हमारी कीमतें: ब्रांडिंग ₹1,25,000+, वेब डेवलपमेंट ₹2,50,000+, AI डेवलपमेंट ₹4,17,000+, ERP सिस्टम ₹12,50,000+। जटिलता के आधार पर: सिंपल (1x), मीडियम (1.5-2x), कॉम्प्लेक्स (2.5-3x)। /calculator पर तुरंत एस्टिमेट पाएं!",
+          "हमारे घंटे के हिसाब से रेट: सीनियर डेवलपर ₹3,500/घंटा, प्रोजेक्ट मैनेजर ₹2,000/घंटा, डिजाइनर ₹2,500/घंटा। समयसीमा: 2-16 सप्ताह। विस्तृत कोटेशन चाहिए?"
+        ],
+        "contact": [
+          "आप हमसे hello@techrover.co.in या +91 98765 43210 पर संपर्क कर सकते हैं।",
+          "क्या आप हमारी टीम से बात करना चाहेंगे?"
+        ],
+        "fallback": [
+          "मुझे इसके बारे में यकीन नहीं है। मैं आपको हमारे टीम मेंबर से जोड़ता हूं।"
+        ]
+      },
+      "keywords": {
+        "greeting": ["नमस्ते", "हैलो", "हाय", "सुप्रभात", "शुभ संध्या"],
+        "services": ["सेवा", "सेवाएं", "क्या करते हैं", "समाधान", "मदद"],
+        "pricing": ["कीमत", "दाम", "बजट", "कोटेशन", "अनुमान", "कितना"],
+        "contact": ["संपर्क", "कॉल", "ईमेल", "फोन", "बात करना"]
+      }
+    },
+    "es": {
+      "name": "Español",
+      "welcomeMessage": "¡Hola! Soy Techy, tu asistente de IA de Techrover. ¿Cómo puedo ayudarte hoy?",
+      "responses": {
+        "greeting": [
+          "¡Hola! Soy Techy de Techrover. ¿En qué puedo ayudarte?",
+          "¡Hola! Estoy aquí para ayudarte con cualquier pregunta sobre nuestros servicios."
+        ],
+        "services": [
+          "Nuestros 5 servicios principales: 1) Desarrollo de IA (₹4,17,000+) - Agentes AI personalizados, chatbots 2) Sistemas ERP (₹12,50,000+) - Gestión empresarial completa 3) Desarrollo Web (₹2,50,000+) - Sitios web modernos 4) Marketing Digital (₹1,67,000+) - SEO, redes sociales 5) Branding (₹1,25,000+) - Logo, identidad. ¿Cuál te interesa?",
+          "Hemos completado 500+ proyectos para 50+ clientes globales. Tecnologías: Python, React, Next.js, TensorFlow. Equipo de 20+ profesionales de IIT/BITS. 99% satisfacción del cliente."
+        ],
+        "pricing": [
+          "Nuestros precios: Branding ₹1,25,000+, Desarrollo Web ₹2,50,000+, Marketing Digital ₹1,67,000+, Desarrollo IA ₹4,17,000+, Sistemas ERP ₹12,50,000+. Por complejidad: Simple (1x), Medio (1.5-2x), Complejo (2.5-3x). ¡Usa nuestra calculadora en /calculator!",
+          "Tarifas por hora: Desarrollador Senior ₹3,500/h, Gerente de Proyecto ₹2,000/h, Diseñador ₹2,500/h. Cronograma: 2-16 semanas. ¿Quieres una cotización detallada?"
+        ],
+        "contact": [
+          "Puedes contactarnos en hello@techrover.co.in o +91 98765 43210.",
+          "¿Te gustaría hablar con nuestro equipo humano?"
+        ],
+        "fallback": [
+          "No estoy seguro sobre eso. Te conectaré con uno de nuestros miembros del equipo."
+        ]
+      },
+      "keywords": {
+        "greeting": ["hola", "buenos días", "buenas tardes", "hey"],
+        "services": ["servicio", "servicios", "qué hacen", "soluciones", "ayuda"],
+        "pricing": ["precio", "costo", "presupuesto", "cotización", "cuánto"],
+        "contact": ["contacto", "llamar", "email", "teléfono", "hablar"]
+      }
+    },
+    "fr": {
+      "name": "Français",
+      "welcomeMessage": "Salut! Je suis Techy, votre assistant IA de Techrover. Comment puis-je vous aider aujourd'hui?",
+      "responses": {
+        "greeting": [
+          "Bonjour! Je suis Techy de Techrover. Comment puis-je vous aider?",
+          "Salut! Je suis ici pour vous aider avec toutes vos questions sur nos services."
+        ],
+        "services": [
+          "Nos 5 services principaux: 1) Développement IA (₹4,17,000+) - Agents IA personnalisés, chatbots 2) Systèmes ERP (₹12,50,000+) - Gestion d'entreprise complète 3) Développement Web (₹2,50,000+) - Sites web modernes 4) Marketing Digital (₹1,67,000+) - SEO, réseaux sociaux 5) Branding (₹1,25,000+) - Logo, identité. Lequel vous intéresse?",
+          "Nous avons complété 500+ projets pour 50+ clients mondiaux. Technologies: Python, React, Next.js, TensorFlow. Équipe de 20+ professionnels d'IIT/BITS. 99% satisfaction client."
+        ],
+        "pricing": [
+          "Nos prix: Branding ₹1,25,000+, Développement Web ₹2,50,000+, Marketing Digital ₹1,67,000+, Développement IA ₹4,17,000+, Systèmes ERP ₹12,50,000+. Par complexité: Simple (1x), Moyen (1.5-2x), Complexe (2.5-3x). Utilisez notre calculatrice sur /calculator!",
+          "Tarifs horaires: Développeur Senior ₹3,500/h, Chef de Projet ₹2,000/h, Designer ₹2,500/h. Délais: 2-16 semaines. Voulez-vous un devis détaillé?"
+        ],
+        "contact": [
+          "Vous pouvez nous contacter à hello@techrover.co.in ou +91 98765 43210."
+        ],
+        "fallback": [
+          "Je ne suis pas sûr de cela. Laissez-moi vous connecter avec un membre de notre équipe."
+        ]
+      },
+      "keywords": {
+        "greeting": ["salut", "bonjour", "bonsoir", "hey"],
+        "services": ["service", "services", "que faites-vous", "solutions"],
+        "pricing": ["prix", "coût", "budget", "devis", "combien"],
+        "contact": ["contact", "appeler", "email", "téléphone"]
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ai-development",
+    "title": "AI Development",
+    "description": "Custom AI solutions including chatbots, machine learning models, and intelligent automation systems",
+    "startingPrice": "₹4,17,000",
+    "icon": "Brain",
+    "subServices": [
+      "Custom AI Chatbots",
+      "Machine Learning Models",
+      "Natural Language Processing",
+      "Computer Vision Solutions",
+      "Predictive Analytics",
+      "AI Integration & Deployment"
+    ],
+    "technologies": ["Python", "TensorFlow", "PyTorch", "OpenAI", "Hugging Face", "AWS AI"]
+  },
+  {
+    "id": "erp-systems",
+    "title": "ERP Systems",
+    "description": "Enterprise Resource Planning solutions for streamlined business operations and management",
+    "startingPrice": "₹12,50,000",
+    "icon": "Database",
+    "subServices": [
+      "Custom ERP Development",
+      "CRM Integration",
+      "Inventory Management",
+      "Financial Management",
+      "HR Management System",
+      "Supply Chain Management"
+    ],
+    "technologies": ["React", "Node.js", "PostgreSQL", "MongoDB", "AWS", "Docker"]
+  },
+  {
+    "id": "web-development",
+    "title": "Web Development",
+    "description": "Modern, responsive websites and web applications built with cutting-edge technologies",
+    "startingPrice": "₹2,50,000",
+    "icon": "Code",
+    "subServices": [
+      "Custom Website Development",
+      "E-commerce Platforms",
+      "Progressive Web Apps",
+      "API Development",
+      "Database Design",
+      "Performance Optimization"
+    ],
+    "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Vercel"]
+  },
+  {
+    "id": "digital-marketing",
+    "title": "Digital Marketing",
+    "description": "Comprehensive digital marketing strategies to boost your online presence and drive growth",
+    "startingPrice": "₹1,67,000",
+    "icon": "TrendingUp",
+    "subServices": [
+      "SEO Optimization",
+      "Social Media Marketing",
+      "Content Marketing",
+      "PPC Advertising",
+      "Email Marketing",
+      "Analytics & Reporting"
+    ],
+    "technologies": ["Google Analytics", "Google Ads", "Facebook Ads", "SEMrush", "Mailchimp", "HubSpot"]
+  },
+  {
+    "id": "branding-design",
+    "title": "Branding & Design",
+    "description": "Creative branding solutions and stunning designs that make your business stand out",
+    "startingPrice": "₹1,25,000",
+    "icon": "Palette",
+    "subServices": [
+      "Logo Design",
+      "Brand Identity",
+      "UI/UX Design",
+      "Graphic Design",
+      "Marketing Materials",
+      "Brand Guidelines"
+    ],
+    "technologies": ["Figma", "Adobe Creative Suite", "Sketch", "InVision", "Principle", "Framer"]
+  }
+]
