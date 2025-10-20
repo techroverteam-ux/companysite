@@ -1,8 +1,8 @@
 {
   "activeCampaign": {
     "isActive": true,
-    "startDate": "2024-12-01",
-    "endDate": "2025-01-31",
+    "startDate": "2025-10-01",
+    "endDate": "2025-10-25",
     "banner": {
       "title": "🪔 Diwali Special Offer!",
       "subtitle": "Light up your business with our technology solutions",
@@ -35,8 +35,8 @@
   },
   "postDiwaliCampaign": {
     "isActive": false,
-    "startDate": "2024-11-15",
-    "endDate": "2024-11-30",
+ "startDate": "2025-10-01",
+    "endDate": "2025-10-25",
     "banner": {
       "title": "🚀 Automation Revolution",
       "subtitle": "Transform your business with AI automation",

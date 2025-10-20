@@ -133,4 +133,4 @@ For technical support or customization requests:
 
 ## 📄 License
 
-© 2024 Techrover. All rights reserved.
+© 2025 Techrover. All rights reserved.

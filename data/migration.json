@@ -10,7 +10,7 @@
       "name": "Lift & Shift",
       "description": "Quick migration with minimal changes to existing architecture",
       "timeline": "2-4 weeks",
-      "costRange": "$5,000 - $15,000",
+      "costRange": "₹4,17,000 - ₹12,50,000",
       "benefits": ["Fastest migration", "Minimal disruption", "Lower initial cost"],
       "bestFor": "Simple applications with tight deadlines"
     },
@@ -19,7 +19,7 @@
       "name": "Re-platform",
       "description": "Optimize for cloud while maintaining core architecture",
       "timeline": "4-8 weeks", 
-      "costRange": "$15,000 - $35,000",
+      "costRange": "₹12,50,000 - ₹29,17,000",
       "benefits": ["Better performance", "Cloud optimization", "Moderate cost"],
       "bestFor": "Applications needing cloud benefits"
     },
@@ -28,7 +28,7 @@
       "name": "Refactor & Modernize",
       "description": "Complete modernization with latest technologies and best practices",
       "timeline": "8-16 weeks",
-      "costRange": "$35,000 - $75,000", 
+      "costRange": "₹29,17,000 - ₹62,50,000", 
       "benefits": ["Maximum performance", "Future-proof", "Scalable architecture"],
       "bestFor": "Critical systems requiring long-term investment"
     }
