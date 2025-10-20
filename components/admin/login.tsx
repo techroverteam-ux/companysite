@@ -8,13 +8,19 @@ import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Lock, User, Eye, EyeOff } from 'lucide-react'
 import { validateCredentials, generateToken, setAuthToken } from '@/lib/auth'
-import { showToast } from '@/components/ui/toast'
+import { Toast } from '@/components/ui/toast'
 
 interface LoginProps {
   onLogin: () => void
 }
 
 export function AdminLogin({ onLogin }: LoginProps) {
+    const [toast, setToast] = useState({
+    isVisible: false,
+    message: '',
+    type: 'success' as 'success' | 'error',
+  })
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -33,14 +39,22 @@ export function AdminLogin({ onLogin }: LoginProps) {
       const token = generateToken()
       setAuthToken(token)
       onLogin()
+      setToast({
+        isVisible: true,
+        message: 'Login successful!',
+        type: 'success',
+      })
     } else {
       setError('Invalid credentials')
-      showToast('error', 'Invalid username or password')
+      setToast({
+        isVisible: true,
+        message: 'Invalid username or password',
+        type: 'error',
+      })
     }
-    
+
     setIsLoading(false)
   }
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-600 p-4">
       <motion.div

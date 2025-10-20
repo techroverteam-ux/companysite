@@ -7,7 +7,15 @@
     "linkedin": "https://linkedin.com/in/niteshverma",
     "bio": "Technology visionary with 6+ years of experience in leadership and business strategy.",
     "skills": ["Leadership", "Business Strategy", "Project Management", "Team Building"],
-    "experience": "6+ years"
+    "experience": "6+ years",
+    "education": "MBA in Information Technology - IIM Bangalore",
+    "certifications": ["AWS Certified Cloud Practitioner", "PMP Certified"],
+    "projects": ["Business Automation Suite", "Enterprise Growth Analytics Dashboard"],
+    "achievements": [
+      "Founded Techrover to deliver 50+ successful tech projects globally",
+      "Awarded Best Startup Mentor 2024"
+    ],
+    "specializations": ["Business Growth", "Startup Strategy", "Cloud Solutions"]
   },
   {
     "id": "yogesh-sharma",
@@ -17,7 +25,15 @@
     "linkedin": "https://linkedin.com/in/yogeshsharma",
     "bio": "Creative designer with expertise in Figma, Adobe XD, and user experience design.",
     "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping"],
-    "experience": "5+ years"
+    "experience": "5+ years",
+    "education": "Bachelor of Design - NIFT Delhi",
+    "certifications": ["Google UX Design Certificate", "Adobe XD Mastery"],
+    "projects": ["E-commerce Experience Revamp", "AI Dashboard Interface Design"],
+    "achievements": [
+      "Designed 100+ digital products with user engagement >90%",
+      "Winner - Best UI Innovation Award 2023"
+    ],
+    "specializations": ["Design Thinking", "Wireframing", "User Research"]
   },
   {
     "id": "yashshvi-singh",
@@ -27,7 +43,15 @@
     "linkedin": "https://linkedin.com/in/yashshvisingh",
     "bio": "Marketing specialist focused on SEO, social media marketing, and sales strategy.",
     "skills": ["SEO", "Social Media Marketing", "Google Ads", "Sales Strategy"],
-    "experience": "4+ years"
+    "experience": "4+ years",
+    "education": "MBA in Marketing - Delhi University",
+    "certifications": ["Google Analytics Certified", "HubSpot Inbound Marketing"],
+    "projects": ["Organic Traffic Growth for SaaS Clients", "Lead Automation Campaign"],
+    "achievements": [
+      "Generated 2x ROI for digital ad campaigns",
+      "Recognized as Top Sales Strategist 2024"
+    ],
+    "specializations": ["SEO Strategy", "Content Marketing", "Lead Generation"]
   },
   {
     "id": "team-4",
@@ -37,7 +61,15 @@
     "linkedin": "https://linkedin.com/in/yashashviparihar",
     "bio": "AI specialist with expertise in machine learning, Python, and TensorFlow.",
     "skills": ["Machine Learning", "Python", "TensorFlow", "Natural Language Processing"],
-    "experience": "3+ years"
+    "experience": "3+ years",
+    "education": "B.Tech in Computer Science - IIT Jodhpur",
+    "certifications": ["Deep Learning Specialization (Coursera)", "TensorFlow Developer Certificate"],
+    "projects": ["AI Chatbot for Healthcare", "Image Recognition for Manufacturing"],
+    "achievements": [
+      "Developed custom ML pipelines reducing processing time by 40%",
+      "Published paper on NLP model optimization"
+    ],
+    "specializations": ["Deep Learning", "Computer Vision", "NLP"]
   },
   {
     "id": "team-5",
@@ -47,7 +79,15 @@
     "linkedin": "https://linkedin.com/in/nareshkansara",
     "bio": "Full-stack developer specializing in Shopify, WordPress, and backend development.",
     "skills": ["Shopify", "WordPress", "PHP", "MySQL"],
-    "experience": "5+ years"
+    "experience": "5+ years",
+    "education": "B.Sc in Information Technology - Gujarat University",
+    "certifications": ["Shopify Partner Developer", "WordPress Plugin Expert"],
+    "projects": ["Custom Shopify Theme Builder", "WordPress Automation Plugin"],
+    "achievements": [
+      "Built 30+ e-commerce stores with 100% client satisfaction",
+      "Contributed to open-source WordPress plugins"
+    ],
+    "specializations": ["E-commerce", "Plugin Development", "Backend APIs"]
   },
   {
     "id": "team-6",
@@ -57,7 +97,15 @@
     "linkedin": "https://linkedin.com/in/arjunnagar",
     "bio": "Full-stack developer with expertise in React, Node.js, and modern web technologies.",
     "skills": ["React", "Node.js", "MongoDB", "TypeScript"],
-    "experience": "7+ years"
+    "experience": "7+ years",
+    "education": "MCA - Rajasthan Technical University",
+    "certifications": ["React Advanced Certification", "Node.js Certified Developer"],
+    "projects": ["Multi-tenant SaaS Platform", "Real-time Chat Application"],
+    "achievements": [
+      "Implemented scalable systems handling 1M+ users",
+      "Recognized for clean and maintainable code structure"
+    ],
+    "specializations": ["MERN Stack", "API Design", "Scalable Architecture"]
   },
   {
     "id": "team-7",
@@ -67,7 +115,15 @@
     "linkedin": "https://linkedin.com/in/sakshamtolambia",
     "bio": "DevOps specialist ensuring scalable infrastructure with AWS, Docker, and Kubernetes.",
     "skills": ["AWS", "Docker", "Kubernetes", "Jenkins"],
-    "experience": "4+ years"
+    "experience": "4+ years",
+    "education": "B.Tech in Computer Science - Manipal University",
+    "certifications": ["AWS Certified Solutions Architect", "Docker & Kubernetes Certified"],
+    "projects": ["CI/CD Pipeline Automation", "Cloud Infrastructure Monitoring System"],
+    "achievements": [
+      "Reduced deployment time by 60% through CI/CD automation",
+      "Led migration to AWS with zero downtime"
+    ],
+    "specializations": ["CI/CD", "Cloud Infrastructure", "Containerization"]
   },
   {
     "id": "team-8",
@@ -77,6 +133,14 @@
     "linkedin": "https://linkedin.com/in/dushyansingh",
     "bio": "Client relations expert managing international business development and communications.",
     "skills": ["Client Relations", "Project Management", "Business Development", "Cross-cultural Communication"],
-    "experience": "5+ years"
+    "experience": "5+ years",
+    "education": "MBA in International Business - Symbiosis University",
+    "certifications": ["Certified Client Relationship Manager", "Business Communication Expert"],
+    "projects": ["Global Client Retention Program", "Cross-border Business Expansion"],
+    "achievements": [
+      "Established partnerships with 10+ global clients",
+      "Awarded Best Client Manager 2024"
+    ],
+    "specializations": ["Business Negotiation", "Client Success", "International Relations"]
   }
 ]

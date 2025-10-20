@@ -10,7 +10,8 @@ import { Label } from '@/components/ui/label'
 import { Plus, Edit, Trash2, Save, LogOut } from 'lucide-react'
 import { AdminLogin } from '@/components/admin/login'
 import { getAuthToken, validateToken, removeAuthToken, encrypt, decrypt } from '@/lib/auth'
-import { showToast } from '@/components/ui/toast'
+import { Toast } from '@/components/ui/toast'
+import { Calendar } from 'lucide-react'
 
 export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -29,6 +30,11 @@ export default function AdminDashboard() {
   const [calculator, setCalculator] = useState<any>({})
   const [schedule, setSchedule] = useState<any>({})
   const [contacts, setContacts] = useState<any[]>([])
+  const [toast, setToast] = useState({
+    isVisible: false,
+    message: '',
+    type: 'success' as 'success' | 'error',
+  })
 
   useEffect(() => {
     const token = getAuthToken()
@@ -114,23 +120,33 @@ import('@/data/schedule.json')
     }
   }
 
-  const saveData = async (type: string, data: any) => {
+ const saveData = async (type: string, data: any) => {
     try {
+      // Replace these with your actual implementations
       const encryptedData = encrypt(data)
       const token = getAuthToken()
-      
+
       await fetch(`/api/data/${type}`, {
         method: 'PUT',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ data: encryptedData })
+        body: JSON.stringify({ data: encryptedData }),
       })
-      showToast('success', 'Data saved successfully!')
+
+      setToast({
+        isVisible: true,
+        message: 'Data saved successfully!',
+        type: 'success',
+      })
     } catch (error) {
       console.error('Error saving data:', error)
-      showToast('error', 'Failed to save data. Please try again.')
+      setToast({
+        isVisible: true,
+        message: 'Failed to save data. Please try again.',
+        type: 'error',
+      })
     }
   }
 
