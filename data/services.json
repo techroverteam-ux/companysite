@@ -3,7 +3,7 @@
     "id": "ai-development",
     "title": "AI Development",
     "description": "Custom AI solutions including chatbots, machine learning models, and intelligent automation systems",
-    "startingPrice": "₹4,17,000",
+    "startingPrice": "₹25,000",
     "icon": "Brain",
     "subServices": [
       "Custom AI Chatbots",
@@ -19,7 +19,7 @@
     "id": "erp-systems",
     "title": "ERP Systems",
     "description": "Enterprise Resource Planning solutions for streamlined business operations and management",
-    "startingPrice": "₹12,50,000",
+    "startingPrice": "₹75,000",
     "icon": "Database",
     "subServices": [
       "Custom ERP Development",
@@ -35,7 +35,7 @@
     "id": "web-development",
     "title": "Web Development",
     "description": "Modern, responsive websites and web applications built with cutting-edge technologies",
-    "startingPrice": "₹2,50,000",
+    "startingPrice": "₹15,000",
     "icon": "Code",
     "subServices": [
       "Custom Website Development",
@@ -51,7 +51,7 @@
     "id": "digital-marketing",
     "title": "Digital Marketing",
     "description": "Comprehensive digital marketing strategies to boost your online presence and drive growth",
-    "startingPrice": "₹1,67,000",
+    "startingPrice": "₹10,000",
     "icon": "TrendingUp",
     "subServices": [
       "SEO Optimization",
@@ -67,7 +67,7 @@
     "id": "branding-design",
     "title": "Branding & Design",
     "description": "Creative branding solutions and stunning designs that make your business stand out",
-    "startingPrice": "₹1,25,000",
+    "startingPrice": "₹8,000",
     "icon": "Palette",
     "subServices": [
       "Logo Design",
@@ -83,7 +83,7 @@
     "id": "shopify-development",
     "title": "Shopify Development",
     "description": "Complete Shopify store development and migration services for e-commerce success",
-    "startingPrice": "₹22,500",
+    "startingPrice": "₹5,000",
     "icon": "Code",
     "subServices": [
       "Custom Shopify Store Development",

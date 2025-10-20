@@ -47,7 +47,7 @@ export function DiwaliOffers({ campaign }: DiwaliOffersProps) {
           
           <div className="flex items-center justify-center mt-6 bg-red-100 text-red-800 px-4 py-2 rounded-full inline-flex">
             <Clock className="h-4 w-4 mr-2" />
-            <span className="font-medium">Offer valid till November 5th, 2024</span>
+            <span className="font-medium">Offer valid till November 5th, 2025</span>
           </div>
         </motion.div>
 

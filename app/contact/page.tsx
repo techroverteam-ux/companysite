@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { Toast } from '@/components/ui/toast'
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
 
 export default function ContactPage() {
@@ -14,6 +15,7 @@ export default function ContactPage() {
     firstName: '', lastName: '', email: '', company: '', service: '', message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [toast, setToast] = useState({ message: '', type: 'success' as 'success' | 'error', isVisible: false })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,19 +29,25 @@ export default function ContactPage() {
       })
       
       if (response.ok) {
-        alert('Message sent successfully! We will contact you soon.')
+        setToast({ message: 'Message sent successfully! We will contact you soon.', type: 'success', isVisible: true })
         setFormData({ firstName: '', lastName: '', email: '', company: '', service: '', message: '' })
       } else {
-        alert('Failed to send message. Please try again.')
+        setToast({ message: 'Failed to send message. Please try again.', type: 'error', isVisible: true })
       }
     } catch (error) {
-      alert('Error sending message. Please try again.')
+      setToast({ message: 'Error sending message. Please try again.', type: 'error', isVisible: true })
     } finally {
       setIsSubmitting(false)
     }
   }
   return (
     <div className="pt-16">
+      <Toast 
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={() => setToast({ ...toast, isVisible: false })}
+      />
       <section className="py-20 gradient-bg text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

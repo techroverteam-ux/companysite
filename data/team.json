@@ -1,82 +1,82 @@
 [
   {
     "id": "team-1",
-    "name": "Ashok Verma",
+    "name": "Nitesh Verma",
     "role": "Founder & CEO",
-    "image": "/team/ashok-verma.jpg",
-    "linkedin": "https://linkedin.com/in/ashokverma",
-    "bio": "Technology visionary with 8+ years of experience in AI and web development.",
-    "skills": ["AI Development", "Business Strategy", "Team Leadership"],
-    "experience": "8+ years",
-    "education": "B.Tech Computer Science, IIT Delhi",
-    "certifications": ["AWS Solutions Architect", "Google Cloud Professional", "Certified Scrum Master"],
-    "projects": ["Led 50+ AI projects", "Built 3 successful startups", "Managed teams of 100+ developers"],
-    "achievements": ["Forbes 30 Under 30", "Best Tech Entrepreneur 2023", "Speaker at 20+ conferences"],
-    "specializations": ["Artificial Intelligence", "Machine Learning", "Business Development", "Strategic Planning"]
+    "image": "/team/nitesh-verma.jpg",
+    "linkedin": "https://linkedin.com/in/niteshverma",
+    "bio": "Technology visionary with 6+ years of experience in leadership and business strategy.",
+    "skills": ["Leadership", "Business Strategy", "Project Management", "Team Building"],
+    "experience": "6+ years"
   },
   {
     "id": "yogesh-sharma",
     "name": "Yogesh Sharma",
-    "role": "Senior Backend Developer",
+    "role": "UI/UX Designer",
     "image": "/team/yogesh-sharma.jpg",
     "linkedin": "https://linkedin.com/in/yogeshsharma",
-    "bio": "Backend specialist with strong expertise in Python, Django, and cloud infrastructure.",
-    "skills": ["Python", "Django", "PostgreSQL", "AWS"],
-    "experience": "5+ years",
-    "education": "B.Tech - Computer Science",
-    "achievements": ["Backend Architecture Expert", "Performance Optimization", "Cloud Migration Specialist"]
-
-
-
+    "bio": "Creative designer with expertise in Figma, Adobe XD, and user experience design.",
+    "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping"],
+    "experience": "5+ years"
   },
   {
     "id": "yashshvi-singh",
     "name": "Yashshvi Singh",
-    "role": "Frontend Developer",
+    "role": "Digital Marketing & Sales",
     "image": "/team/yashshvi-singh.jpg",
     "linkedin": "https://linkedin.com/in/yashshvisingh",
-    "bio": "Creative frontend developer specializing in modern React applications and user interfaces.",
-    "skills": ["React", "Next.js", "Vue.js", "Tailwind CSS"],
-    "experience": "5+ years"
+    "bio": "Marketing specialist focused on SEO, social media marketing, and sales strategy.",
+    "skills": ["SEO", "Social Media Marketing", "Google Ads", "Sales Strategy"],
+    "experience": "4+ years"
   },
   {
     "id": "team-4",
     "name": "Yashashvi Parihar",
-    "role": "UI/UX Designer",
+    "role": "AI Developer",
     "image": "/team/yashashvi-parihar.jpg",
     "linkedin": "https://linkedin.com/in/yashashviparihar",
-    "bio": "Creative designer focused on user experience and modern design systems.",
-    "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping"],
+    "bio": "AI specialist with expertise in machine learning, Python, and TensorFlow.",
+    "skills": ["Machine Learning", "Python", "TensorFlow", "Natural Language Processing"],
     "experience": "3+ years"
   },
   {
     "id": "team-5",
     "name": "Naresh Kansara",
-    "role": "Mobile Developer",
+    "role": "Shopify, WordPress & Backend Developer",
     "image": "/team/naresh-kansara.jpg",
     "linkedin": "https://linkedin.com/in/nareshkansara",
-    "bio": "Mobile development expert with expertise in React Native and Flutter applications.",
-    "skills": ["React Native", "Flutter", "iOS", "Android"],
+    "bio": "Full-stack developer specializing in Shopify, WordPress, and backend development.",
+    "skills": ["Shopify", "WordPress", "PHP", "MySQL"],
     "experience": "5+ years"
   },
   {
     "id": "team-6",
     "name": "Arjun Nagar",
-    "role": "DevOps Engineer",
+    "role": "Full Stack Developer",
     "image": "/team/arjun-nagar.jpg",
     "linkedin": "https://linkedin.com/in/arjunnagar",
-    "bio": "DevOps specialist ensuring scalable infrastructure and seamless deployments.",
-    "skills": ["AWS", "Docker", "Kubernetes", "Jenkins"],
+    "bio": "Full-stack developer with expertise in React, Node.js, and modern web technologies.",
+    "skills": ["React", "Node.js", "MongoDB", "TypeScript"],
     "experience": "7+ years"
   },
   {
     "id": "team-7",
     "name": "Saksham Tolambia",
-    "role": "Full Stack Developer",
+    "role": "DevOps Engineer",
     "image": "/team/saksham-tolambia.jpg",
     "linkedin": "https://linkedin.com/in/sakshamtolambia",
-    "bio": "Versatile developer with expertise in MERN stack and modern web technologies.",
-    "skills": ["MERN Stack", "GraphQL", "Redis", "Docker"],
+    "bio": "DevOps specialist ensuring scalable infrastructure with AWS, Docker, and Kubernetes.",
+    "skills": ["AWS", "Docker", "Kubernetes", "Jenkins"],
     "experience": "4+ years"
+  },
+  {
+    "id": "team-8",
+    "name": "Dushyan Singh Nathawat",
+    "role": "International Client Manager",
+    "image": "/team/dushyan-singh.jpg",
+    "linkedin": "https://linkedin.com/in/dushyansingh",
+    "bio": "Client relations expert managing international business development and communications.",
+    "skills": ["Client Relations", "Project Management", "Business Development", "Cross-cultural Communication"],
+    "experience": "5+ years"
   }
 ]

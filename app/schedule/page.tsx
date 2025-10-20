@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { Toast } from '@/components/ui/toast'
 import { Calendar, Clock, User, CheckCircle } from 'lucide-react'
 import scheduleData from '@/data/schedule.json'
 
@@ -19,6 +20,7 @@ export default function SchedulePage() {
     name: '', email: '', phone: '', company: '', message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [toast, setToast] = useState({ message: '', type: 'success' as 'success' | 'error', isVisible: false })
 
   const today = new Date().toISOString().split('T')[0]
   const maxDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
@@ -39,17 +41,17 @@ export default function SchedulePage() {
       })
       
       if (response.ok) {
-        alert('Meeting scheduled successfully! You will receive a confirmation email shortly.')
+        setToast({ message: 'Meeting scheduled successfully! You will receive a confirmation email shortly.', type: 'success', isVisible: true })
         setStep(1)
         setSelectedDate('')
         setSelectedTime('')
         setSelectedType('')
         setFormData({ name: '', email: '', phone: '', company: '', message: '' })
       } else {
-        alert('Failed to schedule meeting. Please try again.')
+        setToast({ message: 'Failed to schedule meeting. Please try again.', type: 'error', isVisible: true })
       }
     } catch (error) {
-      alert('Error scheduling meeting. Please try again.')
+      setToast({ message: 'Error scheduling meeting. Please try again.', type: 'error', isVisible: true })
     } finally {
       setIsSubmitting(false)
     }
@@ -57,6 +59,12 @@ export default function SchedulePage() {
 
   return (
     <div className="pt-16">
+      <Toast 
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={() => setToast({ ...toast, isVisible: false })}
+      />
       <section className="py-20 gradient-bg text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

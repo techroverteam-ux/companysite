@@ -1288,106 +1288,66 @@ import('@/data/schedule.json')
           <TabsContent value="schedule" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Schedule Management</CardTitle>
+                <CardTitle>Meeting Bookings</CardTitle>
                 <CardDescription>
-                  Manage time slots and availability for client meetings
+                  View and manage scheduled meetings from website visitors
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <Label htmlFor="working-start">Working Hours Start</Label>
-                      <Input
-                        id="working-start"
-                        type="time"
-                        value={schedule.settings?.workingHours?.start || '09:00'}
-                        onChange={(e) => {
-                          const updated = { ...schedule }
-                          if (!updated.settings) updated.settings = {}
-                          if (!updated.settings.workingHours) updated.settings.workingHours = {}
-                          updated.settings.workingHours.start = e.target.value
-                          setSchedule(updated)
-                        }}
-                      />
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 bg-blue-50 rounded-lg">
+                      <div className="text-2xl font-bold text-blue-600">0</div>
+                      <div className="text-sm text-gray-600">Total Bookings</div>
                     </div>
-                    <div>
-                      <Label htmlFor="working-end">Working Hours End</Label>
-                      <Input
-                        id="working-end"
-                        type="time"
-                        value={schedule.settings?.workingHours?.end || '18:00'}
-                        onChange={(e) => {
-                          const updated = { ...schedule }
-                          if (!updated.settings) updated.settings = {}
-                          if (!updated.settings.workingHours) updated.settings.workingHours = {}
-                          updated.settings.workingHours.end = e.target.value
-                          setSchedule(updated)
-                        }}
-                      />
+                    <div className="text-center p-4 bg-green-50 rounded-lg">
+                      <div className="text-2xl font-bold text-green-600">0</div>
+                      <div className="text-sm text-gray-600">Confirmed</div>
                     </div>
-                    <div>
-                      <Label htmlFor="slot-duration">Slot Duration (minutes)</Label>
-                      <Input
-                        id="slot-duration"
-                        type="number"
-                        value={schedule.settings?.slotDuration || 30}
-                        onChange={(e) => {
-                          const updated = { ...schedule }
-                          if (!updated.settings) updated.settings = {}
-                          updated.settings.slotDuration = parseInt(e.target.value)
-                          setSchedule(updated)
-                        }}
-                      />
+                    <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                      <div className="text-2xl font-bold text-yellow-600">0</div>
+                      <div className="text-sm text-gray-600">Pending</div>
+                    </div>
+                    <div className="text-center p-4 bg-red-50 rounded-lg">
+                      <div className="text-2xl font-bold text-red-600">0</div>
+                      <div className="text-sm text-gray-600">Cancelled</div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold mb-3">Recent Bookings</h4>
+                    <div className="text-center py-8 text-gray-500">
+                      <Calendar className="h-12 w-12 mx-auto mb-3 text-gray-400" />
+                      <p>No meetings scheduled yet.</p>
+                      <p className="text-sm mt-1">Bookings from the schedule page will appear here.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-blue-50 rounded-lg">
+                    <h4 className="font-semibold mb-3">📅 Meeting Management</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-medium mb-2">Available Meeting Types:</h5>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          <li>• Free Consultation (30 min)</li>
+                          <li>• Project Discussion (60 min)</li>
+                          <li>• Technical Review (45 min)</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-medium mb-2">Working Hours:</h5>
+                        <p className="text-sm text-gray-600">Monday - Friday</p>
+                        <p className="text-sm text-gray-600">9:00 AM - 6:00 PM IST</p>
+                      </div>
                     </div>
                   </div>
                   
                   <div className="flex gap-2">
-                    <div className="mb-4">
-                      <h4 className="font-semibold mb-2">Shopify Services</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-blue-50 rounded-lg">
-                        <div className="text-center">
-                          <div className="text-lg font-bold text-blue-600">₹22,500</div>
-                          <div className="text-sm text-gray-600">Custom Shopify Store</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-lg font-bold text-blue-600">₹25,000</div>
-                          <div className="text-sm text-gray-600">WordPress Migration</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-lg font-bold text-blue-600">₹45,000</div>
-                          <div className="text-sm text-gray-600">Shopify Plus</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <Button 
-                      onClick={() => {
-                        const newSlot = {
-                          id: `slot-${Date.now()}`,
-                          date: new Date().toISOString().split('T')[0],
-                          time: '10:00',
-                          duration: 30,
-                          isAvailable: true,
-                          isBooked: false,
-                          clientInfo: null
-                        }
-                        const updated = { ...schedule }
-                        if (!updated.timeSlots) updated.timeSlots = []
-                        updated.timeSlots = [...updated.timeSlots, newSlot]
-                        setSchedule(updated)
-                      }}
-                      variant="outline"
-                    >
-                      <Plus className="mr-2 h-4 w-4" />
-                      Add Time Slot
+                    <Button variant="outline" onClick={() => window.location.href = '/schedule'}>
+                      View Schedule Page
                     </Button>
-                    <Button 
-                      onClick={() => saveData('schedule', schedule)}
-                      variant="gradient"
-                    >
-                      <Save className="mr-2 h-4 w-4" />
-                      Save Schedule
+                    <Button variant="gradient" onClick={() => window.location.href = 'mailto:hello@techrover.co.in'}>
+                      Send Meeting Link
                     </Button>
                   </div>
                 </div>
@@ -1398,112 +1358,75 @@ import('@/data/schedule.json')
           <TabsContent value="contacts" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Contact Management</CardTitle>
+                <CardTitle>Contact Form Submissions</CardTitle>
                 <CardDescription>
-                  Manage client inquiries and follow-ups
+                  View and manage contact form inquiries from website visitors
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {Array.isArray(contacts) && contacts.map((contact: any, index: number) => (
-                    <div key={index} className="p-4 border rounded-lg">
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-4 bg-blue-50 rounded-lg">
+                    <h4 className="font-semibold mb-2">Recent Inquiries</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center p-3 bg-white rounded border">
                         <div>
-                          <Label htmlFor={`contact-name-${index}`}>Name</Label>
-                          <Input
-                            id={`contact-name-${index}`}
-                            value={contact.name}
-                            onChange={(e) => {
-                              const updated = [...contacts]
-                              updated[index].name = e.target.value
-                              setContacts(updated)
-                            }}
-                          />
+                          <div className="font-medium">Nitesh Verma</div>
+                          <div className="text-sm text-gray-600">niteshneriya@gmail.com • Anand Rathi IT Pvt Ltd</div>
+                          <div className="text-xs text-gray-500 mt-1">Oct 20, 2025 at 7:07 AM</div>
                         </div>
-                        <div>
-                          <Label>Status</Label>
-                          <select 
-                            value={contact.status}
-                            onChange={(e) => {
-                              const updated = [...contacts]
-                              updated[index].status = e.target.value
-                              setContacts(updated)
-                            }}
-                            className="w-full p-2 border rounded"
-                          >
-                            <option value="new">New</option>
-                            <option value="contacted">Contacted</option>
-                            <option value="qualified">Qualified</option>
-                            <option value="proposal">Proposal Sent</option>
-                            <option value="closed">Closed</option>
-                          </select>
-                        </div>
-                        <div>
-                          <Label>Priority</Label>
-                          <select 
-                            value={contact.priority}
-                            onChange={(e) => {
-                              const updated = [...contacts]
-                              updated[index].priority = e.target.value
-                              setContacts(updated)
-                            }}
-                            className="w-full p-2 border rounded"
-                          >
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                          </select>
+                        <div className="flex gap-2 items-center">
+                          <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">New</span>
+                          <Button size="sm" variant="outline" onClick={() => window.location.href = 'mailto:niteshneriya@gmail.com'}>Reply</Button>
                         </div>
                       </div>
-                      <div className="mt-4 flex justify-end">
-                        <Button 
-                          onClick={() => {
-                            const updated = contacts.filter((_, i) => i !== index)
-                            setContacts(updated)
-                          }}
-                          variant="outline"
-                          size="sm"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
+                      
+                      <div className="flex justify-between items-center p-3 bg-white rounded border">
+                        <div>
+                          <div className="font-medium">Ashok Verma</div>
+                          <div className="text-sm text-gray-600">ashokverma.an.2001@gmail.com • Anand Rathi IT Pvt Ltd</div>
+                          <div className="text-xs text-gray-500 mt-1">Oct 20, 2025 at 7:10 AM</div>
+                        </div>
+                        <div className="flex gap-2 items-center">
+                          <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">New</span>
+                          <Button size="sm" variant="outline" onClick={() => window.location.href = 'mailto:ashokverma.an.2001@gmail.com'}>Reply</Button>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-between items-center p-3 bg-white rounded border">
+                        <div>
+                          <div className="font-medium">Radhika Machine Tools</div>
+                          <div className="text-sm text-gray-600">9983813366@ybl • Radhika Machine Tools</div>
+                          <div className="text-xs text-gray-500 mt-1">Oct 20, 2025 at 7:11 AM</div>
+                        </div>
+                        <div className="flex gap-2 items-center">
+                          <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">New</span>
+                          <Button size="sm" variant="outline" onClick={() => window.location.href = 'mailto:9983813366@ybl'}>Reply</Button>
+                        </div>
                       </div>
                     </div>
-                  ))}
+                  </div>
                   
-                  <div className="flex gap-2">
-                    <Button 
-                      onClick={() => {
-                        const newContact = {
-                          id: `contact-${Date.now()}`,
-                          name: 'New Contact',
-                          email: 'contact@example.com',
-                          phone: '+91 98765 43210',
-                          company: 'Company Name',
-                          message: 'Contact message',
-                          status: 'new',
-                          priority: 'medium',
-                          assignedTo: 'Ashok Verma',
-                          createdAt: new Date().toISOString(),
-                          followUpDate: new Date().toISOString().split('T')[0],
-                          notes: []
-                        }
-                        setContacts([...(Array.isArray(contacts) ? contacts : []), newContact])
-                      }}
-                      variant="outline"
-                    >
-                      <Plus className="mr-2 h-4 w-4" />
-                      Add Contact
-                    </Button>
-                    <Button 
-                      onClick={() => {
-                        const updatedSchedule = { ...schedule, contacts }
-                        saveData('schedule', updatedSchedule)
-                      }}
-                      variant="gradient"
-                    >
-                      <Save className="mr-2 h-4 w-4" />
-                      Save Contacts
-                    </Button>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="text-center p-4 bg-green-50 rounded-lg">
+                      <div className="text-2xl font-bold text-green-600">3</div>
+                      <div className="text-sm text-gray-600">Total Inquiries</div>
+                    </div>
+                    <div className="text-center p-4 bg-blue-50 rounded-lg">
+                      <div className="text-2xl font-bold text-blue-600">3</div>
+                      <div className="text-sm text-gray-600">New Inquiries</div>
+                    </div>
+                    <div className="text-center p-4 bg-orange-50 rounded-lg">
+                      <div className="text-2xl font-bold text-orange-600">0</div>
+                      <div className="text-sm text-gray-600">Responded</div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-yellow-50 rounded-lg">
+                    <h4 className="font-semibold mb-2">💡 Quick Actions</h4>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" onClick={() => window.location.href = '/contact'}>View Contact Page</Button>
+                      <Button size="sm" variant="gradient" onClick={() => window.location.href = 'mailto:hello@techrover.co.in'}>Send Bulk Email</Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>

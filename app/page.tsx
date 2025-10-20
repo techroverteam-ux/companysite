@@ -10,7 +10,6 @@ import { DiwaliOffers } from '@/components/home/diwali-offers'
 import { AutomationBanner } from '@/components/home/automation-banner'
 import { AutomationSection } from '@/components/home/automation-section'
 import { WorldMap } from '@/components/home/world-map'
-import { TeamPreview } from '@/components/home/team-preview'
 import { TechyBot } from '@/components/chatbot/techy-bot'
 import homeData from '@/data/home.json'
 import portfolioDataRaw from '@/data/portfolio.json'
@@ -49,7 +48,6 @@ export default function HomePage() {
       {isPostDiwaliActive && <AutomationSection campaign={marketingData.postDiwaliCampaign} />}
       <AboutPreview data={aboutData} />
       <PortfolioPreview projects={portfolioData} />
-      <TeamPreview />
       <WorldMap />
       <StatsSection stats={homeData.stats} />
       <ReviewsPreview reviews={reviewsData} />

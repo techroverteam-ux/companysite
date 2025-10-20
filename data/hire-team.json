@@ -4,7 +4,12 @@
       "id": "dev-001",
       "name": "Nitesh Verma",
       "role": "Founder & CEO",
-      "skills": ["Leadership", "Business Strategy", "Project Management", "Team Building"],
+      "skills": [
+        "Leadership",
+        "Business Strategy",
+        "Project Management",
+        "Team Building"
+      ],
       "experience": "6 years",
       "hourlyRate": 800,
       "availability": "available",
@@ -13,10 +18,15 @@
       "location": "Mumbai, India"
     },
     {
-      "id": "dev-002", 
+      "id": "dev-002",
       "name": "Yogesh Sharma",
       "role": "UI/UX Designer",
-      "skills": ["Figma", "Adobe XD", "Sketch", "Prototyping"],
+      "skills": [
+        "Figma",
+        "Adobe XD",
+        "Sketch",
+        "Prototyping"
+      ],
       "experience": "5 years",
       "hourlyRate": 600,
       "availability": "available",
@@ -27,8 +37,13 @@
     {
       "id": "dev-003",
       "name": "Yashshvi Singh",
-      "role": "Digital Marketing & Sales", 
-      "skills": ["SEO", "Social Media Marketing", "Google Ads", "Sales Strategy"],
+      "role": "Digital Marketing & Sales",
+      "skills": [
+        "SEO",
+        "Social Media Marketing",
+        "Google Ads",
+        "Sales Strategy"
+      ],
       "experience": "4 years",
       "hourlyRate": 500,
       "availability": "available",
@@ -40,7 +55,12 @@
       "id": "dev-004",
       "name": "Yashashvi Parihar",
       "role": "AI Developer",
-      "skills": ["Machine Learning", "Python", "TensorFlow", "Natural Language Processing"],
+      "skills": [
+        "Machine Learning",
+        "Python",
+        "TensorFlow",
+        "Natural Language Processing"
+      ],
       "experience": "3 years",
       "hourlyRate": 700,
       "availability": "available",
@@ -52,7 +72,12 @@
       "id": "dev-005",
       "name": "Naresh Kansara",
       "role": "Shopify, WordPress & Backend Developer",
-      "skills": ["Shopify", "WordPress", "PHP", "MySQL"],
+      "skills": [
+        "Shopify",
+        "WordPress",
+        "PHP",
+        "MySQL"
+      ],
       "experience": "5 years",
       "hourlyRate": 650,
       "availability": "available",
@@ -64,7 +89,12 @@
       "id": "dev-006",
       "name": "Arjun Nagar",
       "role": "Full Stack Developer",
-      "skills": ["React", "Node.js", "MongoDB", "TypeScript"],
+      "skills": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "TypeScript"
+      ],
       "experience": "7 years",
       "hourlyRate": 750,
       "availability": "available",
@@ -76,7 +106,12 @@
       "id": "dev-007",
       "name": "Saksham Tolambia",
       "role": "DevOps Engineer",
-      "skills": ["AWS", "Docker", "Kubernetes", "Jenkins"],
+      "skills": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Jenkins"
+      ],
       "experience": "4 years",
       "hourlyRate": 700,
       "availability": "available",
@@ -88,7 +123,12 @@
       "id": "dev-008",
       "name": "Dushyan Singh Nathawat",
       "role": "International Client Manager",
-      "skills": ["Client Relations", "Project Management", "Business Development", "Cross-cultural Communication"],
+      "skills": [
+        "Client Relations",
+        "Project Management",
+        "Business Development",
+        "Cross-cultural Communication"
+      ],
       "experience": "5 years",
       "hourlyRate": 600,
       "availability": "available",
@@ -108,10 +148,60 @@
       "budget": "₹2,50,000",
       "timeline": "4 months",
       "description": "Need a complete e-commerce mobile app with payment integration",
-      "selectedRoles": ["Frontend Developer", "Backend Developer", "UI/UX Designer"],
-      "preferredTeam": ["Nitesh Verma", "Yashshvi Singh", "Yashashvi Parihar"],
+      "selectedRoles": [
+        "Frontend Developer",
+        "Backend Developer",
+        "UI/UX Designer"
+      ],
+      "preferredTeam": [
+        "Nitesh Verma",
+        "Yashshvi Singh",
+        "Yashashvi Parihar"
+      ],
       "status": "pending",
       "submittedAt": "2024-12-20T10:30:00Z",
+      "assignedTeam": []
+    },
+    {
+      "id": "req-1760945104939",
+      "projectTitle": "General Insurance ",
+      "description": "njn",
+      "budget": "10000",
+      "timeline": "",
+      "contactName": "jjkmkn",
+      "email": "ashokverma.an.2001@gmail.com",
+      "phone": "07014265848",
+      "selectedRoles": [],
+      "status": "pending",
+      "submittedAt": "2025-10-20T07:25:04.939Z",
+      "assignedTeam": []
+    },
+    {
+      "id": "req-1760949544101",
+      "projectTitle": "Benefit Plus",
+      "description": "jnj",
+      "budget": "10000",
+      "timeline": "",
+      "contactName": "Ashok Verma",
+      "email": "ashokverma.an.2001@gmail.com",
+      "phone": "07014265848",
+      "selectedRoles": [],
+      "status": "pending",
+      "submittedAt": "2025-10-20T08:39:04.102Z",
+      "assignedTeam": []
+    },
+    {
+      "id": "req-1760949566153",
+      "projectTitle": "Benefit Plus",
+      "description": "jnjhn",
+      "budget": "10000",
+      "timeline": "",
+      "contactName": "Radhika Machine Tools",
+      "email": "9983813366@ybl",
+      "phone": "07014265848",
+      "selectedRoles": [],
+      "status": "pending",
+      "submittedAt": "2025-10-20T08:39:26.153Z",
       "assignedTeam": []
     }
   ],
@@ -126,7 +216,7 @@
     },
     {
       "type": "parttime",
-      "title": "Part-Time Support", 
+      "title": "Part-Time Support",
       "description": "Part-time developers for ongoing support",
       "minDuration": "Flexible",
       "pricing": "Hourly billing",

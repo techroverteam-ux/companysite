@@ -25,32 +25,60 @@
   ],
   "team": [
     {
-      "name": "Ashok Verma",
+      "name": "Nitesh Verma",
       "role": "Founder & CEO",
-      "image": "/team/ashok-verma.jpg",
-      "linkedin": "https://linkedin.com/in/ashokverma",
-      "bio": "Technology visionary with 8+ years of experience in AI and web development."
+      "image": "/team/nitesh-verma.jpg",
+      "linkedin": "https://linkedin.com/in/niteshverma",
+      "bio": "Technology visionary with 6+ years of experience in leadership and business strategy."
     },
     {
-      "name": "Rahul Singh",
-      "role": "CTO",
-      "image": "/team/rahul-singh.jpg",
-      "linkedin": "https://linkedin.com/in/rahulsingh",
-      "bio": "Full-stack architect specializing in scalable enterprise solutions."
+      "name": "Yogesh Sharma",
+      "role": "UI/UX Designer",
+      "image": "/team/yogesh-sharma.jpg",
+      "linkedin": "https://linkedin.com/in/yogeshsharma",
+      "bio": "Creative designer with expertise in Figma, Adobe XD, and user experience design."
     },
     {
-      "name": "Neha Patel",
-      "role": "Head of Design",
-      "image": "/team/neha-patel.jpg",
-      "linkedin": "https://linkedin.com/in/nehapatel",
-      "bio": "Creative director with expertise in UI/UX and brand identity design."
+      "name": "Yashshvi Singh",
+      "role": "Digital Marketing & Sales",
+      "image": "/team/yashshvi-singh.jpg",
+      "linkedin": "https://linkedin.com/in/yashshvisingh",
+      "bio": "Marketing specialist focused on SEO, social media marketing, and sales strategy."
     },
     {
-      "name": "David Miller",
-      "role": "International Business Head",
-      "image": "/team/david-miller.jpg",
-      "linkedin": "https://linkedin.com/in/davidmiller",
-      "bio": "Global business strategist managing international client relationships."
+      "name": "Yashashvi Parihar",
+      "role": "AI Developer",
+      "image": "/team/yashashvi-parihar.jpg",
+      "linkedin": "https://linkedin.com/in/yashashviparihar",
+      "bio": "AI specialist with expertise in machine learning, Python, and TensorFlow."
+    },
+    {
+      "name": "Naresh Kansara",
+      "role": "Shopify, WordPress & Backend Developer",
+      "image": "/team/naresh-kansara.jpg",
+      "linkedin": "https://linkedin.com/in/nareshkansara",
+      "bio": "Full-stack developer specializing in Shopify, WordPress, and backend development."
+    },
+    {
+      "name": "Arjun Nagar",
+      "role": "Full Stack Developer",
+      "image": "/team/arjun-nagar.jpg",
+      "linkedin": "https://linkedin.com/in/arjunnagar",
+      "bio": "Full-stack developer with expertise in React, Node.js, and modern web technologies."
+    },
+    {
+      "name": "Saksham Tolambia",
+      "role": "DevOps Engineer",
+      "image": "/team/saksham-tolambia.jpg",
+      "linkedin": "https://linkedin.com/in/sakshamtolambia",
+      "bio": "DevOps specialist ensuring scalable infrastructure with AWS, Docker, and Kubernetes."
+    },
+    {
+      "name": "Dushyan Singh Nathawat",
+      "role": "International Client Manager",
+      "image": "/team/dushyan-singh.jpg",
+      "linkedin": "https://linkedin.com/in/dushyansingh",
+      "bio": "Client relations expert managing international business development and communications."
     }
   ],
   "achievements": [

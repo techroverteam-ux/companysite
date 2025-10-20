@@ -26,5 +26,50 @@
       "type": "Branch Office"
     }
   ],
-  "inquiries": []
+  "inquiries": [
+    {
+      "id": "1760944069846",
+      "firstName": "Nitesh",
+      "lastName": "Verma",
+      "email": "niteshneriya@gmail.com",
+      "company": "Anand Rathi IT Pvt Ltd",
+      "service": "",
+      "message": "nothing to have ",
+      "timestamp": "2025-10-20T07:07:49.846Z",
+      "status": "new"
+    },
+    {
+      "id": "1760944228856",
+      "firstName": "Ashok",
+      "lastName": "Verma",
+      "email": "ashokverma.an.2001@gmail.com",
+      "company": "Anand Rathi IT Pvt Ltd",
+      "service": "",
+      "message": "bhh",
+      "timestamp": "2025-10-20T07:10:28.856Z",
+      "status": "new"
+    },
+    {
+      "id": "1760944311804",
+      "firstName": "Radhika",
+      "lastName": "Machine Tools",
+      "email": "9983813366@ybl",
+      "company": "Radhika Machine Tools",
+      "service": "",
+      "message": "Nahi hai",
+      "timestamp": "2025-10-20T07:11:51.805Z",
+      "status": "new"
+    },
+    {
+      "id": "1760944870127",
+      "firstName": "Ashok",
+      "lastName": "Verma",
+      "email": "ashokverma.an.2001@gmail.com",
+      "company": "Anand Rathi IT Pvt Ltd",
+      "service": "",
+      "message": "akshay",
+      "timestamp": "2025-10-20T07:21:10.127Z",
+      "status": "new"
+    }
+  ]
 }

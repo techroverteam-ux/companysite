@@ -20,8 +20,19 @@
     }
   ],
   "timeSlots": [
-    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-    "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00"
   ],
   "bookedSlots": [
     {
@@ -34,7 +45,7 @@
       "clientInfo": null
     },
     {
-      "id": "slot-2", 
+      "id": "slot-2",
       "date": "2025-10-18",
       "time": "11:00",
       "duration": 30,
@@ -44,7 +55,7 @@
     },
     {
       "id": "slot-3",
-      "date": "2025-10-18", 
+      "date": "2025-10-18",
       "time": "14:00",
       "duration": 30,
       "isAvailable": false,
@@ -57,6 +68,45 @@
         "purpose": "ERP Discussion",
         "bookedAt": "2024-12-19T10:30:00Z"
       }
+    },
+    {
+      "id": "1760944439576",
+      "name": "Ashok Verma",
+      "email": "ashokverma.an.2001@gmail.com",
+      "phone": "07014265848",
+      "company": "Anand Rathi IT Pvt Ltd",
+      "message": "Sutharo Ki Gali , Ummed Chowk , Jodhpur -342001 Rajasthan",
+      "meetingType": "consultation",
+      "date": "2025-10-20",
+      "time": "09:00",
+      "timestamp": "2025-10-20T07:13:59.576Z",
+      "status": "confirmed"
+    },
+    {
+      "id": "1760944666238",
+      "name": "Ashok Verma",
+      "email": "ashokverma.an.2001@gmail.com",
+      "phone": "07014265848",
+      "company": "",
+      "message": "Parwati Sadan Opposite Krishna Mandir ., Ummed Chowk",
+      "meetingType": "consultation",
+      "date": "2025-10-20",
+      "time": "09:30",
+      "timestamp": "2025-10-20T07:17:46.238Z",
+      "status": "confirmed"
+    },
+    {
+      "id": "1760944887694",
+      "name": "",
+      "email": "",
+      "phone": "",
+      "company": "",
+      "message": "",
+      "meetingType": "technical",
+      "date": "2025-10-21",
+      "time": "11:30",
+      "timestamp": "2025-10-20T07:21:27.694Z",
+      "status": "confirmed"
     }
   ],
   "contacts": [
@@ -69,14 +119,14 @@
       "message": "Interested in AI solutions for customer service",
       "status": "new",
       "priority": "high",
-      "assignedTo": "Ashok Verma",
+      "assignedTo": "Nitesh Verma",
       "createdAt": "2024-12-19T09:15:00Z",
       "followUpDate": "2024-12-21",
       "notes": []
     },
     {
       "id": "contact-2",
-      "name": "Raj Patel", 
+      "name": "Raj Patel",
       "email": "raj@startup.in",
       "phone": "+91 98765 43210",
       "company": "StartupIndia",
@@ -100,7 +150,13 @@
       "start": "09:00",
       "end": "18:00"
     },
-    "workingDays": [1, 2, 3, 4, 5],
+    "workingDays": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
     "slotDuration": 30,
     "bufferTime": 15,
     "maxAdvanceBooking": 30
