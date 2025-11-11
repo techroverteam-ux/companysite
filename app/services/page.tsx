@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Brain, Database, Code, TrendingUp, Palette, ArrowRight, CheckCircle } from 'lucide-react'
+import { Brain, Database, Code, TrendingUp, Palette, ArrowRight, CheckCircle, Smartphone, Cloud, Shield, Link, BarChart3, Wifi, ShoppingCart } from 'lucide-react'
+import Image from 'next/image'
 import servicesData from '@/data/services.json'
 
 const iconMap = {
@@ -12,6 +13,13 @@ const iconMap = {
   Code,
   TrendingUp,
   Palette,
+  Smartphone,
+  Cloud,
+  Shield,
+  Link,
+  BarChart3,
+  Wifi,
+  ShoppingCart,
 }
 
 export default function ServicesPage() {
@@ -52,17 +60,32 @@ export default function ServicesPage() {
                   viewport={{ once: true }}
                 >
                   <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div className="grid md:grid-cols-2 gap-0">
-                      <CardHeader className="p-8">
-                        <div className="flex items-center mb-4">
-                          <div className="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4">
-                            <Icon className="h-6 w-6 text-white" />
+                    <div className="grid lg:grid-cols-3 gap-0">
+                      {/* Service Image */}
+                      <div className="relative h-64 lg:h-auto">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 z-10" />
+                        <Image
+                          src={service.image || '/images/services/default-service.jpg'}
+                          alt={service.title}
+                          fill
+                          className="object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTUwTDE3NSAxMjVIMjI1TDIwMCAxNTBaIiBmaWxsPSIjOUI5QkEzIi8+CjxwYXRoIGQ9Ik0yMDAgMTUwTDE3NSAxNzVIMjI1TDIwMCAxNTBaIiBmaWxsPSIjOUI5QkEzIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOUI5QkEzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiPkltYWdlIE5vdCBGb3VuZDwvdGV4dD4KPC9zdmc+'
+                          }}
+                        />
+                        <div className="absolute top-4 left-4 z-20">
+                          <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                            <Icon className="h-6 w-6 text-primary" />
                           </div>
-                          <div>
-                            <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
-                            <div className="text-sm text-secondary font-semibold">
-                              Starting from {service.startingPrice}
-                            </div>
+                        </div>
+                      </div>
+
+                      {/* Service Details */}
+                      <CardHeader className="p-8 lg:col-span-1">
+                        <div className="mb-4">
+                          <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
+                          <div className="text-sm text-secondary font-semibold">
+                            Starting from {service.startingPrice}
                           </div>
                         </div>
                         <CardDescription className="text-gray-600 text-lg mb-6">
@@ -74,13 +97,14 @@ export default function ServicesPage() {
                         </Button>
                       </CardHeader>
                       
-                      <CardContent className="p-8 bg-gray-50">
+                      {/* Service Features */}
+                      <CardContent className="p-8 bg-gray-50 lg:col-span-1">
                         <h4 className="font-semibold text-lg mb-4">What's Included:</h4>
                         <ul className="space-y-3 mb-6">
                           {Array.isArray(service.subServices) && service.subServices.map((subService, idx) => (
                             <li key={idx} className="flex items-center">
                               <CheckCircle className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
-                              <span className="text-gray-700">{subService}</span>
+                              <span className="text-gray-700 text-sm">{subService}</span>
                             </li>
                           ))}
                         </ul>

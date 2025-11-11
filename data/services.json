@@ -5,6 +5,7 @@
     "description": "Custom AI solutions including chatbots, machine learning models, and intelligent automation systems",
     "startingPrice": "₹25,000",
     "icon": "Brain",
+    "image": "/images/services/ai-development.svg",
     "subServices": [
       "Custom AI Chatbots",
       "Machine Learning Models",
@@ -21,6 +22,7 @@
     "description": "Enterprise Resource Planning solutions for streamlined business operations and management",
     "startingPrice": "₹75,000",
     "icon": "Database",
+    "image": "/images/services/erp-systems.svg",
     "subServices": [
       "Custom ERP Development",
       "CRM Integration",
@@ -37,6 +39,7 @@
     "description": "Modern, responsive websites and web applications built with cutting-edge technologies",
     "startingPrice": "₹15,000",
     "icon": "Code",
+    "image": "/images/services/web-development.svg",
     "subServices": [
       "Custom Website Development",
       "E-commerce Platforms",
@@ -48,11 +51,46 @@
     "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Vercel"]
   },
   {
+    "id": "mobile-app-development",
+    "title": "Mobile App Development",
+    "description": "Native and cross-platform mobile applications for iOS and Android with seamless user experience",
+    "startingPrice": "₹35,000",
+    "icon": "Smartphone",
+    "image": "/images/services/mobile-development.svg",
+    "subServices": [
+      "iOS App Development",
+      "Android App Development",
+      "Cross-Platform Apps",
+      "App Store Optimization",
+      "Mobile UI/UX Design",
+      "App Maintenance & Support"
+    ],
+    "technologies": ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Expo"]
+  },
+  {
+    "id": "cloud-solutions",
+    "title": "Cloud Solutions",
+    "description": "Scalable cloud infrastructure and migration services for modern businesses",
+    "startingPrice": "₹20,000",
+    "icon": "Cloud",
+    "image": "/images/services/cloud-solutions.svg",
+    "subServices": [
+      "Cloud Migration",
+      "AWS/Azure Setup",
+      "DevOps Implementation",
+      "Container Orchestration",
+      "Serverless Architecture",
+      "Cloud Security"
+    ],
+    "technologies": ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "Jenkins"]
+  },
+  {
     "id": "digital-marketing",
     "title": "Digital Marketing",
     "description": "Comprehensive digital marketing strategies to boost your online presence and drive growth",
     "startingPrice": "₹10,000",
     "icon": "TrendingUp",
+    "image": "/images/services/digital-marketing.svg",
     "subServices": [
       "SEO Optimization",
       "Social Media Marketing",
@@ -69,6 +107,7 @@
     "description": "Creative branding solutions and stunning designs that make your business stand out",
     "startingPrice": "₹8,000",
     "icon": "Palette",
+    "image": "/images/services/branding-design.svg",
     "subServices": [
       "Logo Design",
       "Brand Identity",
@@ -84,7 +123,8 @@
     "title": "Shopify Development",
     "description": "Complete Shopify store development and migration services for e-commerce success",
     "startingPrice": "₹5,000",
-    "icon": "Code",
+    "icon": "ShoppingCart",
+    "image": "/images/services/shopify-development.svg",
     "subServices": [
       "Custom Shopify Store Development",
       "WordPress to Shopify Migration",
@@ -94,5 +134,73 @@
       "SEO & Performance Optimization"
     ],
     "technologies": ["Shopify Liquid", "JavaScript", "CSS3", "HTML5", "Shopify APIs", "WordPress"]
+  },
+  {
+    "id": "cybersecurity",
+    "title": "Cybersecurity Solutions",
+    "description": "Comprehensive security solutions to protect your business from cyber threats",
+    "startingPrice": "₹30,000",
+    "icon": "Shield",
+    "image": "/images/services/cybersecurity.svg",
+    "subServices": [
+      "Security Audits",
+      "Penetration Testing",
+      "Firewall Configuration",
+      "Data Encryption",
+      "Security Training",
+      "Incident Response"
+    ],
+    "technologies": ["Kali Linux", "Wireshark", "Metasploit", "OWASP", "SSL/TLS", "VPN"]
+  },
+  {
+    "id": "blockchain-development",
+    "title": "Blockchain Development",
+    "description": "Innovative blockchain solutions including smart contracts and DeFi applications",
+    "startingPrice": "₹50,000",
+    "icon": "Link",
+    "image": "/images/services/blockchain.svg",
+    "subServices": [
+      "Smart Contract Development",
+      "DeFi Applications",
+      "NFT Marketplaces",
+      "Cryptocurrency Wallets",
+      "Blockchain Integration",
+      "Token Development"
+    ],
+    "technologies": ["Solidity", "Ethereum", "Web3.js", "Hardhat", "IPFS", "MetaMask"]
+  },
+  {
+    "id": "data-analytics",
+    "title": "Data Analytics & BI",
+    "description": "Transform your data into actionable insights with advanced analytics and business intelligence",
+    "startingPrice": "₹40,000",
+    "icon": "BarChart3",
+    "image": "/images/services/data-analytics.svg",
+    "subServices": [
+      "Data Visualization",
+      "Business Intelligence Dashboards",
+      "Predictive Analytics",
+      "Data Mining",
+      "ETL Processes",
+      "Real-time Analytics"
+    ],
+    "technologies": ["Power BI", "Tableau", "Python", "R", "SQL", "Apache Spark"]
+  },
+  {
+    "id": "iot-solutions",
+    "title": "IoT Solutions",
+    "description": "Internet of Things solutions for smart devices and connected systems",
+    "startingPrice": "₹45,000",
+    "icon": "Wifi",
+    "image": "/images/services/iot-solutions.svg",
+    "subServices": [
+      "IoT Device Development",
+      "Sensor Integration",
+      "IoT Platform Development",
+      "Edge Computing",
+      "IoT Security",
+      "Data Collection & Analysis"
+    ],
+    "technologies": ["Arduino", "Raspberry Pi", "MQTT", "LoRaWAN", "AWS IoT", "Node-RED"]
   }
 ]

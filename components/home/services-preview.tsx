@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Brain, Database, Code, TrendingUp, Palette, ArrowRight } from 'lucide-react'
+import { Brain, Database, Code, TrendingUp, Palette, ArrowRight, Smartphone, Cloud, Shield, Link, BarChart3, Wifi, ShoppingCart } from 'lucide-react'
 
 const iconMap = {
   Brain,
@@ -11,6 +11,13 @@ const iconMap = {
   Code,
   TrendingUp,
   Palette,
+  Smartphone,
+  Cloud,
+  Shield,
+  Link,
+  BarChart3,
+  Wifi,
+  ShoppingCart,
 }
 
 interface Service {

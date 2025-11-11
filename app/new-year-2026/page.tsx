@@ -124,7 +124,7 @@ export default function NewYear2026Page() {
               <CardContent className="p-6 text-center">
                 <Phone className="h-8 w-8 mx-auto mb-3 text-yellow-400" />
                 <h3 className="font-semibold mb-2">Call Us</h3>
-                <p className="text-blue-100">+91 9876543210</p>
+                <p className="text-blue-100">+91 9252891189</p>
               </CardContent>
             </Card>
             
