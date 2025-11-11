@@ -103,12 +103,34 @@
       "features": ["Automated Backups", "Data Encryption", "Version Control", "Disaster Recovery"],
       "technologies": ["Go", "AWS S3", "Docker", "Kubernetes"],
       "impact": "Protecting 10TB+ data across 200+ clients"
+    },
+    {
+      "id": "eduverse",
+      "name": "EduVerse",
+      "category": "Education Technology",
+      "description": "AI-powered school management system with ground-level knowledge implementation for enhanced learning experiences and administrative efficiency.",
+      "website": "#",
+      "status": "Coming Q2 2026",
+      "features": ["AI Student Analytics", "Smart Attendance", "Personalized Learning", "Parent Communication", "Report Generation", "Academic Insights"],
+      "technologies": ["Next.js", "Python AI", "TensorFlow", "PostgreSQL", "AWS"],
+      "impact": "Targeting 1000+ schools nationwide"
+    },
+    {
+      "id": "healthsync",
+      "name": "HealthSync Pro",
+      "category": "Healthcare Technology",
+      "description": "Comprehensive healthcare management ecosystem for hospitals, clinics, and medical facilities with AI-powered diagnostics support.",
+      "website": "#",
+      "status": "Coming Q3 2026",
+      "features": ["Patient Management", "Appointment Scheduling", "Inventory Management", "Staff Scheduling", "Billing System", "Telemedicine"],
+      "technologies": ["React", "Node.js", "AI/ML", "MongoDB", "Cloud Infrastructure"],
+      "impact": "Expected to serve 500+ healthcare facilities"
     }
   ],
   "stats": [
     {
-      "number": "9",
-      "label": "Active Products"
+      "number": "11",
+      "label": "Total Products"
     },
     {
       "number": "100K+",

@@ -35,7 +35,7 @@
   },
   "postDiwaliCampaign": {
     "isActive": false,
- "startDate": "2025-10-01",
+    "startDate": "2025-10-01",
     "endDate": "2025-10-25",
     "banner": {
       "title": "🚀 Automation Revolution",
@@ -64,5 +64,87 @@
       "Custom automation strategy",
       "Implementation support"
     ]
+  },
+  "newYear2026Campaign": {
+    "isActive": true,
+    "startDate": "2025-12-15",
+    "endDate": "2026-01-31",
+    "title": "🎊 Welcome 2026: Future-Ready Solutions",
+    "subtitle": "Step into the future with revolutionary technology solutions designed for 2026 and beyond. Transform your business with cutting-edge AI, quantum-ready systems, and next-gen digital experiences.",
+    "offers": [
+      {
+        "title": "AI-Powered Business Suite",
+        "description": "Complete AI transformation package with machine learning, automation, and predictive analytics",
+        "originalPrice": "₹8,50,000",
+        "newYearPrice": "₹5,95,000",
+        "savings": "₹2,55,000",
+        "badge": "MOST POPULAR",
+        "features": [
+          "Custom AI chatbots & virtual assistants",
+          "Predictive analytics dashboard",
+          "Automated workflow systems",
+          "Machine learning integration",
+          "6 months free support",
+          "Future-ready architecture"
+        ]
+      },
+      {
+        "title": "Next-Gen Web Experience",
+        "description": "Revolutionary web platform with AR/VR integration, voice interfaces, and quantum-ready infrastructure",
+        "originalPrice": "₹4,50,000",
+        "newYearPrice": "₹2,92,500",
+        "savings": "₹1,57,500",
+        "badge": "INNOVATIVE",
+        "features": [
+          "AR/VR web experiences",
+          "Voice-controlled interfaces",
+          "Quantum-ready architecture",
+          "Advanced PWA features",
+          "Biometric authentication",
+          "Neural network optimization"
+        ]
+      },
+      {
+        "title": "Smart Mobile Ecosystem",
+        "description": "Intelligent mobile apps with IoT integration, edge computing, and neural interfaces",
+        "originalPrice": "₹6,00,000",
+        "newYearPrice": "₹3,90,000",
+        "savings": "₹2,10,000",
+        "badge": "FUTURISTIC",
+        "features": [
+          "IoT device integration",
+          "Edge computing capabilities",
+          "Neural interface support",
+          "Blockchain security",
+          "Quantum encryption",
+          "Cross-reality features"
+        ]
+      }
+    ],
+    "uniqueFeatures": [
+      {
+        "icon": "rocket",
+        "title": "Quantum-Ready Architecture",
+        "description": "Future-proof your systems with quantum computing compatibility and advanced encryption"
+      },
+      {
+        "icon": "zap",
+        "title": "Neural AI Integration",
+        "description": "Advanced AI that learns and adapts to your business patterns for maximum efficiency"
+      },
+      {
+        "icon": "target",
+        "title": "Metaverse Compatibility",
+        "description": "Ready for virtual worlds with AR/VR integration and immersive experiences"
+      },
+      {
+        "icon": "trending",
+        "title": "Sustainable Tech Stack",
+        "description": "Eco-friendly solutions with carbon-neutral hosting and green computing practices"
+      }
+    ],
+    "countdown": {
+      "endDate": "January 31, 2026"
+    }
   }
 }

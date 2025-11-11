@@ -31,7 +31,8 @@ export function Navbar() {
         { href: '/ai-agents', label: 'AI Agents' },
         { href: '/calculator', label: 'Cost Calculator' },
         { href: '/collaborate', label: 'Collaborate' },
-        { href: '/products', label: 'Products' }
+        { href: '/products', label: 'Products' },
+        { href: '/new-year-2026', label: '🎊 New Year 2026 Offers' }
       ]
     },
     {

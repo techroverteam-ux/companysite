@@ -1,16 +1,22 @@
-import { HeroSection } from '@/components/home/hero-section'
+import { EnhancedHeroSection } from '@/components/home/enhanced-hero-section'
 import { ServicesPreview } from '@/components/home/services-preview'
-import { StatsSection } from '@/components/home/stats-section'
+import { EnhancedStatsSection } from '@/components/home/enhanced-stats-section'
 import { PortfolioPreview } from '@/components/home/portfolio-preview'
 import { ReviewsPreview } from '@/components/home/reviews-preview'
 import { AboutPreview } from '@/components/home/about-preview'
 import { ClientsCarousel } from '@/components/home/clients-carousel'
 import { MarketingBanner } from '@/components/home/marketing-banner'
-import { DiwaliOffers } from '@/components/home/diwali-offers'
+
 import { AutomationBanner } from '@/components/home/automation-banner'
 import { AutomationSection } from '@/components/home/automation-section'
+import { SuccessStories } from '@/components/home/success-stories'
+import { NewYear2026Campaign } from '@/components/home/new-year-2026-campaign'
+import { NewYearBanner } from '@/components/home/new-year-banner'
+import { UpcomingProducts } from '@/components/home/upcoming-products'
+import { MarketingStrategyShowcase } from '@/components/home/marketing-strategy-showcase'
 import { WorldMap } from '@/components/home/world-map'
 import { TechyBot } from '@/components/chatbot/techy-bot'
+import { FloatingElements } from '@/components/ui/floating-elements'
 import homeData from '@/data/home.json'
 import portfolioDataRaw from '@/data/portfolio.json'
 import reviewsDataRaw from '@/data/reviews.json'
@@ -29,27 +35,31 @@ export default function HomePage() {
     ? decrypt(portfolioDataRaw.data) || []
     : portfolioDataRaw || []
 
-  const isDiwaliActive = true // Force show Diwali banner
-
   const isPostDiwaliActive = marketingData.postDiwaliCampaign?.isActive && 
     new Date() >= new Date(marketingData.postDiwaliCampaign?.startDate) && 
     new Date() <= new Date(marketingData.postDiwaliCampaign?.endDate)
 
-  console.log('Campaign Status:', { isDiwaliActive, isPostDiwaliActive, marketingData })
+  const isNewYear2026Active = marketingData.newYear2026Campaign?.isActive && 
+    new Date() >= new Date(marketingData.newYear2026Campaign?.startDate) && 
+    new Date() <= new Date(marketingData.newYear2026Campaign?.endDate)
 
   return (
-    <div className="pt-16">
-      {isDiwaliActive && <MarketingBanner campaign={marketingData.activeCampaign} />}
+    <div className={isNewYear2026Active ? "pt-28" : "pt-16"}>
+      <FloatingElements />
+      {isNewYear2026Active && <NewYearBanner campaign={marketingData.newYear2026Campaign} />}
       {isPostDiwaliActive && <AutomationBanner campaign={marketingData.postDiwaliCampaign} />}
-      <HeroSection data={homeData.hero} />
+      <EnhancedHeroSection data={homeData.hero} />
       <ClientsCarousel clients={homeData.clients} />
       <ServicesPreview services={homeData.services} />
-      {isDiwaliActive && <DiwaliOffers campaign={marketingData.activeCampaign} />}
       {isPostDiwaliActive && <AutomationSection campaign={marketingData.postDiwaliCampaign} />}
       <AboutPreview data={aboutData} />
+      <SuccessStories />
+      <UpcomingProducts />
+      <MarketingStrategyShowcase />
+      {isNewYear2026Active && <NewYear2026Campaign campaign={marketingData.newYear2026Campaign} />}
       <PortfolioPreview projects={portfolioData} />
       <WorldMap />
-      <StatsSection stats={homeData.stats} />
+      <EnhancedStatsSection stats={homeData.stats} />
       <ReviewsPreview reviews={reviewsData} />
       <TechyBot />
     </div>
