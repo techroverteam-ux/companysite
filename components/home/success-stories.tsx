@@ -111,7 +111,7 @@ export function SuccessStories() {
                     {/* View our work button - always visible */}
                     <motion.div
                       className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full cursor-pointer flex items-center gap-2"
-                      whileHover={{ scale: 1.05, bg: 'white' }}
+                      whileHover={{ scale: 1.05, backgroundColor: 'white' }}
                       transition={{ duration: 0.3 }}
                       onClick={() => window.open(story.website, '_blank')}
                     >
