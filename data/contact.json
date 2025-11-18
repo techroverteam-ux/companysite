@@ -70,6 +70,17 @@
       "message": "akshay",
       "timestamp": "2025-10-20T07:21:10.127Z",
       "status": "new"
+    },
+    {
+      "id": "1763460457946",
+      "firstName": "sneha",
+      "lastName": "soni",
+      "email": "snehasoni@gmail.com",
+      "company": "ARIT",
+      "service": "Web Development",
+      "message": "sdfsd",
+      "timestamp": "2025-11-18T10:07:37.946Z",
+      "status": "new"
     }
   ]
 }

@@ -13,7 +13,11 @@ import {
   Sparkles,
   Clock,
   Star,
-  ArrowRight
+  ArrowRight,
+  Brain,
+  Shield,
+  Globe,
+  Leaf
 } from 'lucide-react'
 
 interface NewYear2026CampaignProps {
@@ -43,9 +47,9 @@ interface NewYear2026CampaignProps {
 const getIcon = (iconName: string) => {
   switch (iconName) {
     case 'rocket': return Rocket
-    case 'zap': return Zap
-    case 'target': return Target
-    case 'trending': return TrendingUp
+    case 'zap': return Brain
+    case 'target': return Globe
+    case 'trending': return Leaf
     default: return Sparkles
   }
 }

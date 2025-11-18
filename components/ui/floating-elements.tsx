@@ -1,8 +1,27 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 export function FloatingElements() {
+  const [particles, setParticles] = useState<Array<{x: number, y: number, duration: number, delay: number, xMove: number}>>([])
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    setParticles(
+      Array.from({ length: 20 }).map(() => ({
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        duration: Math.random() * 10 + 10,
+        delay: Math.random() * 5,
+        xMove: Math.random() * 100 - 50
+      }))
+    )
+  }, [])
+
+  if (!mounted) return null
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Floating Shapes */}
@@ -47,23 +66,23 @@ export function FloatingElements() {
       />
 
       {/* Particle Effects */}
-      {Array.from({ length: 20 }).map((_, i) => (
+      {particles.map((particle, i) => (
         <motion.div
           key={i}
           animate={{
             y: [0, -100, 0],
-            x: [0, Math.random() * 100 - 50, 0],
+            x: [0, particle.xMove, 0],
             opacity: [0, 1, 0]
           }}
           transition={{
-            duration: Math.random() * 10 + 10,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 5
+            delay: particle.delay
           }}
           className="absolute w-1 h-1 bg-white rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`
+            left: `${particle.x}%`,
+            top: `${particle.y}%`
           }}
         />
       ))}

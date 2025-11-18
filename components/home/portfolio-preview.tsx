@@ -15,10 +15,26 @@ interface Project {
   clientCountry: string
   review: string
   clientName: string
+  logo?: string
 }
 
 interface PortfolioPreviewProps {
   projects: Project[]
+}
+
+// Helper function to get logo based on project title
+const getProjectLogo = (title: string): string => {
+  const titleLower = title.toLowerCase()
+  if (titleLower.includes('gbs') || titleLower.includes('portal')) {
+    return '/logos/gbs-logo.png'
+  }
+  if (titleLower.includes('radhika') || titleLower.includes('machine') || titleLower.includes('stone')) {
+    return '/logos/radhika-logo.png'
+  }
+  if (titleLower.includes('varaha') || titleLower.includes('hospital') || titleLower.includes('sdc')) {
+    return '/logos/varaha-sdc-logo.svg'
+  }
+  return '/logos/generic-project-logo.svg'
 }
 
 export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
@@ -56,6 +72,7 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
                 <div className="h-48 bg-gradient-to-br from-primary via-purple-500 to-secondary relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/20" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  
                   <motion.div
                     className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center"
                     whileHover={{ scale: 1.1, rotate: 360 }}
@@ -63,6 +80,17 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
                   >
                     <ExternalLink className="h-5 w-5 text-white" />
                   </motion.div>
+                  
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-20 h-20 bg-white/90 rounded-full backdrop-blur-sm flex items-center justify-center p-3">
+                      <img
+                        src={getProjectLogo(project.title)}
+                        alt={`${project.title} logo`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                  
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
                       {project.industry}

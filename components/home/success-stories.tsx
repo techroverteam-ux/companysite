@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ExternalLink, Star, Globe, Smartphone, Building2 } from 'lucide-react'
+import Image from 'next/image'
 
 interface SuccessStory {
   id: string
@@ -15,6 +16,7 @@ interface SuccessStory {
   services: string[]
   platforms: string[]
   icon: 'globe' | 'smartphone' | 'building'
+  logo?: string
 }
 
 const successStories: SuccessStory[] = [
@@ -27,7 +29,8 @@ const successStories: SuccessStory[] = [
     description: 'Comprehensive web portal with mobile applications for both Android and iOS platforms, serving educational and organizational needs.',
     services: ['Web Development', 'Mobile App Development', 'UI/UX Design'],
     platforms: ['Web Portal', 'Android App', 'iOS App'],
-    icon: 'globe'
+    icon: 'globe',
+    logo: '/logos/gbs-logo.png'
   },
   {
     id: '2',
@@ -38,7 +41,8 @@ const successStories: SuccessStory[] = [
     description: 'E-commerce platform for stone processing machinery with multi-branch management system covering 3 locations.',
     services: ['E-commerce Development', 'Multi-branch Management', 'Inventory System'],
     platforms: ['Web Platform', 'Admin Dashboard', 'Branch Management'],
-    icon: 'building'
+    icon: 'building',
+    logo: '/logos/radhika-logo.png'
   },
   {
     id: '3',
@@ -49,7 +53,8 @@ const successStories: SuccessStory[] = [
     description: 'Complete hospital management system for VDC with patient management, appointment scheduling, and medical records.',
     services: ['Healthcare Software', 'Patient Management', 'Medical Records'],
     platforms: ['Web Application', 'Admin Panel', 'Patient Portal'],
-    icon: 'smartphone'
+    icon: 'smartphone',
+    logo: '/logos/varaha-sdc-logo.svg'
   }
 ]
 
@@ -103,19 +108,33 @@ export function SuccessStories() {
                     <div className="absolute inset-0 bg-black/20" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     
+                    {/* View our work button - always visible */}
                     <motion.div
-                      className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center cursor-pointer"
-                      whileHover={{ scale: 1.1, rotate: 360 }}
-                      transition={{ duration: 0.5 }}
+                      className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full cursor-pointer flex items-center gap-2"
+                      whileHover={{ scale: 1.05, bg: 'white' }}
+                      transition={{ duration: 0.3 }}
                       onClick={() => window.open(story.website, '_blank')}
                     >
-                      <ExternalLink className="h-5 w-5 text-white" />
+                      <ExternalLink className="h-4 w-4 text-primary" />
+                      <span className="text-primary text-sm font-medium">View our work</span>
                     </motion.div>
                     
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div className="w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center">
-                        <IconComponent className="h-8 w-8 text-white" />
-                      </div>
+                      {story.logo ? (
+                        <div className="w-20 h-20 bg-white/90 rounded-full backdrop-blur-sm flex items-center justify-center p-3">
+                          <Image
+                            src={story.logo}
+                            alt={`${story.company} logo`}
+                            width={60}
+                            height={60}
+                            className="object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center">
+                          <IconComponent className="h-8 w-8 text-white" />
+                        </div>
+                      )}
                     </div>
                     
                     <div className="absolute bottom-4 left-4 text-white">
