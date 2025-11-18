@@ -102,7 +102,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
             >
               <Sparkles className="h-4 w-4 text-yellow-400 mr-2" />
             </motion.div>
-            <span className="text-white text-sm font-medium">🚀 Revolutionary 2026 Solutions</span>
+            <span className="text-white text-sm font-medium">Revolutionary 2026 Solutions</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}

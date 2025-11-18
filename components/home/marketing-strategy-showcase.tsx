@@ -264,7 +264,7 @@ export function MarketingStrategyShowcase() {
                 transition={{ duration: 0.6 }}
                 className="text-3xl font-bold text-white mb-4"
               >
-                🎯 Ready to Experience the Future?
+                Ready to Experience the Future?
               </motion.h3>
               <p className="text-white/90 text-lg mb-6">
                 Join the revolution with cutting-edge marketing strategies and innovative solutions

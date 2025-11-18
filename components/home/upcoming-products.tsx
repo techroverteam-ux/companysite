@@ -202,7 +202,7 @@ export function UpcomingProducts() {
           <Card className="bg-gradient-to-r from-primary to-secondary text-white border-0 max-w-4xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4">
-                🚀 Be Among the First to Experience the Future
+                Be Among the First to Experience the Future
               </h3>
               <p className="text-white/90 mb-6 text-lg">
                 Join our early access program and get exclusive previews, beta testing opportunities, and special launch pricing
