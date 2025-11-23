@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu, X, ChevronDown } from 'lucide-react'
@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown } from 'lucide-react'
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -67,8 +68,17 @@ export function Navbar() {
                 {item.dropdown ? (
                   <div
                     className="relative"
-                    onMouseEnter={() => setActiveDropdown(item.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    onMouseEnter={() => {
+                      if (timeoutRef.current) {
+                        clearTimeout(timeoutRef.current)
+                      }
+                      setActiveDropdown(item.label)
+                    }}
+                    onMouseLeave={() => {
+                      timeoutRef.current = setTimeout(() => {
+                        setActiveDropdown(null)
+                      }, 150)
+                    }}
                   >
                     <button className="flex items-center text-gray-700 hover:text-primary transition-colors font-medium">
                       {item.label}

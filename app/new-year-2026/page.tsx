@@ -2,6 +2,8 @@ import { NewYear2026Campaign } from '@/components/home/new-year-2026-campaign'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { ArrowLeft, Calendar, Phone, Mail } from 'lucide-react'
+import { Navbar } from '@/components/navbar/navbar'
+import { Footer } from '@/components/footer/footer'
 import Link from 'next/link'
 import marketingData from '@/data/marketing.json'
 
@@ -13,7 +15,9 @@ export const metadata = {
 
 export default function NewYear2026Page() {
   return (
-    <div className="pt-16">
+    <>
+      <Navbar />
+      <div className="pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -178,6 +182,8 @@ export default function NewYear2026Page() {
           </Link>
         </div>
       </section>
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }

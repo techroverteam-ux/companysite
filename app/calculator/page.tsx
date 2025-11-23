@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Calculator, Clock, Users, IndianRupee, Download } from 'lucide-react'
+import { Navbar } from '@/components/navbar/navbar'
+import { Footer } from '@/components/footer/footer'
 import calculatorData from '@/data/calculator.json'
 import teamData from '@/data/team.json'
 
@@ -79,7 +81,9 @@ export default function CostCalculatorPage() {
   }
 
   return (
-    <div className="pt-16">
+    <>
+      <Navbar />
+      <div className="pt-16">
       <section className="py-20 gradient-bg text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -252,6 +256,8 @@ export default function CostCalculatorPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }

@@ -14,7 +14,14 @@
       "Predictive Analytics",
       "AI Integration & Deployment"
     ],
-    "technologies": ["Python", "TensorFlow", "PyTorch", "OpenAI", "Hugging Face", "AWS AI"]
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "OpenAI",
+      "Hugging Face",
+      "AWS AI"
+    ]
   },
   {
     "id": "erp-systems",
@@ -31,7 +38,14 @@
       "HR Management System",
       "Supply Chain Management"
     ],
-    "technologies": ["React", "Node.js", "PostgreSQL", "MongoDB", "AWS", "Docker"]
+    "technologies": [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "MongoDB",
+      "AWS",
+      "Docker"
+    ]
   },
   {
     "id": "web-development",
@@ -48,7 +62,14 @@
       "Database Design",
       "Performance Optimization"
     ],
-    "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Vercel"]
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Vercel"
+    ]
   },
   {
     "id": "mobile-app-development",
@@ -65,7 +86,14 @@
       "Mobile UI/UX Design",
       "App Maintenance & Support"
     ],
-    "technologies": ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Expo"]
+    "technologies": [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Firebase",
+      "Expo"
+    ]
   },
   {
     "id": "cloud-solutions",
@@ -82,7 +110,14 @@
       "Serverless Architecture",
       "Cloud Security"
     ],
-    "technologies": ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "Jenkins"]
+    "technologies": [
+      "AWS",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Jenkins"
+    ]
   },
   {
     "id": "digital-marketing",
@@ -99,7 +134,14 @@
       "Email Marketing",
       "Analytics & Reporting"
     ],
-    "technologies": ["Google Analytics", "Google Ads", "Facebook Ads", "SEMrush", "Mailchimp", "HubSpot"]
+    "technologies": [
+      "Google Analytics",
+      "Google Ads",
+      "Facebook Ads",
+      "SEMrush",
+      "Mailchimp",
+      "HubSpot"
+    ]
   },
   {
     "id": "branding-design",
@@ -116,7 +158,14 @@
       "Marketing Materials",
       "Brand Guidelines"
     ],
-    "technologies": ["Figma", "Adobe Creative Suite", "Sketch", "InVision", "Principle", "Framer"]
+    "technologies": [
+      "Figma",
+      "Adobe Creative Suite",
+      "Sketch",
+      "InVision",
+      "Principle",
+      "Framer"
+    ]
   },
   {
     "id": "shopify-development",
@@ -133,7 +182,14 @@
       "Payment Gateway Setup",
       "SEO & Performance Optimization"
     ],
-    "technologies": ["Shopify Liquid", "JavaScript", "CSS3", "HTML5", "Shopify APIs", "WordPress"]
+    "technologies": [
+      "Shopify Liquid",
+      "JavaScript",
+      "CSS3",
+      "HTML5",
+      "Shopify APIs",
+      "WordPress"
+    ]
   },
   {
     "id": "cybersecurity",
@@ -150,7 +206,14 @@
       "Security Training",
       "Incident Response"
     ],
-    "technologies": ["Kali Linux", "Wireshark", "Metasploit", "OWASP", "SSL/TLS", "VPN"]
+    "technologies": [
+      "Kali Linux",
+      "Wireshark",
+      "Metasploit",
+      "OWASP",
+      "SSL/TLS",
+      "VPN"
+    ]
   },
   {
     "id": "blockchain-development",
@@ -167,7 +230,14 @@
       "Blockchain Integration",
       "Token Development"
     ],
-    "technologies": ["Solidity", "Ethereum", "Web3.js", "Hardhat", "IPFS", "MetaMask"]
+    "technologies": [
+      "Solidity",
+      "Ethereum",
+      "Web3.js",
+      "Hardhat",
+      "IPFS",
+      "MetaMask"
+    ]
   },
   {
     "id": "data-analytics",
@@ -184,7 +254,14 @@
       "ETL Processes",
       "Real-time Analytics"
     ],
-    "technologies": ["Power BI", "Tableau", "Python", "R", "SQL", "Apache Spark"]
+    "technologies": [
+      "Power BI",
+      "Tableau",
+      "Python",
+      "R",
+      "SQL",
+      "Apache Spark"
+    ]
   },
   {
     "id": "iot-solutions",
@@ -201,6 +278,13 @@
       "IoT Security",
       "Data Collection & Analysis"
     ],
-    "technologies": ["Arduino", "Raspberry Pi", "MQTT", "LoRaWAN", "AWS IoT", "Node-RED"]
+    "technologies": [
+      "Arduino",
+      "Raspberry Pi",
+      "MQTT",
+      "LoRaWAN",
+      "AWS IoT",
+      "Node-RED"
+    ]
   }
 ]

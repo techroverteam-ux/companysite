@@ -7,7 +7,7 @@ export default function LoginRedirect() {
   const router = useRouter()
 
   useEffect(() => {
-    router.replace('/login')
+    router.replace('/admin/dashboard')
   }, [router])
 
   return null

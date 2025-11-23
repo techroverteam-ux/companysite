@@ -80,8 +80,8 @@ export function AdminLogin({ onLogin }: LoginProps) {
                   <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                   <Input
                     id="username"
-                    type="email"
-                    placeholder="admin@techrover.com"
+                    type="text"
+                    placeholder="TechRover2025"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     className="pl-10"

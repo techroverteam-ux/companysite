@@ -105,6 +105,46 @@ export function TechyBot() {
   const getIntelligentResponse = (userInput: string) => {
     const input = userInput.toLowerCase()
     
+    // Contact form assistance
+    if (input.includes('contact') && (input.includes('form') || input.includes('submit') || input.includes('send'))) {
+      return `I can help you submit a contact form! Let me gather your details:
+
+📝 **Contact Form Assistance**
+I'll help you fill out our contact form with:
+• Your name and email
+• Company details
+• Service you're interested in
+• Project description
+
+🚀 **Quick Submit Options:**
+• Tell me your details and I'll help format them
+• Or visit our contact page: /contact
+
+What's your name and which service interests you?`
+    }
+    
+    // Schedule form assistance
+    if (input.includes('schedule') && (input.includes('call') || input.includes('meeting') || input.includes('appointment'))) {
+      return `Perfect! I can help you schedule a consultation call:
+
+📅 **Schedule Meeting Assistance**
+Available meeting types:
+• Free Consultation (30 min)
+• Technical Discussion (45 min)
+• Project Planning (60 min)
+
+⏰ **Available Times:**
+• Mon-Fri: 9:00 AM - 6:00 PM IST
+• Same day or future dates
+
+🎯 **I can help you:**
+• Choose the right meeting type
+• Find available time slots
+• Submit your booking details
+
+Visit: /schedule or tell me your preferred date/time!`
+    }
+    
     // Stone factory specific response
     if (input.includes('stone') && (input.includes('factory') || input.includes('website') || input.includes('build'))) {
       return `Perfect! For a stone factory website, here's what I recommend:
@@ -166,25 +206,143 @@ What type of website do you need?`
     
     // Enhanced responses with real data
     if (category === 'services') {
-      if (input.includes('ai') || input.includes('artificial intelligence')) {
-        return `Our AI services: Customer Support Agents (₹299/month), Sales Assistant (₹499/month), Data Processing (₹399/month), Content Creation (₹199/month). Custom AI development starts at ₹4,17,000. We use Python, TensorFlow, OpenAI. Recent AI projects: TechCorp USA chatbot, FinanceFlow automation. Want to see our AI calculator?`
+      if (input.includes('ai') || input.includes('artificial intelligence') || input.includes('machine learning') || input.includes('chatbot')) {
+        return `🤖 **AI Development Services by Techrover**
+
+**Our AI Solutions:**
+• Custom AI Chatbots (₹25,000+)
+• Machine Learning Models
+• Natural Language Processing
+• Computer Vision Solutions
+• Predictive Analytics
+• AI Integration & Deployment
+
+**Technologies:** Python, TensorFlow, PyTorch, OpenAI, Hugging Face, AWS AI
+
+**AI Team Expert:** Yashashvi Parihar (AI Developer, IIT Jodhpur, TensorFlow Certified)
+
+**Recent AI Projects:**
+• Healthcare AI Chatbot - 40% faster patient queries
+• Manufacturing Image Recognition - Reduced defects by 35%
+• Custom ML Pipeline - 40% processing time reduction
+
+**Pricing:** Starting ₹25,000 | Custom solutions ₹4,17,000+
+**Timeline:** 4-12 weeks
+
+Want AI consultation? Visit /schedule or use /calculator for instant estimate!`
       }
       if (input.includes('web') || input.includes('website')) {
-        return `Web Development services: Custom websites (₹2,50,000+), E-commerce platforms, Progressive Web Apps, API development. Technologies: Next.js, React, TypeScript, Tailwind CSS. Recent projects: Digital Solutions UK (₹51,65,000), MarketHub E-commerce (8 months, 12 developers). Timeline: 4-12 weeks. Want a quote?`
+        return `🌐 **Web Development by Techrover**
+
+**Services:**
+• Custom Website Development (₹15,000+)
+• E-commerce Platforms
+• Progressive Web Apps
+• API Development
+• Database Design
+• Performance Optimization
+
+**Technologies:** Next.js, React, TypeScript, Tailwind CSS, Node.js, Vercel
+
+**Team:** Arjun Nagar (Full Stack, 7+ years, React Certified), Naresh Kansara (Backend Expert)
+
+**Recent Projects:**
+• Digital Solutions UK - ₹51,65,000 (8 months)
+• MarketHub E-commerce - 12 developers
+• TechCorp Website - 99% performance score
+
+**Timeline:** 4-12 weeks | **Satisfaction:** 99%
+
+Ready to build? Contact us at /contact or get estimate at /calculator!`
       }
       if (input.includes('erp') || input.includes('enterprise')) {
-        return `ERP Systems (₹12,50,000+): Custom ERP development, CRM integration, inventory management, financial systems. Technologies: React, Node.js, PostgreSQL, AWS. Success story: SecureLife Insurance ERP (₹70,83,000) - improved efficiency by 60%. Timeline: 8-24 weeks. Need ERP consultation?`
+        return `🏢 **ERP Systems by Techrover**
+
+**Complete ERP Solutions:**
+• Custom ERP Development (₹75,000+)
+• CRM Integration
+• Inventory Management
+• Financial Management
+• HR Management System
+• Supply Chain Management
+
+**Technologies:** React, Node.js, PostgreSQL, MongoDB, AWS, Docker
+
+**Success Story:** SecureLife Insurance ERP (₹70,83,000) - 60% efficiency improvement
+
+**Team:** Full-stack developers + DevOps (Saksham Tolambia - AWS Certified)
+
+**Timeline:** 8-24 weeks
+**ROI:** Average 300% within 12 months
+
+Need ERP consultation? Schedule call: /schedule`
+      }
+      if (input.includes('shopify') || input.includes('ecommerce') || input.includes('e-commerce')) {
+        return `🛒 **Shopify Development by Techrover**
+
+**Shopify Services:**
+• Custom Shopify Store Development (₹5,000+)
+• WordPress to Shopify Migration
+• Theme Customization
+• App Integration & Development
+• Payment Gateway Setup
+• SEO & Performance Optimization
+
+**Expert:** Naresh Kansara (Shopify Partner Developer, 5+ years)
+
+**Technologies:** Shopify Liquid, JavaScript, CSS3, HTML5, Shopify APIs
+
+**Success:** 30+ e-commerce stores, 100% client satisfaction
+
+**Migration Special:** WordPress to Shopify in 2-4 weeks
+
+Start your store: /contact or calculate cost: /calculator`
       }
     }
     
     if (category === 'team') {
-      const teamInfo = Array.isArray(teamData) ? teamData.slice(0, 4).map((member: any) => `${member.name} (${member.role})`).join(', ') : 'Our team'
-      return `Our leadership team: ${teamInfo}. Total 20+ professionals with 100+ certifications. Ashok Verma (Founder, IIT Delhi, Forbes 30 Under 30), Rahul Singh (CTO, BITS Pilani, Tech Innovation Award 2022). We've managed 500+ projects, 50+ global clients, 99% satisfaction rate.`
+      return `👥 **Techrover Team Excellence**
+
+**Leadership:**
+• Navdeep Bhati - Founder & CEO (6+ years, MBA IIM Bangalore, AWS Certified)
+• Yogesh Sharma - UI/UX Designer (5+ years, NIFT Delhi, Google UX Certified)
+• Yashshvi Singh - Digital Marketing (4+ years, MBA Delhi University)
+
+**Technical Experts:**
+• Yashashvi Parihar - AI Developer (IIT Jodhpur, TensorFlow Certified)
+• Arjun Nagar - Full Stack (7+ years, React/Node.js Expert)
+• Naresh Kansara - Shopify/WordPress (5+ years, Shopify Partner)
+• Saksham Tolambia - DevOps (AWS Solutions Architect)
+• Dushyan Singh - International Client Manager (MBA International Business)
+
+**Stats:** 500+ projects, 50+ global clients, 99% satisfaction, 15+ countries
+
+Meet our team: /team`
     }
     
     if (category === 'pricing') {
-      const services = Array.isArray(servicesData) ? servicesData.map((s: any) => `${s.title}: ${s.startingPrice}`).join(', ') : 'Our services'
-      return `Current pricing: ${services}. Hourly rates: Senior Developer ₹3,500/hr, Project Manager ₹2,000/hr, Designer ₹2,500/hr, QA ₹1,800/hr. Use our calculator at /calculator for instant estimates with team allocation and timeline!`
+      return `💰 **Techrover Pricing Guide**
+
+**Service Pricing:**
+• AI Development: ₹25,000+
+• ERP Systems: ₹75,000+
+• Web Development: ₹15,000+
+• Mobile Apps: ₹35,000+
+• Cloud Solutions: ₹20,000+
+• Digital Marketing: ₹10,000+
+• Branding & Design: ₹8,000+
+• Shopify Development: ₹5,000+
+
+**Hourly Rates:**
+• Senior Developer: ₹3,500/hr
+• AI Specialist: ₹4,000/hr
+• Project Manager: ₹2,000/hr
+• Designer: ₹2,500/hr
+• DevOps Engineer: ₹3,000/hr
+
+**Get Instant Quote:** /calculator
+**Custom Pricing:** /contact
+**Schedule Discussion:** /schedule`
     }
     
     return null
@@ -223,17 +381,160 @@ What type of website do you need?`
       if (intelligentResponse) return intelligentResponse
       
       if (input.includes('client') || input.includes('customer')) {
-        const clients = Array.isArray(clientsData) ? clientsData.slice(0, 3).map((c: any) => `${c.name} (${c.country}, ${c.totalValue})`).join(', ') : 'Various clients'
-        return `Our recent clients: ${clients}. We serve 50+ global clients across 15+ countries with 99% satisfaction. Industries: Technology, Fintech, Healthcare, Insurance, Manufacturing. Want to see our portfolio?`
+        return `🌍 **Techrover Global Clients**
+
+**Client Portfolio:**
+• TechCorp (USA) - AI Automation Platform
+• Digital Solutions (UK) - ₹51,65,000 Web Project
+• SecureLife Insurance - ₹70,83,000 ERP System
+• MarketHub - E-commerce Marketplace
+• FinanceFlow - AI-powered Analytics
+• MediCare - Healthcare Management System
+
+**Global Reach:**
+• 50+ clients across 15+ countries
+• Industries: Technology, Fintech, Healthcare, Insurance, Manufacturing
+• 99% client satisfaction rate
+• 500+ successful projects delivered
+
+**Headquarters:** Mumbai, India
+**International Offices:** New York, London, Toronto
+
+See our work: /portfolio | Join our clients: /contact`
       }
       
       if (input.includes('portfolio') || input.includes('project')) {
-        const projects = Array.isArray(portfolioData) ? portfolioData.slice(0, 2).map((p: any) => `${p.title} (${p.industry}, ${p.projectDuration})`).join(', ') : 'Various projects'
-        return `Recent projects: ${projects}. We've completed 500+ projects including Insurance ERP, AI Chatbot Platform, E-commerce Marketplace, Hospital Management System. All with 5-star client reviews. Want to see detailed case studies?`
+        return `🏆 **Techrover Project Portfolio**
+
+**Featured Projects:**
+• **SecureLife Insurance ERP** - ₹70,83,000, 60% efficiency boost
+• **AI Healthcare Chatbot** - 40% faster patient query resolution
+• **Manufacturing Vision AI** - 35% defect reduction
+• **E-commerce Platform** - 1M+ users, scalable architecture
+• **Digital Solutions UK** - ₹51,65,000, 8-month delivery
+
+**Project Stats:**
+• 500+ projects completed
+• 15+ countries served
+• 99% client satisfaction
+• 5-star average rating
+
+**Industries:** Healthcare, Insurance, Manufacturing, E-commerce, Fintech, Education
+
+**Technologies:** AI/ML, React, Node.js, AWS, Shopify, WordPress
+
+Explore portfolio: /portfolio | Start your project: /contact`
       }
       
-      if (input.includes('calculator') || input.includes('estimate')) {
-        return `Use our cost calculator at /calculator! Get instant estimates with: Real-time pricing based on complexity, Team allocation with actual member names, Timeline calculation (2-16 weeks), Hourly breakdowns, Downloadable quotes. It includes all our services: AI (₹4,17,000+), ERP (₹12,50,000+), Web (₹2,50,000+), Marketing (₹1,67,000+), Branding (₹1,25,000+).`
+      if (input.includes('calculator') || input.includes('estimate') || input.includes('cost') || input.includes('price')) {
+        return `🧮 **Techrover Cost Calculator - Get Instant Estimates!**
+
+**How It Works:**
+1️⃣ Select your service (AI, Web, ERP, Mobile, etc.)
+2️⃣ Choose complexity (Simple/Medium/Complex)
+3️⃣ Add optional features
+4️⃣ Get instant cost & timeline estimate
+
+**What You Get:**
+✅ **Total Project Cost** - Accurate pricing
+✅ **Team Allocation** - Real team member names
+✅ **Timeline Estimate** - Weeks/months breakdown
+✅ **Hourly Breakdown** - Role-wise cost distribution
+✅ **Downloadable Quote** - PDF/JSON export
+
+**Service Ranges:**
+• 🤖 AI Development: ₹25,000 - ₹4,17,000+
+• 🏢 ERP Systems: ₹75,000 - ₹12,50,000+
+• 🌐 Web Development: ₹15,000 - ₹2,50,000+
+• 📱 Mobile Apps: ₹35,000 - ₹3,00,000+
+• 🛒 Shopify Development: ₹5,000 - ₹50,000+
+• 📊 Digital Marketing: ₹10,000 - ₹1,67,000+
+
+**Try Now:** /calculator
+**Need Help?** I can guide you through it!`
+      }
+      
+      // Admin and management queries
+      if (input.includes('admin') || input.includes('dashboard') || input.includes('management')) {
+        return `🔧 **Techrover Admin & Management**
+
+**Admin Dashboard Features:**
+• 📊 Project Management & Tracking
+• 👥 Team Performance Analytics
+• 💰 Financial Reports & Billing
+• 📈 Client Progress Monitoring
+• 🎯 Goal Setting & KPI Tracking
+
+**Management Services:**
+• **Project Management** - Dedicated PMs for each project
+• **Quality Assurance** - Multi-stage testing & review
+• **Client Communication** - Regular updates & meetings
+• **Resource Planning** - Optimal team allocation
+• **Risk Management** - Proactive issue resolution
+
+**Admin Access:** /admin/dashboard
+**Management Team:**
+• Navdeep Bhati - CEO & Project Oversight
+• Dushyan Singh - International Client Manager
+• Arjun Nagar - Technical Lead & Architecture
+
+**Need admin assistance?** Contact our management team!`
+      }
+      
+      // Form submission assistance
+      if (input.includes('submit') || input.includes('send message') || input.includes('contact form')) {
+        return `📝 **Techrover Form Assistance**
+
+**Available Forms:**
+• **Contact Form** (/contact) - Project inquiries & general questions
+• **Schedule Call** (/schedule) - Free consultation booking
+• **Hire Team** (/hire-team) - Dedicated team requests
+• **Cost Calculator** (/calculator) - Instant project estimates
+
+**I can help you:**
+✅ Fill out form details correctly
+✅ Choose the right service category
+✅ Format your project requirements
+✅ Submit forms on your behalf
+✅ Connect you with the right team member
+
+**Quick Actions:**
+• Say "Help me contact" for contact form
+• Say "Schedule a call" for consultation booking
+• Say "Get estimate" for cost calculator
+
+**Response Time:** Within 2 hours during business hours (9 AM - 6 PM IST)
+
+How can I help you get started?`
+      }
+      
+      // Company information
+      if (input.includes('about') || input.includes('company') || input.includes('techrover')) {
+        return `🚀 **About Techrover**
+
+**Company Overview:**
+• Founded: 2019 (5+ years of excellence)
+• From freelancing to global technology partner
+• 500+ projects delivered across 15+ countries
+• Headquarters: Mumbai, India
+• International offices: New York, London, Toronto
+
+**Mission:** Empower businesses with cutting-edge technology solutions
+**Vision:** Most trusted global technology partner for AI-powered solutions
+
+**Core Values:**
+• Innovation - Future-ready solutions
+• Quality - Meticulous attention to detail
+• Transparency - Clear communication
+• Global Mindset - Culturally relevant solutions
+
+**Achievements:**
+• ISO 9001:2015 Certified
+• Google Partner Certification
+• AWS Solution Provider
+• 99% client satisfaction rate
+
+Learn more: /about | Meet our team: /team`
       }
     }
     
@@ -269,7 +570,16 @@ What type of website do you need?`
     setTimeout(() => {
       setIsTyping(false)
       if (isHumanMode) {
-        addHumanMessage("Thanks for your question! Our team will get back to you shortly. You can also call us at +91 98765 43210 for immediate assistance.")
+        // Check if user wants specific assistance
+        if (input.includes('calculator') || input.includes('estimate') || input.includes('cost') || input.includes('price')) {
+          addHumanMessage("Perfect! Our cost calculator at /calculator gives instant estimates. Select your service, complexity, and features to get: Total cost, timeline, team allocation with real member names, and downloadable quotes. Services range from ₹5,000 (Shopify) to ₹12,50,000+ (ERP). Want me to guide you through it?")
+        } else if (input.includes('admin') || input.includes('dashboard') || input.includes('management')) {
+          addHumanMessage("I can help with admin access! Our dashboard at /admin provides project tracking, team analytics, financial reports, and client management. For admin assistance, contact Navdeep Bhati (CEO) or Dushyan Singh (Client Manager). Need specific admin help or project management support?")
+        } else if (input.includes('ai') || input.includes('artificial intelligence') || input.includes('machine learning')) {
+          addHumanMessage("Great! I can help with AI development. We offer custom AI chatbots (₹25,000+), ML models, NLP, computer vision. Our AI expert Yashashvi Parihar (IIT Jodhpur) leads projects. Use /calculator for instant AI project estimates or /schedule for consultation.")
+        } else {
+          addHumanMessage("Thanks for your question! Our team will get back to you shortly. You can also call us at +91 98765 43210 for immediate assistance.")
+        }
       } else {
         const response = getBotResponse(input)
         addBotMessage(response)
@@ -279,7 +589,7 @@ What type of website do you need?`
 
   const handleTransferToHuman = () => {
     setIsHumanMode(true)
-    addHumanMessage("Hello! I'm connecting you with our human expert. How can I assist you today?")
+    addHumanMessage("Hello! I'm from Techrover's expert team. I can help with: 🧮 Cost calculator guidance, 🤖 AI development projects, 🏢 ERP system planning, 🌐 Web development quotes, 📝 Form submissions, 📅 Scheduling consultations, or 🔧 Admin assistance. What interests you most?")
   }
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -439,6 +749,26 @@ What type of website do you need?`
                         {lang.name}
                       </button>
                     ))}
+                  </div>
+                  
+                  <div className="flex gap-1 mb-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => window.location.href = '/contact'}
+                      className="flex-1 text-xs"
+                    >
+                      📝 Contact
+                    </Button>
+                    
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => window.location.href = '/schedule'}
+                      className="flex-1 text-xs"
+                    >
+                      📅 Schedule
+                    </Button>
                   </div>
                   
                   <div className="flex gap-2 mb-3">

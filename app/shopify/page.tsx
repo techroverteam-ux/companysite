@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, ArrowRight, Zap, ShoppingCart, Smartphone, Globe, TrendingUp } from 'lucide-react'
+import { Navbar } from '@/components/navbar/navbar'
+import { Footer } from '@/components/footer/footer'
 
 const shopifyServices = [
   {
@@ -37,7 +39,9 @@ const migrationSteps = [
 
 export default function ShopifyPage() {
   return (
-    <div className="pt-16">
+    <>
+      <Navbar />
+      <div className="pt-16">
       {/* Hero Section */}
       <section className="py-20 gradient-bg text-white relative overflow-hidden">
         <div className="absolute inset-0">
@@ -242,6 +246,8 @@ export default function ShopifyPage() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }

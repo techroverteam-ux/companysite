@@ -2,8 +2,8 @@ import CryptoJS from 'crypto-js'
 
 const SECRET_KEY = process.env.NEXT_PUBLIC_SECRET_KEY || 'techrover-admin-2024'
 const ADMIN_CREDENTIALS = {
-  username: 'admin@techrover.com',
-  password: 'TechRover@2025!'
+  username: 'TechRover2025',
+  password: 'TechRover@2026'
 }
 
 export const encrypt = (data: any): string => {

@@ -4,11 +4,15 @@ import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Bot, Zap, Clock, DollarSign, TrendingUp, CheckCircle } from 'lucide-react'
+import { Navbar } from '@/components/navbar/navbar'
+import { Footer } from '@/components/footer/footer'
 import aiAgentsData from '@/data/ai-agents.json'
 
 export default function AIAgentsPage() {
   return (
-    <div className="pt-16">
+    <>
+      <Navbar />
+      <div className="pt-16">
       <section className="py-20 gradient-bg text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -172,6 +176,8 @@ export default function AIAgentsPage() {
           </Button>
         </div>
       </section>
-    </div>
+      </div>
+      <Footer />
+    </>
   )
 }

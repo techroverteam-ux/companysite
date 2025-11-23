@@ -148,34 +148,24 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-8 py-4 text-lg shadow-2xl"
+              onClick={() => window.location.href = '/new-year-2026'}
             >
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-300 hover:to-orange-400 text-black font-bold px-8 py-4 text-lg shadow-2xl"
-                onClick={() => window.location.href = '/new-year-2026'}
-              >
-                <Target className="mr-2 h-5 w-5" />
-                {data.ctaText}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </motion.div>
+              <Target className="mr-2 h-5 w-5" />
+              {data.ctaText}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
             
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-white/30 text-white font-semibold px-8 py-4 text-lg backdrop-blur-sm"
+              onClick={() => window.location.href = '/portfolio'}
             >
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white hover:text-slate-900 font-semibold px-8 py-4 text-lg backdrop-blur-sm"
-                onClick={() => window.location.href = '/portfolio'}
-              >
-                View Our Work
-              </Button>
-            </motion.div>
+              View Our Work
+            </Button>
           </motion.div>
         </motion.div>
 
