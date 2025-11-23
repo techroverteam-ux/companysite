@@ -5,13 +5,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { ExternalLink, Star, MapPin } from 'lucide-react'
 import portfolioDataRaw from '@/data/portfolio.json'
+import portfolioSimple from '@/data/portfolio-simple.json'
 import { decrypt } from '@/lib/auth'
 
 export default function PortfolioPage() {
-  // Decrypt portfolio data if encrypted
-  const portfolioData = portfolioDataRaw.data && typeof portfolioDataRaw.data === 'string'
-    ? decrypt(portfolioDataRaw.data) || []
-    : portfolioDataRaw || []
+  // Use simple portfolio data for case study links
+  let portfolioData = portfolioSimple
+  
+  // Try to decrypt original data if available
+  try {
+    if (portfolioDataRaw.data && typeof portfolioDataRaw.data === 'string') {
+      const decrypted = decrypt(portfolioDataRaw.data)
+      if (decrypted && Array.isArray(decrypted)) {
+        portfolioData = decrypted
+      }
+    }
+  } catch (error) {
+    console.log('Using simple portfolio data')
+  }
 
   return (
     <div className="pt-16">
@@ -97,7 +108,7 @@ export default function PortfolioPage() {
                       <span>Team: {project.teamSize}</span>
                     </div>
 
-                    <Button variant="gradient" className="w-full" onClick={() => alert('Case study details coming soon!')}>
+                    <Button variant="gradient" className="w-full" onClick={() => window.location.href = `/case-study/${project.id}`}>
                       <ExternalLink className="mr-2 h-4 w-4" />
                       View Case Study
                     </Button>

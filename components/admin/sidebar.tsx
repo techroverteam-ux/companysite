@@ -2,7 +2,7 @@
 
 import { 
   LayoutDashboard, Users, MessageSquare, Calendar, Settings, 
-  Briefcase, Star, Building2, Package, LogOut 
+  Briefcase, Star, Building2, Package, LogOut, FileText 
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -15,6 +15,7 @@ interface SidebarProps {
 const menuItems = [
   { id: 'services', label: 'Services', icon: Briefcase },
   { id: 'portfolio', label: 'Portfolio', icon: Package },
+  { id: 'case-studies', label: 'Case Studies', icon: FileText },
   { id: 'reviews', label: 'Reviews', icon: Star },
   { id: 'clients', label: 'Clients', icon: Building2 },
   { id: 'team', label: 'Team', icon: Users },

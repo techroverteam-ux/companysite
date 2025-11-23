@@ -1,0 +1,50 @@
+[
+  {
+    "id": "insurance-erp",
+    "title": "SecureLife Insurance ERP System",
+    "industry": "Insurance",
+    "clientCountry": "USA",
+    "description": "Complete digital transformation with comprehensive ERP system that improved efficiency by 60%",
+    "technologies": ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
+    "review": "TechRover transformed our entire operation. The ERP system has revolutionized how we handle insurance processes.",
+    "clientName": "John Mitchell, CEO",
+    "projectDuration": "8 months",
+    "teamSize": "12 developers"
+  },
+  {
+    "id": "ai-chatbot-platform", 
+    "title": "AI Chatbot Platform",
+    "industry": "Technology",
+    "clientCountry": "USA",
+    "description": "Advanced AI chatbot platform with NLP capabilities, serving 10,000+ daily users with 95% accuracy",
+    "technologies": ["Python", "TensorFlow", "OpenAI", "React", "Node.js"],
+    "review": "The AI chatbot platform has transformed our customer support with excellent automation and user experience.",
+    "clientName": "Sarah Davis, CTO",
+    "projectDuration": "5 months", 
+    "teamSize": "8 developers"
+  },
+  {
+    "id": "ecommerce-marketplace",
+    "title": "Shree Radhey Industries E-commerce Platform", 
+    "industry": "Manufacturing",
+    "clientCountry": "India",
+    "description": "Modern e-commerce platform for industrial products with inventory management and B2B features",
+    "technologies": ["Next.js", "React", "Node.js", "PostgreSQL", "AWS", "Stripe"],
+    "review": "TechRover built us a world-class e-commerce platform. The performance and user experience exceeded expectations.",
+    "clientName": "Rajesh Sharma, Managing Director",
+    "projectDuration": "6 months",
+    "teamSize": "8 developers"
+  },
+  {
+    "id": "healthcare-management",
+    "title": "Healthcare Management System",
+    "industry": "Healthcare", 
+    "clientCountry": "India",
+    "description": "Comprehensive healthcare system serving 50+ hospitals with patient records and appointment scheduling",
+    "technologies": ["React", "Node.js", "MySQL", "AWS", "Docker"],
+    "review": "The healthcare management system revolutionized our operations and significantly improved patient care.",
+    "clientName": "Dr. Priya Sharma, Medical Director",
+    "projectDuration": "7 months",
+    "teamSize": "10 developers"
+  }
+]

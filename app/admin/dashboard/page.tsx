@@ -396,6 +396,23 @@ export default function AdminDashboard() {
           </Card>
         )}
 
+        {activeTab === 'case-studies' && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Case Studies Management</CardTitle>
+              <CardDescription>Manage detailed project case studies</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center py-8">
+                <p className="text-gray-600 mb-4">Case studies management coming soon</p>
+                <Button onClick={() => window.open('/portfolio', '_blank')}>
+                  View Portfolio
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {activeTab === 'settings' && (
           <Card>
             <CardHeader>

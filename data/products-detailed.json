@@ -1,0 +1,276 @@
+{
+  "hero": {
+    "title": "Our Product Portfolio",
+    "subtitle": "Innovative Solutions Built for the Future",
+    "description": "Discover our range of cutting-edge products designed to solve real-world problems and drive digital transformation across industries."
+  },
+  "stats": [
+    { "number": "15+", "label": "Products Launched" },
+    { "number": "50K+", "label": "Active Users" },
+    { "number": "99.9%", "label": "Uptime" },
+    { "number": "24/7", "label": "Support" }
+  ],
+  "categories": [
+    {
+      "id": "saas-platforms",
+      "name": "SaaS Platforms",
+      "description": "Cloud-based software solutions for businesses",
+      "icon": "Cloud"
+    },
+    {
+      "id": "ai-tools",
+      "name": "AI Tools",
+      "description": "Artificial intelligence powered applications",
+      "icon": "Brain"
+    },
+    {
+      "id": "mobile-apps",
+      "name": "Mobile Apps",
+      "description": "Native and cross-platform mobile applications",
+      "icon": "Smartphone"
+    },
+    {
+      "id": "web-platforms",
+      "name": "Web Platforms",
+      "description": "Modern web applications and platforms",
+      "icon": "Globe"
+    }
+  ],
+  "products": [
+    {
+      "id": "techrover-crm",
+      "name": "TechRover CRM",
+      "category": "SaaS Platforms",
+      "status": "Live",
+      "description": "Comprehensive customer relationship management platform designed for growing businesses with advanced automation and analytics.",
+      "longDescription": "TechRover CRM is a complete customer relationship management solution that helps businesses manage their sales pipeline, customer interactions, and marketing campaigns. Built with modern technologies, it offers real-time analytics, automated workflows, and seamless integrations.",
+      "features": [
+        "Lead Management",
+        "Sales Pipeline",
+        "Email Automation",
+        "Analytics Dashboard",
+        "Mobile App",
+        "API Integration",
+        "Custom Reports",
+        "Team Collaboration"
+      ],
+      "technologies": ["React", "Node.js", "PostgreSQL", "Redis", "AWS", "Docker"],
+      "pricing": {
+        "starter": "₹2,999/month",
+        "professional": "₹5,999/month",
+        "enterprise": "₹12,999/month"
+      },
+      "users": "2,500+",
+      "rating": 4.8,
+      "impact": "40% increase in sales conversion",
+      "website": "https://crm.techrover.co.in",
+      "screenshots": [
+        "/images/products/crm-dashboard.jpg",
+        "/images/products/crm-pipeline.jpg",
+        "/images/products/crm-analytics.jpg"
+      ],
+      "testimonials": [
+        {
+          "quote": "TechRover CRM transformed our sales process completely. We've seen a 40% increase in conversions.",
+          "author": "Rajesh Kumar",
+          "company": "Digital Marketing Pro"
+        }
+      ]
+    },
+    {
+      "id": "ai-chatbot-builder",
+      "name": "AI Chatbot Builder",
+      "category": "AI Tools",
+      "status": "Live",
+      "description": "No-code AI chatbot builder that allows businesses to create intelligent conversational agents without programming knowledge.",
+      "longDescription": "Our AI Chatbot Builder empowers businesses to create sophisticated chatbots using natural language processing and machine learning. With drag-and-drop interface and pre-built templates, anyone can build powerful conversational AI.",
+      "features": [
+        "Drag & Drop Builder",
+        "NLP Integration",
+        "Multi-language Support",
+        "Analytics & Insights",
+        "Live Chat Handoff",
+        "API Integrations",
+        "Custom Training",
+        "Voice Support"
+      ],
+      "technologies": ["Python", "TensorFlow", "React", "OpenAI", "WebSocket", "MongoDB"],
+      "pricing": {
+        "basic": "₹1,999/month",
+        "pro": "₹4,999/month",
+        "enterprise": "₹9,999/month"
+      },
+      "users": "1,200+",
+      "rating": 4.9,
+      "impact": "85% query automation rate",
+      "website": "https://chatbot.techrover.co.in",
+      "screenshots": [
+        "/images/products/chatbot-builder.jpg",
+        "/images/products/chatbot-analytics.jpg"
+      ],
+      "testimonials": [
+        {
+          "quote": "The AI chatbot handles 85% of our customer queries automatically. Incredible ROI!",
+          "author": "Priya Sharma",
+          "company": "E-commerce Solutions"
+        }
+      ]
+    },
+    {
+      "id": "inventory-pro",
+      "name": "Inventory Pro",
+      "category": "SaaS Platforms",
+      "status": "Live",
+      "description": "Advanced inventory management system with real-time tracking, automated reordering, and comprehensive reporting for businesses.",
+      "longDescription": "Inventory Pro is a comprehensive inventory management solution that helps businesses track stock levels, manage suppliers, automate reordering, and generate detailed reports. Perfect for retail, manufacturing, and distribution companies.",
+      "features": [
+        "Real-time Tracking",
+        "Automated Reordering",
+        "Barcode Scanning",
+        "Supplier Management",
+        "Multi-location Support",
+        "Cost Analysis",
+        "Mobile Access",
+        "Integration APIs"
+      ],
+      "technologies": ["Vue.js", "Laravel", "MySQL", "Redis", "AWS", "Docker"],
+      "pricing": {
+        "small": "₹3,999/month",
+        "medium": "₹7,999/month",
+        "large": "₹15,999/month"
+      },
+      "users": "800+",
+      "rating": 4.7,
+      "impact": "60% reduction in stockouts",
+      "website": "https://inventory.techrover.co.in",
+      "screenshots": [
+        "/images/products/inventory-dashboard.jpg",
+        "/images/products/inventory-tracking.jpg"
+      ],
+      "testimonials": [
+        {
+          "quote": "Inventory Pro reduced our stockouts by 60% and improved our cash flow significantly.",
+          "author": "Amit Patel",
+          "company": "Retail Chain Ltd"
+        }
+      ]
+    },
+    {
+      "id": "project-hub",
+      "name": "Project Hub",
+      "category": "SaaS Platforms",
+      "status": "Live",
+      "description": "Collaborative project management platform with task tracking, team communication, and advanced reporting capabilities.",
+      "longDescription": "Project Hub is designed for modern teams who need to collaborate effectively on complex projects. With intuitive task management, real-time communication, and powerful analytics, teams can deliver projects on time and within budget.",
+      "features": [
+        "Task Management",
+        "Team Collaboration",
+        "Time Tracking",
+        "Gantt Charts",
+        "File Sharing",
+        "Custom Workflows",
+        "Reporting Dashboard",
+        "Mobile Apps"
+      ],
+      "technologies": ["React", "Node.js", "MongoDB", "Socket.io", "AWS", "Docker"],
+      "pricing": {
+        "team": "₹1,999/month",
+        "business": "₹4,999/month",
+        "enterprise": "₹9,999/month"
+      },
+      "users": "3,500+",
+      "rating": 4.6,
+      "impact": "30% faster project delivery",
+      "website": "https://projects.techrover.co.in",
+      "screenshots": [
+        "/images/products/project-dashboard.jpg",
+        "/images/products/project-gantt.jpg"
+      ],
+      "testimonials": [
+        {
+          "quote": "Project Hub helped us deliver projects 30% faster with better team coordination.",
+          "author": "Sarah Johnson",
+          "company": "Tech Innovations"
+        }
+      ]
+    },
+    {
+      "id": "ecommerce-suite",
+      "name": "E-commerce Suite",
+      "category": "Web Platforms",
+      "status": "Live",
+      "description": "Complete e-commerce platform with advanced features for online stores, including payment processing and inventory management.",
+      "longDescription": "Our E-commerce Suite provides everything needed to run a successful online store. From product catalog management to payment processing and order fulfillment, it's a complete solution for businesses of all sizes.",
+      "features": [
+        "Product Catalog",
+        "Payment Gateway",
+        "Order Management",
+        "Customer Portal",
+        "SEO Tools",
+        "Analytics",
+        "Mobile Responsive",
+        "Multi-currency"
+      ],
+      "technologies": ["Next.js", "Stripe", "PostgreSQL", "Redis", "Vercel", "AWS"],
+      "pricing": {
+        "starter": "₹4,999/month",
+        "growth": "₹9,999/month",
+        "scale": "₹19,999/month"
+      },
+      "users": "1,800+",
+      "rating": 4.8,
+      "impact": "250% increase in online sales",
+      "website": "https://ecommerce.techrover.co.in",
+      "screenshots": [
+        "/images/products/ecommerce-store.jpg",
+        "/images/products/ecommerce-admin.jpg"
+      ],
+      "testimonials": [
+        {
+          "quote": "Our online sales increased by 250% after switching to TechRover's E-commerce Suite.",
+          "author": "Vikash Singh",
+          "company": "Fashion Retail"
+        }
+      ]
+    },
+    {
+      "id": "learning-management",
+      "name": "Learning Management System",
+      "category": "Web Platforms",
+      "status": "Live",
+      "description": "Comprehensive LMS for educational institutions and corporate training with course management and student tracking.",
+      "longDescription": "Our Learning Management System is designed for educational institutions and corporate training programs. It provides comprehensive tools for course creation, student management, assessments, and progress tracking.",
+      "features": [
+        "Course Creation",
+        "Student Management",
+        "Online Assessments",
+        "Progress Tracking",
+        "Video Streaming",
+        "Discussion Forums",
+        "Certificates",
+        "Mobile Learning"
+      ],
+      "technologies": ["React", "Node.js", "MongoDB", "AWS", "WebRTC", "Docker"],
+      "pricing": {
+        "basic": "₹5,999/month",
+        "professional": "₹12,999/month",
+        "enterprise": "₹24,999/month"
+      },
+      "users": "5,000+",
+      "rating": 4.7,
+      "impact": "90% student engagement rate",
+      "website": "https://lms.techrover.co.in",
+      "screenshots": [
+        "/images/products/lms-dashboard.jpg",
+        "/images/products/lms-courses.jpg"
+      ],
+      "testimonials": [
+        {
+          "quote": "The LMS increased our student engagement rate to 90%. Excellent platform for online education.",
+          "author": "Dr. Meera Gupta",
+          "company": "Education Institute"
+        }
+      ]
+    }
+  ]
+}

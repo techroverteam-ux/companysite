@@ -1,0 +1,296 @@
+[
+  {
+    "id": "securelife-insurance-erp",
+    "title": "SecureLife Insurance ERP System",
+    "slug": "securelife-insurance-erp",
+    "client": "SecureLife Insurance",
+    "industry": "Insurance",
+    "country": "USA",
+    "projectValue": "₹1,85,000",
+    "duration": "8 months",
+    "teamSize": "12 developers",
+    "completedDate": "2024-03-15",
+    "heroImage": "/images/case-studies/securelife-hero.jpg",
+    "overview": "Complete digital transformation of SecureLife Insurance with a comprehensive ERP system that streamlined operations and improved efficiency by 60%.",
+    "challenge": "SecureLife Insurance was struggling with fragmented systems, manual processes, and inefficient data management across multiple departments. They needed a unified solution to manage policies, claims, customer data, and financial operations.",
+    "solution": "We developed a comprehensive ERP system with integrated modules for policy management, claims processing, customer relationship management, financial reporting, and automated workflows.",
+    "results": [
+      {
+        "metric": "Efficiency Improvement",
+        "value": "60%",
+        "description": "Reduced processing time for insurance claims and policy management"
+      },
+      {
+        "metric": "Cost Reduction",
+        "value": "40%",
+        "description": "Decreased operational costs through automation and streamlined processes"
+      },
+      {
+        "metric": "Customer Satisfaction",
+        "value": "95%",
+        "description": "Improved customer experience with faster claim processing and better service"
+      },
+      {
+        "metric": "Data Accuracy",
+        "value": "99.8%",
+        "description": "Enhanced data integrity and reduced manual errors"
+      }
+    ],
+    "technologies": ["React", "Node.js", "PostgreSQL", "AWS", "Docker", "Redis"],
+    "features": [
+      "Policy Management System",
+      "Claims Processing Automation",
+      "Customer Portal",
+      "Financial Reporting Dashboard",
+      "Document Management",
+      "Automated Workflows",
+      "Real-time Analytics",
+      "Mobile Application"
+    ],
+    "testimonial": {
+      "quote": "TechRover transformed our entire operation. The ERP system they built has revolutionized how we handle insurance processes. Our efficiency has improved dramatically, and our customers are happier than ever.",
+      "author": "John Mitchell",
+      "position": "CEO, SecureLife Insurance"
+    },
+    "images": [
+      "/images/case-studies/securelife-dashboard.jpg",
+      "/images/case-studies/securelife-claims.jpg",
+      "/images/case-studies/securelife-analytics.jpg"
+    ],
+    "timeline": [
+      {
+        "phase": "Discovery & Planning",
+        "duration": "2 weeks",
+        "description": "Requirements gathering, system analysis, and project planning"
+      },
+      {
+        "phase": "Design & Architecture",
+        "duration": "3 weeks",
+        "description": "UI/UX design, system architecture, and database design"
+      },
+      {
+        "phase": "Development Phase 1",
+        "duration": "8 weeks",
+        "description": "Core modules development - Policy and Claims management"
+      },
+      {
+        "phase": "Development Phase 2",
+        "duration": "8 weeks",
+        "description": "Customer portal, reporting, and analytics modules"
+      },
+      {
+        "phase": "Testing & Deployment",
+        "duration": "4 weeks",
+        "description": "Comprehensive testing, user training, and system deployment"
+      },
+      {
+        "phase": "Support & Optimization",
+        "duration": "Ongoing",
+        "description": "Post-launch support, optimization, and feature enhancements"
+      }
+    ]
+  },
+  {
+    "id": "digital-solutions-uk-website",
+    "title": "Shree Radhey Industries - E-commerce Platform",
+    "slug": "digital-solutions-uk-website",
+    "client": "Shree Radhey Industries",
+    "industry": "Manufacturing",
+    "country": "India",
+    "projectValue": "₹1,65,000",
+    "duration": "6 months",
+    "teamSize": "8 developers",
+    "completedDate": "2024-01-20",
+    "heroImage": "/images/case-studies/digital-solutions-hero.jpg",
+    "overview": "Built a comprehensive e-commerce platform for Shree Radhey Industries, resulting in 300% increase in online sales and improved user experience.",
+    "challenge": "Shree Radhey Industries needed a modern, scalable e-commerce platform to replace their outdated system. They required advanced features like inventory management, multi-currency support, and integration with existing business systems.",
+    "solution": "We developed a custom e-commerce platform using Next.js and modern technologies, with advanced features including real-time inventory management, payment gateway integration, and comprehensive admin dashboard.",
+    "results": [
+      {
+        "metric": "Sales Increase",
+        "value": "300%",
+        "description": "Significant boost in online sales within 6 months of launch"
+      },
+      {
+        "metric": "Page Load Speed",
+        "value": "2.1s",
+        "description": "Optimized performance with fast loading times"
+      },
+      {
+        "metric": "Conversion Rate",
+        "value": "8.5%",
+        "description": "Improved user experience leading to higher conversions"
+      },
+      {
+        "metric": "Mobile Traffic",
+        "value": "65%",
+        "description": "Mobile-first design attracted more mobile users"
+      }
+    ],
+    "technologies": ["Next.js", "React", "TypeScript", "Stripe", "MongoDB", "Vercel"],
+    "features": [
+      "Product Catalog Management",
+      "Shopping Cart & Checkout",
+      "Payment Gateway Integration",
+      "Inventory Management",
+      "Order Tracking System",
+      "Customer Account Portal",
+      "Admin Dashboard",
+      "SEO Optimization"
+    ],
+    "testimonial": {
+      "quote": "The e-commerce platform TechRover built for us exceeded all expectations. Our online sales have tripled, and the user experience is outstanding. Highly recommended!",
+      "author": "Rajesh Sharma",
+      "position": "Managing Director, Shree Radhey Industries"
+    },
+    "images": [
+      "/images/case-studies/digital-solutions-homepage.jpg",
+      "/images/case-studies/digital-solutions-products.jpg",
+      "/images/case-studies/digital-solutions-admin.jpg"
+    ],
+    "timeline": [
+      {
+        "phase": "Requirements Analysis",
+        "duration": "1 week",
+        "description": "Understanding business needs and technical requirements"
+      },
+      {
+        "phase": "Design & Prototyping",
+        "duration": "2 weeks",
+        "description": "UI/UX design and interactive prototypes"
+      },
+      {
+        "phase": "Frontend Development",
+        "duration": "6 weeks",
+        "description": "React-based frontend with responsive design"
+      },
+      {
+        "phase": "Backend Development",
+        "duration": "6 weeks",
+        "description": "API development and database implementation"
+      },
+      {
+        "phase": "Integration & Testing",
+        "duration": "3 weeks",
+        "description": "Payment integration, testing, and optimization"
+      },
+      {
+        "phase": "Launch & Support",
+        "duration": "Ongoing",
+        "description": "Deployment, monitoring, and continuous support"
+      }
+    ]
+  },
+  {
+    "id": "insurance-erp",
+    "title": "Insurance ERP System",
+    "slug": "insurance-erp",
+    "client": "SecureLife Insurance",
+    "industry": "Insurance",
+    "country": "USA",
+    "projectValue": "₹1,85,000",
+    "duration": "8 months",
+    "teamSize": "12 developers",
+    "completedDate": "2024-03-15",
+    "overview": "Complete digital transformation of SecureLife Insurance with a comprehensive ERP system that streamlined operations and improved efficiency by 60%.",
+    "challenge": "SecureLife Insurance was struggling with fragmented systems, manual processes, and inefficient data management across multiple departments.",
+    "solution": "We developed a comprehensive ERP system with integrated modules for policy management, claims processing, customer relationship management, and financial reporting.",
+    "results": [
+      {"metric": "Efficiency Improvement", "value": "60%", "description": "Reduced processing time for insurance claims"},
+      {"metric": "Cost Reduction", "value": "40%", "description": "Decreased operational costs through automation"},
+      {"metric": "Customer Satisfaction", "value": "95%", "description": "Improved customer experience with faster service"},
+      {"metric": "Data Accuracy", "value": "99.8%", "description": "Enhanced data integrity and reduced errors"}
+    ],
+    "technologies": ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
+    "features": ["Policy Management", "Claims Processing", "Customer Portal", "Financial Reporting", "Document Management"],
+    "testimonial": {
+      "quote": "TechRover transformed our entire operation. The ERP system has revolutionized how we handle insurance processes.",
+      "author": "John Mitchell",
+      "position": "CEO, SecureLife Insurance"
+    }
+  },
+  {
+    "id": "ai-chatbot-platform",
+    "title": "AI Chatbot Platform",
+    "slug": "ai-chatbot-platform",
+    "client": "JBI Jodhpur",
+    "industry": "Education",
+    "country": "India",
+    "projectValue": "₹1,45,000",
+    "duration": "5 months",
+    "teamSize": "8 developers",
+    "completedDate": "2024-02-10",
+    "overview": "Advanced AI chatbot platform with natural language processing capabilities, serving 5,000+ daily users with 95% accuracy.",
+    "challenge": "JBI Jodhpur needed an intelligent student support system to handle increasing query volume while maintaining high-quality responses.",
+    "solution": "We built an AI-powered chatbot platform using advanced NLP and machine learning algorithms with seamless human handoff capabilities.",
+    "results": [
+      {"metric": "Query Resolution", "value": "85%", "description": "Automated resolution of customer queries"},
+      {"metric": "Response Time", "value": "2.3s", "description": "Average response time for user queries"},
+      {"metric": "User Satisfaction", "value": "92%", "description": "High user satisfaction with AI responses"},
+      {"metric": "Cost Savings", "value": "50%", "description": "Reduced customer support operational costs"}
+    ],
+    "technologies": ["Python", "TensorFlow", "OpenAI", "React", "Node.js", "MongoDB"],
+    "features": ["Natural Language Processing", "Multi-language Support", "Human Handoff", "Analytics Dashboard", "API Integration"],
+    "testimonial": {
+      "quote": "The AI chatbot platform has transformed our student support system. It handles most queries automatically while maintaining excellent user experience.",
+      "author": "Dr. Priya Sharma",
+      "position": "Director, JBI Jodhpur"
+    }
+  },
+  {
+    "id": "ecommerce-marketplace",
+    "title": "E-commerce Marketplace Platform",
+    "slug": "ecommerce-marketplace",
+    "client": "MarketHub",
+    "industry": "E-commerce",
+    "country": "Canada",
+    "projectValue": "₹1,95,000",
+    "duration": "10 months",
+    "teamSize": "15 developers",
+    "completedDate": "2024-01-05",
+    "overview": "Multi-vendor e-commerce marketplace platform supporting 500+ sellers and processing 1M+ monthly transactions.",
+    "challenge": "MarketHub needed a scalable marketplace platform to connect multiple vendors with customers while managing complex logistics and payments.",
+    "solution": "We developed a comprehensive marketplace platform with vendor management, payment processing, inventory tracking, and advanced analytics.",
+    "results": [
+      {"metric": "Monthly Transactions", "value": "1M+", "description": "Successfully processing over 1 million transactions monthly"},
+      {"metric": "Vendor Growth", "value": "400%", "description": "Increased vendor participation and sales"},
+      {"metric": "Platform Uptime", "value": "99.9%", "description": "Reliable platform performance"},
+      {"metric": "Revenue Growth", "value": "250%", "description": "Significant increase in platform revenue"}
+    ],
+    "technologies": ["Next.js", "React", "Node.js", "PostgreSQL", "Redis", "AWS", "Stripe"],
+    "features": ["Multi-vendor Support", "Payment Processing", "Inventory Management", "Order Tracking", "Analytics Dashboard", "Mobile App"],
+    "testimonial": {
+      "quote": "TechRover built us a world-class marketplace platform. The scalability and performance have exceeded our expectations.",
+      "author": "Michael Chen",
+      "position": "Founder, MarketHub"
+    }
+  },
+  {
+    "id": "healthcare-management",
+    "title": "Healthcare Management System",
+    "slug": "healthcare-management",
+    "client": "MediCare Solutions",
+    "industry": "Healthcare",
+    "country": "India",
+    "projectValue": "₹1,75,000",
+    "duration": "7 months",
+    "teamSize": "10 developers",
+    "completedDate": "2023-12-20",
+    "overview": "Comprehensive healthcare management system serving 50+ hospitals with patient records, appointment scheduling, and billing integration.",
+    "challenge": "MediCare needed a unified system to manage patient records, appointments, billing, and staff coordination across multiple healthcare facilities.",
+    "solution": "We developed an integrated healthcare management system with patient portals, doctor dashboards, appointment scheduling, and comprehensive reporting.",
+    "results": [
+      {"metric": "Patient Satisfaction", "value": "94%", "description": "Improved patient experience and service quality"},
+      {"metric": "Administrative Efficiency", "value": "70%", "description": "Streamlined administrative processes"},
+      {"metric": "Appointment Management", "value": "90%", "description": "Reduced appointment scheduling conflicts"},
+      {"metric": "Data Accuracy", "value": "99.5%", "description": "Enhanced medical record accuracy"}
+    ],
+    "technologies": ["React", "Node.js", "MySQL", "AWS", "Docker", "Redis"],
+    "features": ["Patient Management", "Appointment Scheduling", "Electronic Health Records", "Billing Integration", "Doctor Portal", "Reporting Dashboard"],
+    "testimonial": {
+      "quote": "The healthcare management system has revolutionized our operations. Patient care has improved significantly with better data management.",
+      "author": "Dr. Priya Sharma",
+      "position": "Medical Director, MediCare Solutions"
+    }
+  }
+]
