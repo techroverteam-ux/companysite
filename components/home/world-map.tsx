@@ -35,7 +35,7 @@ export function WorldMap() {
 
         <div className="relative bg-white rounded-2xl shadow-xl p-8 overflow-hidden">
           {/* Interactive World Map */}
-          <div className="relative w-full h-96 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl overflow-hidden">
+          <div className="relative w-full h-96 bg-gradient-to-br from-blue-50 to-teal-50 rounded-xl overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50446080.89164513!2d-95.677068!3d37.6000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDM2JzAwLjAiTiA5NcKwNDAnMzcuNCJX!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin&markers=color:red%7C28.6139,77.2090%7C40.7128,-74.0060%7C51.5074,-0.1278%7C45.4215,-75.6972%7C-33.8688,151.2093%7C52.5200,13.4050%7C1.3521,103.8198%7C25.2048,55.2708"
               width="100%"
@@ -59,7 +59,7 @@ export function WorldMap() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                 <Globe className="h-6 w-6 text-white" />
               </div>
               <div className="text-2xl font-bold gradient-text">8+</div>
@@ -73,7 +73,7 @@ export function WorldMap() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-3">
                 <Users className="h-6 w-6 text-white" />
               </div>
               <div className="text-2xl font-bold gradient-text">76+</div>
@@ -87,7 +87,7 @@ export function WorldMap() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                 <Zap className="h-6 w-6 text-white" />
               </div>
               <div className="text-2xl font-bold gradient-text">31+</div>
@@ -101,7 +101,7 @@ export function WorldMap() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 bg-gradient-to-r from-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-3">
                 <MapPin className="h-6 w-6 text-white" />
               </div>
               <div className="text-2xl font-bold gradient-text">24/7</div>

@@ -49,7 +49,7 @@ export function TeamPreview() {
             >
               <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                  <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
@@ -82,7 +82,7 @@ export function TeamPreview() {
           className="text-center"
         >
           <Link href="/team">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+            <Button size="lg" variant="gradient">
               View Full Team
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

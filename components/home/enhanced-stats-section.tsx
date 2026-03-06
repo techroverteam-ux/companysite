@@ -39,7 +39,7 @@ function AnimatedCounter({ end, duration = 2 }: { end: number; duration?: number
 
 export function EnhancedStatsSection({ stats }: EnhancedStatsSectionProps) {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-[#02224f] via-[#004AAD] to-[#012a63] relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div 
@@ -48,7 +48,7 @@ export function EnhancedStatsSection({ stats }: EnhancedStatsSectionProps) {
           transition={{ duration: 20, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
           transition={{ duration: 25, repeat: Infinity }}
         />
@@ -63,7 +63,7 @@ export function EnhancedStatsSection({ stats }: EnhancedStatsSectionProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Impact</span>
+            Our <span className="bg-gradient-to-r from-secondary to-white bg-clip-text text-transparent">Impact</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Numbers that showcase our commitment to excellence and innovation
@@ -93,12 +93,12 @@ export function EnhancedStatsSection({ stats }: EnhancedStatsSectionProps) {
                   transition: { duration: 0.3 }
                 }}
               >
-                <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 hover:border-yellow-400/50 transition-all duration-500 group">
+                <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 hover:border-secondary/60 transition-all duration-500 group">
                   <CardContent className="p-8 text-center">
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.2 }}
                       transition={{ duration: 0.6 }}
-                      className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-2xl"
+                      className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-2xl"
                     >
                       <IconComponent className="h-8 w-8 text-white" />
                     </motion.div>
@@ -125,7 +125,7 @@ export function EnhancedStatsSection({ stats }: EnhancedStatsSectionProps) {
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.4 }}
-                      className="text-gray-300 font-medium group-hover:text-yellow-400 transition-colors"
+                      className="text-gray-300 font-medium group-hover:text-secondary transition-colors"
                     >
                       {stat.label}
                     </motion.p>
@@ -157,7 +157,7 @@ export function EnhancedStatsSection({ stats }: EnhancedStatsSectionProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 whileHover={{ scale: 1.1 }}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 text-white font-medium hover:border-yellow-400/50 transition-all duration-300"
+                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 text-white font-medium hover:border-secondary/60 transition-all duration-300"
               >
                 {badge}
               </motion.div>

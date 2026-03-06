@@ -26,15 +26,28 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
   const y = useTransform(scrollYProgress, [0, 1], [0, -200])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
+  const primaryCta = (
+    <Button
+      size="lg"
+      variant="gradient"
+      className="font-bold px-8 py-4 text-lg shadow-2xl"
+      onClick={() => window.location.href = '/new-year-2026'}
+    >
+      <Target className="mr-2 h-5 w-5" />
+      {data.ctaText}
+      <ArrowRight className="ml-2 h-5 w-5" />
+    </Button>
+  )
+
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#02224f] via-[#004AAD] to-[#00A892]"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00C6AE]/20 rounded-full blur-3xl"
           animate={{ 
             scale: [1, 1.3, 1],
             x: [0, 100, 0],
@@ -43,7 +56,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
           transition={{ duration: 20, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#004AAD]/30 rounded-full blur-3xl"
           animate={{ 
             scale: [1.2, 1, 1.2],
             x: [0, -80, 0],
@@ -52,7 +65,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
           transition={{ duration: 15, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-yellow-500/10 rounded-full blur-2xl"
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-[#00C6AE]/12 rounded-full blur-2xl"
           animate={{ 
             rotate: [0, 360],
             scale: [1, 1.1, 1]
@@ -68,7 +81,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
           rotate: [0, 5, 0]
         }}
         transition={{ duration: 6, repeat: Infinity }}
-        className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg opacity-20"
+        className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-r from-[#004AAD] to-[#00C6AE] rounded-lg opacity-25"
       />
       <motion.div
         animate={{ 
@@ -76,7 +89,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
           rotate: [0, -5, 0]
         }}
         transition={{ duration: 8, repeat: Infinity }}
-        className="absolute bottom-32 right-32 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-30"
+        className="absolute bottom-32 right-32 w-12 h-12 bg-gradient-to-r from-[#00C6AE] to-[#004AAD] rounded-full opacity-35"
       />
 
       <motion.div 
@@ -100,14 +113,14 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <Sparkles className="h-4 w-4 text-yellow-400 mr-2" />
+              <Sparkles className="h-4 w-4 text-secondary mr-2" />
             </motion.div>
             <span className="text-white text-sm font-medium">Revolutionary 2026 Solutions</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Zap className="h-4 w-4 text-yellow-400 ml-2" />
+              <Zap className="h-4 w-4 text-secondary ml-2" />
             </motion.div>
           </motion.div>
 
@@ -124,7 +137,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 * index }}
-                className={index === 1 ? "bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent" : ""}
+                className={index === 1 ? "bg-gradient-to-r from-secondary to-white bg-clip-text text-transparent" : ""}
               >
                 {word}{' '}
               </motion.span>
@@ -136,7 +149,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg text-gray-400 max-w-3xl mx-auto mb-12"
+            className="text-lg text-gray-100 max-w-3xl mx-auto mb-12"
           >
             {data.tagline}
           </motion.p>
@@ -148,20 +161,12 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-8 py-4 text-lg shadow-2xl"
-              onClick={() => window.location.href = '/new-year-2026'}
-            >
-              <Target className="mr-2 h-5 w-5" />
-              {data.ctaText}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            {primaryCta}
             
             <Button 
               size="lg" 
               variant="outline"
-              className="border-white/30 text-white font-semibold px-8 py-4 text-lg backdrop-blur-sm"
+              className="border-white/40 text-white font-semibold px-8 py-4 text-lg backdrop-blur-sm hover:bg-white hover:text-primary"
               onClick={() => window.location.href = '/portfolio'}
             >
               View Our Work

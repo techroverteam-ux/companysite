@@ -69,7 +69,7 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
               <Card className="h-full overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm">
-                <div className="h-48 bg-gradient-to-br from-primary via-purple-500 to-secondary relative overflow-hidden">
+                <div className="h-48 bg-gradient-to-br from-primary via-[#0f65cf] to-secondary relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/20" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   

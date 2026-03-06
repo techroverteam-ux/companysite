@@ -32,17 +32,17 @@ const strategies = [
     icon: Brain,
     title: "AI-Powered Personalization",
     description: "Hyper-personalized customer experiences",
-    color: "from-purple-500 to-pink-500",
+    color: "from-primary to-secondary",
     features: ["Dynamic content", "Predictive analytics", "Smart recommendations"],
-    gradient: "bg-gradient-to-br from-purple-50 to-pink-50"
+    gradient: "bg-gradient-to-br from-blue-50 to-teal-50"
   },
   {
     icon: Globe,
     title: "Metaverse Presence",
     description: "Virtual world business solutions",
-    color: "from-indigo-500 to-purple-500",
+    color: "from-[#0f65cf] to-secondary",
     features: ["Virtual offices", "AR/VR demos", "Immersive experiences"],
-    gradient: "bg-gradient-to-br from-indigo-50 to-purple-50"
+    gradient: "bg-gradient-to-br from-blue-50 to-cyan-50"
   },
   {
     icon: Leaf,
@@ -72,7 +72,7 @@ export function MarketingStrategyShowcase() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <section ref={containerRef} className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <section ref={containerRef} className="py-20 bg-gradient-to-br from-[#02224f] via-[#004AAD] to-[#012a63] relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div 
@@ -84,7 +84,7 @@ export function MarketingStrategyShowcase() {
           transition={{ duration: 20, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"
           animate={{ 
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0]
@@ -110,17 +110,17 @@ export function MarketingStrategyShowcase() {
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
             >
-              <Sparkles className="h-12 w-12 text-yellow-400 mr-4" />
+              <Sparkles className="h-12 w-12 text-secondary mr-4" />
             </motion.div>
             <h2 className="text-4xl md:text-6xl font-bold text-white">
               2026 Marketing
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent"> Revolution</span>
+              <span className="bg-gradient-to-r from-secondary to-white bg-clip-text text-transparent"> Revolution</span>
             </h2>
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
             >
-              <Sparkles className="h-12 w-12 text-yellow-400 ml-4" />
+              <Sparkles className="h-12 w-12 text-secondary ml-4" />
             </motion.div>
           </motion.div>
           
@@ -172,7 +172,7 @@ export function MarketingStrategyShowcase() {
                       <IconComponent className="h-8 w-8 text-white" />
                     </motion.div>
                     
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">
                       {strategy.title}
                     </h3>
                     <p className="text-gray-300 text-sm mb-4">{strategy.description}</p>
@@ -207,7 +207,7 @@ export function MarketingStrategyShowcase() {
           className="mb-16"
         >
           <h3 className="text-3xl font-bold text-white text-center mb-8">
-            🚀 Revolutionary <span className="text-yellow-400">Innovations</span>
+            🚀 Revolutionary <span className="text-secondary">Innovations</span>
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -225,11 +225,11 @@ export function MarketingStrategyShowcase() {
                     scale: 1.05,
                     boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
                   }}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-yellow-400/50 transition-all duration-300"
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-secondary/60 transition-all duration-300"
                 >
                   <motion.div
                     whileHover={{ rotate: 15, scale: 1.1 }}
-                    className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center mb-4"
+                    className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center mb-4"
                   >
                     <IconComponent className="h-6 w-6 text-white" />
                   </motion.div>
@@ -248,7 +248,7 @@ export function MarketingStrategyShowcase() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <Card className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 border-0 overflow-hidden relative">
+          <Card className="bg-gradient-to-r from-primary via-[#0f65cf] to-secondary border-0 overflow-hidden relative">
             <motion.div
               animate={{ 
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
@@ -274,7 +274,7 @@ export function MarketingStrategyShowcase() {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button 
                     size="lg" 
-                    className="bg-white text-orange-600 hover:bg-gray-100 font-bold px-8 py-4 shadow-2xl"
+                    className="bg-white text-primary hover:bg-gray-100 font-bold px-8 py-4 shadow-2xl"
                     onClick={() => window.location.href = '/new-year-2026'}
                   >
                     <Target className="mr-2 h-5 w-5" />
@@ -286,7 +286,7 @@ export function MarketingStrategyShowcase() {
                   <Button 
                     size="lg" 
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-orange-600 font-bold px-8 py-4"
+                    className="border-white text-white hover:bg-white hover:text-primary font-bold px-8 py-4"
                     onClick={() => window.location.href = '/contact?strategy=2026'}
                   >
                     <TrendingUp className="mr-2 h-5 w-5" />
