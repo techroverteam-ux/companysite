@@ -218,8 +218,8 @@ export function UpcomingProducts() {
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary font-semibold"
+                  variant="glass"
+                  className="font-semibold"
                   onClick={() => window.location.href = '/products'}
                 >
                   View All Products

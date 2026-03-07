@@ -165,8 +165,8 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
             
             <Button 
               size="lg" 
-              variant="outline"
-              className="border-white/40 text-white font-semibold px-8 py-4 text-lg backdrop-blur-sm hover:bg-white hover:text-primary"
+              variant="glass"
+              className="font-semibold px-8 py-4 text-lg"
               onClick={() => window.location.href = '/portfolio'}
             >
               View Our Work

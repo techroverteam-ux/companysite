@@ -285,8 +285,8 @@ export function MarketingStrategyShowcase() {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button 
                     size="lg" 
-                    variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-primary font-bold px-8 py-4"
+                    variant="glass"
+                    className="font-bold px-8 py-4"
                     onClick={() => window.location.href = '/contact?strategy=2026'}
                   >
                     <TrendingUp className="mr-2 h-5 w-5" />
