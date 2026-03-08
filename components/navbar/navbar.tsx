@@ -50,19 +50,19 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="fixed top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#0557d6] to-[#00a995] shadow-sm">
               <span className="text-white font-bold text-lg">T</span>
             </div>
-            <span className="text-xl font-bold gradient-text">Techrover</span>
+            <span className="text-[1.1rem] font-semibold tracking-tight text-foreground sm:text-xl">Techrover</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden items-center gap-2 md:flex lg:gap-4">
             {navItems.map((item) => (
               <div key={item.label} className="relative">
                 {item.dropdown ? (
@@ -80,17 +80,17 @@ export function Navbar() {
                       }, 150)
                     }}
                   >
-                    <button className="flex items-center text-gray-700 hover:text-primary transition-colors font-medium">
+                    <button className="flex items-center rounded-lg px-4 py-2.5 text-[0.95rem] font-medium tracking-[0.01em] text-foreground/80 transition-colors hover:bg-accent hover:text-foreground">
                       {item.label}
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </button>
                     {activeDropdown === item.label && (
-                      <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <div className="absolute left-0 top-full z-50 mt-3 w-60 rounded-xl border border-border bg-popover/95 py-2 text-popover-foreground shadow-lg">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.href}
                             href={subItem.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
+                            className="mx-2 block rounded-lg px-3 py-2.5 text-sm tracking-[0.01em] text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
                           >
                             {subItem.label}
                           </Link>
@@ -101,15 +101,15 @@ export function Navbar() {
                 ) : (
                   <Link
                     href={item.href!}
-                    className="text-gray-700 hover:text-primary transition-colors font-medium"
+                    className="rounded-lg px-4 py-2.5 text-[0.95rem] font-medium tracking-[0.01em] text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
                   >
                     {item.label}
                   </Link>
                 )}
               </div>
             ))}
-            <Button variant="gradient" size="sm" onClick={() => window.location.href = '/contact'}>
-              Get Quote
+            <Button asChild variant="gradient" size="sm" className="h-10 px-5 text-[0.9rem] tracking-[0.01em]">
+              <Link href="/contact">Get Quote</Link>
             </Button>
           </div>
 
@@ -118,6 +118,7 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
+              className="h-10 w-10"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -128,19 +129,19 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+            <div className="space-y-1 border-t border-border bg-background px-2 pb-3 pt-2 sm:px-3">
               {navItems.map((item) => (
                 <div key={item.label}>
                   {item.dropdown ? (
                     <div>
-                      <div className="px-3 py-2 text-gray-700 font-medium border-b border-gray-100">
+                      <div className="border-b border-border px-3 py-2 font-medium text-foreground">
                         {item.label}
                       </div>
                       {item.dropdown.map((subItem) => (
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className="block px-6 py-2 text-sm text-gray-600 hover:text-primary transition-colors"
+                          className="block px-6 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                           onClick={() => setIsOpen(false)}
                         >
                           {subItem.label}
@@ -150,7 +151,7 @@ export function Navbar() {
                   ) : (
                     <Link
                       href={item.href!}
-                      className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors font-medium"
+                      className="block px-3 py-2 font-medium text-muted-foreground transition-colors hover:text-foreground"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
@@ -159,8 +160,8 @@ export function Navbar() {
                 </div>
               ))}
               <div className="px-3 py-2">
-                <Button variant="gradient" size="sm" className="w-full" onClick={() => window.location.href = '/contact'}>
-                  Get Quote
+                <Button asChild variant="gradient" size="sm" className="w-full">
+                  <Link href="/contact">Get Quote</Link>
                 </Button>
               </div>
             </div>

@@ -94,7 +94,7 @@ export function DiwaliSocialBanner() {
             </div>
             
             {/* Blessing Message */}
-            <div className="text-center bg-white/15 rounded-xl p-4 backdrop-blur-sm border border-white/20">
+            <div className="text-center bg-white/[0.15] rounded-xl p-4 backdrop-blur-sm border border-white/20">
               <p className="text-lg font-semibold text-white mb-1">
                 Wishing you joy, prosperity & success
               </p>

@@ -53,10 +53,66 @@
   * {
     @apply border-border;
   }
+
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body), "Segoe UI", sans-serif;
+    line-height: 1.72;
+    letter-spacing: 0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), "Segoe UI", sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.14;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4.4vw, 4.7rem);
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-size: clamp(1.65rem, 3.4vw, 3.25rem);
+  }
+
+  h3 {
+    font-size: clamp(1.3rem, 2.2vw, 2.1rem);
+  }
+
+  p {
+    line-height: 1.82;
+    letter-spacing: 0.012em;
+    text-wrap: pretty;
   }
 }
+
+@media (max-width: 640px) {
+  body {
+    letter-spacing: 0.006em;
+  }
+
+  p {
+    line-height: 1.74;
+  }
+}
+
+  html,
+  body {
+    min-height: 100%;
+  }
 
 /* Custom animations */
 @keyframes float {
@@ -70,11 +126,11 @@
 
 /* Gradient backgrounds */
 .gradient-bg {
-  background: linear-gradient(135deg, #004AAD 0%, #00C6AE 100%);
+  background: linear-gradient(135deg, #0557d6 0%, #00a995 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #004AAD 0%, #00C6AE 100%);
+  background: linear-gradient(135deg, #0557d6 0%, #00a995 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -101,3 +157,83 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+/* Dark-mode compatibility layer for legacy hardcoded utility classes */
+.dark .bg-white {
+  background-color: rgb(15 23 42) !important;
+}
+
+.dark .bg-white\/95 {
+  background-color: rgb(15 23 42 / 0.95) !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: rgb(15 23 42) !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: rgb(30 41 59) !important;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  background-color: rgb(30 41 59) !important;
+}
+
+.dark .hover\:bg-gray-100:hover {
+  background-color: rgb(51 65 85) !important;
+}
+
+.dark .text-gray-900 {
+  color: rgb(241 245 249) !important;
+}
+
+.dark .text-gray-800 {
+  color: rgb(226 232 240) !important;
+}
+
+.dark .text-gray-700 {
+  color: rgb(203 213 225) !important;
+}
+
+.dark .text-gray-600 {
+  color: rgb(148 163 184) !important;
+}
+
+.dark .text-gray-500 {
+  color: rgb(148 163 184) !important;
+}
+
+.dark .text-gray-400 {
+  color: rgb(100 116 139) !important;
+}
+
+.dark .border-gray-100 {
+  border-color: rgb(51 65 85) !important;
+}
+
+.dark .border-gray-200 {
+  border-color: rgb(51 65 85) !important;
+}
+
+.dark .border-gray-300 {
+  border-color: rgb(71 85 105) !important;
+}
+
+.dark .hover\:border-gray-200:hover {
+  border-color: rgb(71 85 105) !important;
+}
+
+.dark .from-white {
+  --tw-gradient-from: rgb(15 23 42) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(15 23 42 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.dark .to-white {
+  --tw-gradient-to: rgb(30 41 59) var(--tw-gradient-to-position) !important;
+}
+
+.dark .to-gray-50 {
+  --tw-gradient-to: rgb(30 41 59) var(--tw-gradient-to-position) !important;
+}
+

@@ -23,30 +23,31 @@ export function NewYearBanner({ campaign }: NewYearBannerProps) {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary via-[#0f65cf] to-secondary text-white shadow-lg"
+      className="fixed left-0 right-0 top-0 z-[60] bg-gradient-to-r from-primary via-[#0f65cf] to-secondary text-white shadow-lg"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3">
-          <div className="flex items-center space-x-3">
+        <div className="flex items-center justify-between gap-2 py-2.5 sm:py-3">
+          <div className="flex min-w-0 items-center space-x-2 sm:space-x-3">
             <Sparkles className="h-5 w-5 text-secondary animate-pulse" />
-            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
-              <span className="font-bold text-sm sm:text-base">
+            <div className="flex min-w-0 flex-col sm:flex-row sm:items-center sm:space-x-2">
+              <span className="truncate font-bold text-xs sm:text-base">
                 🎊 {campaign.title}
               </span>
-              <span className="text-xs sm:text-sm text-white/80">
+              <span className="truncate text-[11px] text-white/80 sm:text-sm">
                 Limited time offer ends {campaign.endDate}
               </span>
             </div>
           </div>
           
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <Button
               size="sm"
               variant="gradient"
-              className="font-semibold text-xs sm:text-sm px-3 sm:px-4"
+              className="px-2.5 text-xs font-semibold sm:px-4 sm:text-sm"
               onClick={() => window.location.href = '/new-year-2026'}
             >
-              View Offers
+              <span className="hidden sm:inline">View Offers</span>
+              <span className="sm:hidden">Offers</span>
               <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
             

@@ -19,6 +19,7 @@ export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('services')
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [services, setServices] = useState<any[]>([])
   const [portfolio, setPortfolio] = useState<any[]>([])
   const [reviews, setReviews] = useState<any[]>([])
@@ -131,15 +132,17 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950">
       <AdminSidebar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
         onLogout={handleLogout} 
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
-      <AdminNavbar activeTab={activeTab} />
+      <AdminNavbar activeTab={activeTab} onOpenSidebar={() => setIsSidebarOpen(true)} />
       
-      <div className="ml-64 p-6">
+      <div className="p-4 lg:ml-64 lg:p-6">
         {activeTab === 'services' && (
           <Card>
             <CardHeader>
@@ -211,7 +214,7 @@ export default function AdminDashboard() {
               <CardDescription>Manage scheduled meetings</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
                   <div className="text-2xl font-bold text-blue-600">3</div>
                   <div className="text-sm text-gray-600">Total</div>

@@ -61,7 +61,7 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-32 h-32 bg-secondary/25 rounded-full blur-xl animate-pulse" />
         <div className="absolute bottom-20 right-20 w-40 h-40 bg-primary/25 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 w-60 h-60 bg-secondary/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 w-60 h-60 bg-secondary/[0.15] rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

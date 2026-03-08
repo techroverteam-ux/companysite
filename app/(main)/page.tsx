@@ -5,7 +5,6 @@ import { PortfolioPreview } from '@/components/home/portfolio-preview'
 import { ReviewsPreview } from '@/components/home/reviews-preview'
 import { AboutPreview } from '@/components/home/about-preview'
 import { ClientsCarousel } from '@/components/home/clients-carousel'
-import { MarketingBanner } from '@/components/home/marketing-banner'
 
 import { AutomationBanner } from '@/components/home/automation-banner'
 import { AutomationSection } from '@/components/home/automation-section'
@@ -44,23 +43,25 @@ export default function HomePage() {
     new Date() <= new Date(marketingData.newYear2026Campaign?.endDate)
 
   return (
-    <div className={isNewYear2026Active ? "pt-28" : "pt-16"}>
+    <div className={isNewYear2026Active ? "pt-16" : "pt-0"}>
       <FloatingElements />
       {isNewYear2026Active && <NewYearBanner campaign={marketingData.newYear2026Campaign} />}
       {isPostDiwaliActive && <AutomationBanner campaign={marketingData.postDiwaliCampaign} />}
       <EnhancedHeroSection data={homeData.hero} />
-      <ClientsCarousel clients={homeData.clients} />
-      <ServicesPreview services={homeData.services} />
-      {isPostDiwaliActive && <AutomationSection campaign={marketingData.postDiwaliCampaign} />}
-      <AboutPreview data={aboutData} />
-      <SuccessStories />
-      <UpcomingProducts />
-      <MarketingStrategyShowcase />
-      {isNewYear2026Active && <NewYear2026Campaign campaign={marketingData.newYear2026Campaign} />}
-      <PortfolioPreview projects={portfolioData} />
-      <WorldMap />
-      <EnhancedStatsSection stats={homeData.stats} />
-      <ReviewsPreview reviews={reviewsData} />
+      <div className="space-y-20 pb-20 sm:space-y-24 sm:pb-24 lg:space-y-28">
+        <ClientsCarousel clients={homeData.clients} />
+        <ServicesPreview services={homeData.services} />
+        {isPostDiwaliActive && <AutomationSection campaign={marketingData.postDiwaliCampaign} />}
+        <AboutPreview data={aboutData} />
+        <SuccessStories />
+        <UpcomingProducts />
+        <MarketingStrategyShowcase />
+        {isNewYear2026Active && <NewYear2026Campaign campaign={marketingData.newYear2026Campaign} />}
+        <PortfolioPreview projects={portfolioData} />
+        <WorldMap />
+        <EnhancedStatsSection stats={homeData.stats} />
+        <ReviewsPreview reviews={reviewsData} />
+      </div>
       <TechyBot />
     </div>
   )

@@ -619,7 +619,7 @@ Learn more: /about | Meet our team: /team`
   return (
     <>
       <motion.div
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
@@ -650,12 +650,12 @@ Learn more: /about | Meet our team: /team`
               initial={{ opacity: 0, y: 10, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.8 }}
-              className="absolute bottom-20 -left-80 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg shadow-lg p-3 w-72"
+              className="absolute bottom-20 right-0 w-64 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 p-3 shadow-lg sm:w-72"
             >
               <div className="text-sm text-white">
                 {messages[0]?.text}
               </div>
-              <div className="absolute -bottom-2 right-8 w-0 h-0 border-l-4 border-r-4 border-t-8 border-l-transparent border-r-transparent border-t-purple-600" />
+              <div className="absolute -bottom-2 right-6 h-0 w-0 border-l-4 border-r-4 border-t-8 border-l-transparent border-r-transparent border-t-purple-600" />
             </motion.div>
           )}
         </div>
@@ -667,7 +667,7 @@ Learn more: /about | Meet our team: /team`
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
-            className="fixed bottom-6 right-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl border z-50 flex flex-col"
+            className="fixed bottom-4 right-4 z-50 flex h-[78vh] w-[calc(100vw-2rem)] max-w-[24rem] flex-col rounded-lg border bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-950 sm:bottom-6 sm:right-6 sm:h-[500px]"
           >
             <div className="gradient-bg text-white p-4 rounded-t-lg flex items-center justify-between">
               <div className="flex items-center">
@@ -702,8 +702,8 @@ Learn more: /about | Meet our team: /team`
                       message.sender === 'user'
                         ? 'bg-primary text-white'
                         : message.sender === 'human'
-                        ? 'bg-green-100 text-green-800 border border-green-200'
-                        : 'bg-gray-100 text-gray-800'
+                        ? 'border border-green-200 bg-green-100 text-green-800 dark:border-green-900 dark:bg-green-950 dark:text-green-200'
+                        : 'bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-slate-100'
                     }`}
                   >
                     <p className="text-sm">{message.text}</p>
@@ -716,11 +716,11 @@ Learn more: /about | Meet our team: /team`
               
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-gray-100 p-3 rounded-lg">
+                  <div className="rounded-lg bg-gray-100 p-3 dark:bg-slate-800">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-slate-400"></div>
+                      <div className="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-slate-400" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-slate-400" style={{ animationDelay: '0.2s' }}></div>
                     </div>
                   </div>
                 </div>
@@ -728,9 +728,9 @@ Learn more: /about | Meet our team: /team`
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="p-4 border-t">
+            <div className="border-t p-4 dark:border-slate-700">
               {uploadedFiles.length > 0 && (
-                <div className="mb-3 p-2 bg-blue-50 rounded text-xs">
+                <div className="mb-3 rounded bg-blue-50 p-2 text-xs dark:bg-blue-950/60 dark:text-blue-100">
                   Files: {uploadedFiles.map(f => f.name).join(', ')}
                 </div>
               )}
@@ -743,7 +743,7 @@ Learn more: /about | Meet our team: /team`
                         key={code}
                         onClick={() => setCurrentLanguage(code)}
                         className={`px-2 py-1 text-xs rounded ${
-                          currentLanguage === code ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'
+                          currentLanguage === code ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 dark:bg-slate-800 dark:text-slate-300'
                         }`}
                       >
                         {lang.name}

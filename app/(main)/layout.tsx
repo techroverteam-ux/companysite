@@ -7,10 +7,10 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Navbar />
-      {children}
+      <div className="flex-1">{children}</div>
       <Footer />
-    </>
+    </div>
   )
 }

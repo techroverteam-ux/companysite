@@ -1,8 +1,8 @@
 'use client'
 
 import { 
-  LayoutDashboard, Users, MessageSquare, Calendar, Settings, 
-  Briefcase, Star, Building2, Package, LogOut, FileText 
+  Users, MessageSquare, Calendar, Settings, 
+  Briefcase, Star, Building2, Package, LogOut, FileText, X
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -10,6 +10,8 @@ interface SidebarProps {
   activeTab: string
   setActiveTab: (tab: string) => void
   onLogout: () => void
+  isOpen: boolean
+  onClose: () => void
 }
 
 const menuItems = [
@@ -24,11 +26,33 @@ const menuItems = [
   { id: 'settings', label: 'Settings', icon: Settings },
 ]
 
-export function AdminSidebar({ activeTab, setActiveTab, onLogout }: SidebarProps) {
+export function AdminSidebar({ activeTab, setActiveTab, onLogout, isOpen, onClose }: SidebarProps) {
   return (
-    <div className="w-64 bg-slate-900 border-r border-slate-700 h-screen fixed left-0 top-0 z-20">
-      <div className="p-6 border-b">
+    <>
+      {isOpen && (
+        <button
+          type="button"
+          className="fixed inset-0 z-30 bg-slate-950/50 backdrop-blur-sm lg:hidden"
+          onClick={onClose}
+          aria-label="Close sidebar"
+        />
+      )}
+      <aside
+        className={`fixed left-0 top-0 z-40 h-screen w-64 border-r border-slate-700 bg-slate-900 transition-transform duration-300 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } lg:translate-x-0`}
+      >
+      <div className="flex items-center justify-between border-b p-6 lg:block">
         <h2 className="text-xl font-bold text-white">TechRover Admin</h2>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-slate-300 hover:bg-slate-800 hover:text-white lg:hidden"
+          onClick={onClose}
+          aria-label="Close menu"
+        >
+          <X className="h-5 w-5" />
+        </Button>
       </div>
       
       <nav className="mt-6">
@@ -37,7 +61,10 @@ export function AdminSidebar({ activeTab, setActiveTab, onLogout }: SidebarProps
           return (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => {
+                setActiveTab(item.id)
+                onClose()
+              }}
               className={`w-full flex items-center px-6 py-3 text-left hover:bg-slate-800 ${
                 activeTab === item.id ? 'bg-blue-600 text-white' : 'text-slate-300'
               }`}
@@ -55,6 +82,7 @@ export function AdminSidebar({ activeTab, setActiveTab, onLogout }: SidebarProps
           Logout
         </Button>
       </div>
-    </div>
+      </aside>
+    </>
   )
 }
