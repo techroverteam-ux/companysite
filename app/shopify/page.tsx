@@ -43,33 +43,32 @@ export default function ShopifyPage() {
       <Navbar />
       <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 gradient-bg text-white relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-xl animate-float" />
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-white/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }} />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <section className="bg-muted/50 py-12 sm:py-16 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              E-COMMERCE
+            </div>
             <div className="flex items-center justify-center mb-6">
-              <ShoppingCart className="h-16 w-16 mr-4" />
-              <h1 className="text-4xl md:text-6xl font-bold">
-                Shopify Development
+              <ShoppingCart className="h-12 w-12 mr-4 text-primary" />
+              <h1 className="text-4xl font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl">
+                Shopify <span className="gradient-text">Development</span>
               </h1>
             </div>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-8">
+            <p className="mx-auto mt-3 max-w-4xl text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl">
               Transform your e-commerce business with custom Shopify stores and seamless WordPress migrations
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" onClick={() => window.location.href = '/contact'}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+              <Button size="lg" variant="gradient" onClick={() => window.location.href = '/contact'}>
                 Get Free Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+              <Button size="lg" variant="outline">
                 View Portfolio
               </Button>
             </div>
@@ -78,19 +77,19 @@ export default function ShopifyPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="gradient-text">Shopify Services</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               From custom development to seamless migrations, we've got your Shopify needs covered
             </p>
           </motion.div>
@@ -102,8 +101,8 @@ export default function ShopifyPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
+                viewport={{ once: true, margin: "-100px" }}
+                whileHover={{ y: -4 }}
               >
                 <Card className="h-full border-2 border-primary/20 hover:border-primary/40 transition-all duration-300">
                   <CardHeader className="text-center">
@@ -114,7 +113,7 @@ export default function ShopifyPage() {
                     <div className="text-3xl font-bold gradient-text">{service.price}</div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-6">{service.description}</p>
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
                     <ul className="space-y-3 mb-6">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center">
@@ -135,19 +134,19 @@ export default function ShopifyPage() {
       </section>
 
       {/* Migration Process */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               WordPress to Shopify <span className="gradient-text">Migration Process</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Our proven 6-step process ensures a smooth transition with zero downtime
             </p>
           </motion.div>
@@ -159,7 +158,7 @@ export default function ShopifyPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
                 className="text-center"
               >
                 <div className="relative mb-4">
@@ -171,7 +170,7 @@ export default function ShopifyPage() {
                   )}
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-600">{step.description}</p>
+                <p className="text-sm text-muted-foreground">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -179,14 +178,14 @@ export default function ShopifyPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Why Choose <span className="gradient-text">TechRover</span> for Shopify?
@@ -205,14 +204,14 @@ export default function ShopifyPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
                 className="text-center"
               >
                 <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <item.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <p className="text-muted-foreground">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -220,26 +219,26 @@ export default function ShopifyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-12 sm:py-16 bg-muted/50">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.75 }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Launch Your Shopify Store?
             </h2>
-            <p className="text-xl mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               Get a free consultation and quote for your Shopify project today
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" onClick={() => window.location.href = '/contact'}>
+              <Button size="lg" variant="gradient" onClick={() => window.location.href = '/contact'}>
                 Get Free Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" onClick={() => window.location.href = '/schedule'}>
+              <Button size="lg" variant="outline" onClick={() => window.location.href = '/schedule'}>
                 Schedule Call
               </Button>
             </div>

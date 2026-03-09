@@ -28,17 +28,21 @@ export default function ServicesPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our Services
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              WHAT WE DO
+            </div>
+            <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl">
+              Our <span className="gradient-text">Services</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-white/90">
+            <p className="mx-auto mt-5 max-w-4xl text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl">
               Comprehensive technology solutions designed to transform your business and drive sustainable growth
             </p>
           </motion.div>
@@ -46,9 +50,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-8">
             {Array.isArray(servicesData) && servicesData.map((service, index) => {
               const Icon = iconMap[service?.icon as keyof typeof iconMap] || Code
               return (
@@ -57,12 +61,12 @@ export default function ServicesPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-100px" }}
                 >
                   <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div className="grid lg:grid-cols-3 gap-0">
                       {/* Service Image */}
-                      <div className="relative h-64 lg:h-auto">
+                      <div className="relative h-48 sm:h-56 lg:h-auto">
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 z-10" />
                         <Image
                           src={service.image || '/images/services/default-service.jpg'}
@@ -81,14 +85,14 @@ export default function ServicesPage() {
                       </div>
 
                       {/* Service Details */}
-                      <CardHeader className="p-8 lg:col-span-1">
+                      <CardHeader className="p-5 sm:p-8 lg:col-span-1">
                         <div className="mb-4">
                           <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
                           <div className="text-sm text-secondary font-semibold">
                             Starting from {service.startingPrice}
                           </div>
                         </div>
-                        <CardDescription className="text-gray-600 text-lg mb-6">
+                        <CardDescription className="text-muted-foreground text-lg mb-6">
                           {service.description}
                         </CardDescription>
                         <Button variant="gradient" className="w-fit" onClick={() => window.location.href = '/contact'}>
@@ -98,13 +102,13 @@ export default function ServicesPage() {
                       </CardHeader>
                       
                       {/* Service Features */}
-                      <CardContent className="p-8 bg-gray-50 lg:col-span-1">
+                      <CardContent className="p-5 sm:p-8 bg-muted/40 lg:col-span-1">
                         <h4 className="font-semibold text-lg mb-4">What's Included:</h4>
                         <ul className="space-y-3 mb-6">
                           {Array.isArray(service.subServices) && service.subServices.map((subService, idx) => (
                             <li key={idx} className="flex items-center">
                               <CheckCircle className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
-                              <span className="text-gray-700 text-sm">{subService}</span>
+                              <span className="text-foreground/80 text-sm">{subService}</span>
                             </li>
                           ))}
                         </ul>
@@ -131,18 +135,18 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-12 sm:py-16 bg-muted/50">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               Let's discuss your project and create a custom solution that drives results
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

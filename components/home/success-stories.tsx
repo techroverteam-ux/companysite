@@ -73,24 +73,30 @@ const getIcon = (iconType: string) => {
 
 export function SuccessStories() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-16 lg:py-20 bg-muted/50">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-14 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+            CASE STUDIES
+          </div>
+
+          <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             Our <span className="gradient-text">Success Stories</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how we've helped businesses across industries achieve their digital transformation goals
+
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-[1.85] text-muted-foreground sm:text-lg">
+            Discover how we&apos;ve helped businesses across industries achieve their digital transformation goals
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {successStories.map((story, index) => {
             const IconComponent = getIcon(story.icon)
             
@@ -100,10 +106,10 @@ export function SuccessStories() {
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                viewport={{ once: true, margin: "-100px" }}
+                whileHover={{ y: -4, transition: { duration: 0.3 } }}
               >
-                <Card className="h-full overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm">
+                <Card className="h-full overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0 bg-card/80 backdrop-blur-sm">
                   <div className="h-48 bg-gradient-to-br from-primary via-purple-500 to-secondary relative overflow-hidden">
                     <div className="absolute inset-0 bg-black/20" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -149,12 +155,12 @@ export function SuccessStories() {
                       {story.title}
                     </h3>
                     <p className="text-primary font-medium mb-2">{story.company}</p>
-                    <p className="text-gray-600 mb-4 line-clamp-3">
+                    <p className="text-muted-foreground mb-4 line-clamp-3">
                       {story.description}
                     </p>
                     
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-700 mb-2">Services Provided:</h4>
+                      <h4 className="text-sm font-semibold text-foreground/80 mb-2">Services Provided:</h4>
                       <div className="flex flex-wrap gap-2">
                         {story.services.map((service, idx) => (
                           <motion.span
@@ -171,7 +177,7 @@ export function SuccessStories() {
                     </div>
 
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-700 mb-2">Platforms:</h4>
+                      <h4 className="text-sm font-semibold text-foreground/80 mb-2">Platforms:</h4>
                       <div className="flex flex-wrap gap-2">
                         {story.platforms.map((platform, idx) => (
                           <span
@@ -184,7 +190,7 @@ export function SuccessStories() {
                       </div>
                     </div>
 
-                    <div className="border-t pt-4">
+                    <div className="border-t border-border pt-4">
                       <Button
                         variant="outline"
                         size="sm"
@@ -206,10 +212,10 @@ export function SuccessStories() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mt-12"
         >
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-muted-foreground mb-6">
             Ready to become our next success story?
           </p>
           <Button 

@@ -108,20 +108,24 @@ export default function HireTeamPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              BUILD YOUR TEAM
+            </div>
             <div className="flex items-center justify-center mb-6">
-              <Users className="h-16 w-16 mr-4" />
-              <h1 className="text-4xl md:text-6xl font-bold">
-                Hire Your Dream Team
+              <Users className="h-12 w-12 mr-4 text-primary" />
+              <h1 className="text-4xl font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl">
+                Hire Your <span className="gradient-text">Dream Team</span>
               </h1>
             </div>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-8">
+            <p className="mx-auto mt-3 max-w-4xl text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl">
               Get access to our network of 50+ skilled developers, designers, and tech experts for your project
             </p>
           </motion.div>
@@ -129,37 +133,41 @@ export default function HireTeamPage() {
       </section>
 
       {/* Team Roles Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-10 sm:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              TEAM MEMBERS
+            </div>
+            <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl mb-4">
               Choose Your <span className="gradient-text">Team Members</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base leading-[1.85] text-muted-foreground sm:text-lg max-w-3xl mx-auto">
               Select from our pool of experienced developers and designers
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {teamRoles.map((member, index) => (
               <motion.div
                 key={member.role}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <Card 
                   className={`cursor-pointer transition-all duration-300 ${
                     selectedRoles.includes(member.role) 
                       ? 'border-primary bg-primary/5 shadow-lg' 
-                      : 'border-gray-200 hover:border-primary/50'
+                      : 'border-border hover:border-primary/50'
                   }`}
                   onClick={() => toggleRole(member.role)}
                 >
@@ -171,7 +179,7 @@ export default function HireTeamPage() {
                         </div>
                         <div>
                           <CardTitle className="text-lg">{member.role}</CardTitle>
-                          <div className="text-sm text-gray-500">{member.experience}</div>
+                          <div className="text-sm text-muted-foreground">{member.experience}</div>
                         </div>
                       </div>
                       {selectedRoles.includes(member.role) && (
@@ -182,10 +190,10 @@ export default function HireTeamPage() {
                   <CardContent>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-sm font-medium text-gray-700 mb-1">Skills:</div>
+                        <div className="text-sm font-medium text-foreground/80 mb-1">Skills:</div>
                         <div className="flex flex-wrap gap-1">
                           {member.skills.slice(0, 3).map(skill => (
-                            <span key={skill} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
+                            <span key={skill} className="px-2 py-1 bg-muted text-foreground/80 rounded text-xs">
                               {skill}
                             </span>
                           ))}
@@ -193,11 +201,11 @@ export default function HireTeamPage() {
                       </div>
                       <div className="flex justify-between items-center">
                         <div>
-                          <div className="text-sm text-gray-500">Hourly Rate</div>
+                          <div className="text-sm text-muted-foreground">Hourly Rate</div>
                           <div className="font-semibold text-primary">{member.hourlyRate}</div>
                         </div>
                         <div className="text-right">
-                          <div className="text-sm text-gray-500">Available</div>
+                          <div className="text-sm text-muted-foreground">Available</div>
                           <div className="font-semibold text-green-600">{member.available} devs</div>
                         </div>
                       </div>
@@ -211,14 +219,14 @@ export default function HireTeamPage() {
       </section>
 
       {/* Request Form */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-muted/40">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-8"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Tell Us About Your <span className="gradient-text">Project</span>
@@ -226,9 +234,9 @@ export default function HireTeamPage() {
           </motion.div>
 
           <Card>
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+            <CardContent className="p-5 sm:p-8">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <Label htmlFor="projectTitle">Project Title</Label>
                     <Input
@@ -263,7 +271,7 @@ export default function HireTeamPage() {
                   />
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   <div>
                     <Label htmlFor="contactName">Your Name</Label>
                     <Input

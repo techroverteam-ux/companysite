@@ -12,16 +12,16 @@ export default function TeamMemberPage() {
   const member = teamData.find(m => m.id === params.id)
 
   if (!member) {
-    return <div className="pt-16 text-center py-20">Team member not found</div>
+    return <div className="pt-16 text-center py-12">Team member not found</div>
   }
 
   return (
     <div className="pt-16">
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
           <Button 
             variant="ghost" 
-            className="text-white hover:bg-white/10 mb-6"
+            className="mb-6"
             onClick={() => window.history.back()}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -29,20 +29,20 @@ export default function TeamMemberPage() {
           </Button>
           
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">{member.name.charAt(0)}</span>
+            <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center">
+              <span className="text-4xl font-bold gradient-text">{member.name.charAt(0)}</span>
             </div>
             <div className="text-center md:text-left">
-              <h1 className="text-4xl font-bold mb-2">{member.name}</h1>
-              <p className="text-xl text-white/90 mb-4">{member.role}</p>
-              <p className="text-white/80 max-w-2xl">{member.bio}</p>
+              <h1 className="text-4xl font-bold tracking-[-0.03em] sm:text-5xl mb-2">{member.name}</h1>
+              <p className="text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl mb-4">{member.role}</p>
+              <p className="text-muted-foreground max-w-2xl">{member.bio}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -60,11 +60,11 @@ export default function TeamMemberPage() {
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-gray-800">Education</h4>
-                      <p className="text-gray-600">{member.education}</p>
+                      <p className="text-muted-foreground">{member.education}</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-800">Experience</h4>
-                      <p className="text-gray-600">{member.experience}</p>
+                      <p className="text-muted-foreground">{member.experience}</p>
                     </div>
                   </div>
                 </CardContent>

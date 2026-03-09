@@ -20,18 +20,12 @@ interface DiwaliOffersProps {
 export function DiwaliOffers({ campaign }: DiwaliOffersProps) {
   return (
     <section className="py-20 bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-orange-200/30 rounded-full blur-xl animate-float" />
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-yellow-200/30 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }} />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-4">
@@ -45,7 +39,7 @@ export function DiwaliOffers({ campaign }: DiwaliOffersProps) {
             Celebrate the festival of lights with amazing discounts on all our services
           </p>
           
-          <div className="flex items-center justify-center mt-6 bg-red-100 text-red-800 px-4 py-2 rounded-full inline-flex">
+          <div className="flex items-center justify-center mt-6 bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200 px-4 py-2 rounded-full inline-flex">
             <Clock className="h-4 w-4 mr-2" />
             <span className="font-medium">Offer valid till November 5th, 2025</span>
           </div>
@@ -58,7 +52,7 @@ export function DiwaliOffers({ campaign }: DiwaliOffersProps) {
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
               <Card className="h-full border-2 border-orange-200 hover:border-orange-400 transition-all duration-300 bg-white/80 backdrop-blur-sm">
@@ -99,7 +93,7 @@ export function DiwaliOffers({ campaign }: DiwaliOffersProps) {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <Card className="bg-gradient-to-r from-orange-500 to-red-600 text-white border-0">
             <CardContent className="p-8">
@@ -115,7 +109,7 @@ export function DiwaliOffers({ campaign }: DiwaliOffersProps) {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 * index }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "-100px" }}
                     className="flex items-center"
                   >
                     <CheckCircle className="h-5 w-5 text-yellow-300 mr-3 flex-shrink-0" />

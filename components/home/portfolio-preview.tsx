@@ -41,20 +41,26 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
   const featuredProjects = Array.isArray(projects) ? projects.slice(0, 3) : []
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-16 lg:py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-10 sm:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+            OUR WORK
+          </div>
+
+          <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how we've helped businesses transform through innovative technology solutions
+
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-[1.85] text-muted-foreground sm:text-lg">
+            Discover how we&apos;ve helped businesses transform through innovative technology solutions
           </p>
         </motion.div>
 
@@ -65,10 +71,10 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
             >
-              <Card className="h-full overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm">
+              <Card className="h-full overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0 bg-card/80 backdrop-blur-sm">
                 <div className="h-48 bg-gradient-to-br from-primary via-[#0f65cf] to-secondary relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/20" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -102,7 +108,7 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
                   <h3 className="text-xl font-bold mb-2 group-hover:gradient-text transition-all duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">
+                  <p className="text-muted-foreground mb-4 line-clamp-2">
                     {project.description}
                   </p>
                   
@@ -120,16 +126,16 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
                     ))}
                   </div>
 
-                  <div className="border-t pt-4">
+                  <div className="border-t border-border pt-4">
                     <div className="flex items-center mb-2">
                       <div className="flex text-yellow-400">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="h-3 w-3 fill-current" />
                         ))}
                       </div>
-                      <span className="ml-2 text-sm text-gray-500">{project.clientCountry}</span>
+                      <span className="ml-2 text-sm text-muted-foreground">{project.clientCountry}</span>
                     </div>
-                    <p className="text-sm text-gray-600 italic line-clamp-2">
+                    <p className="text-sm text-muted-foreground italic line-clamp-2">
                       "{project.review}"
                     </p>
                     <p className="text-sm font-medium mt-1">- {project.clientName}</p>
@@ -144,7 +150,7 @@ export function PortfolioPreview({ projects }: PortfolioPreviewProps) {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mt-12"
         >
           <Link href="/portfolio">

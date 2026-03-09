@@ -13,24 +13,36 @@ export default function MigrationPage() {
     <>
       <Navbar />
       <div className="pt-16">
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">{migrationData.hero.title}</h1>
-            <p className="text-xl md:text-2xl mb-4">{migrationData.hero.subtitle}</p>
-            <p className="text-lg text-white/90 max-w-4xl mx-auto">{migrationData.hero.description}</p>
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              MIGRATION
+            </div>
+            <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl">
+              {migrationData.hero.title}
+            </h1>
+            <p className="mx-auto mt-3 max-w-4xl text-lg font-medium text-foreground sm:text-xl">{migrationData.hero.subtitle}</p>
+            <p className="mx-auto mt-3 max-w-4xl text-base leading-[1.85] text-muted-foreground sm:text-lg">{migrationData.hero.description}</p>
           </motion.div>
         </div>
       </section>
 
       {/* Migration Strategies */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Migration Strategies</h2>
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="text-center mb-10 sm:mb-12">
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              STRATEGIES
+            </div>
+            <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">Migration <span className="gradient-text">Strategies</span></h2>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {migrationData.strategies.map((strategy, index) => (
               <motion.div
@@ -38,12 +50,12 @@ export default function MigrationPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
-                <Card className="h-full hover:shadow-xl transition-shadow">
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300">
                   <CardHeader>
                     <CardTitle className="gradient-text">{strategy.name}</CardTitle>
-                    <p className="text-gray-600">{strategy.description}</p>
+                    <p className="text-muted-foreground">{strategy.description}</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -67,7 +79,7 @@ export default function MigrationPage() {
                         </ul>
                       </div>
                       <div className="pt-4 border-t">
-                        <p className="text-sm text-gray-600 mb-4">Best for: {strategy.bestFor}</p>
+                        <p className="text-sm text-muted-foreground mb-4">Best for: {strategy.bestFor}</p>
                         <Button variant="gradient" className="w-full" onClick={() => window.location.href = '/contact'}>
                           Choose This Strategy
                         </Button>
@@ -82,9 +94,15 @@ export default function MigrationPage() {
       </section>
 
       {/* Technology Migrations */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Technology Migrations We Handle</h2>
+      <section className="py-12 sm:py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="text-center mb-10 sm:mb-12">
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              TECHNOLOGIES
+            </div>
+            <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">Technology Migrations We <span className="gradient-text">Handle</span></h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-6">
             {migrationData.technologies.map((tech, index) => (
               <motion.div
@@ -92,7 +110,7 @@ export default function MigrationPage() {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <Card>
                   <CardContent className="p-6">
@@ -121,9 +139,15 @@ export default function MigrationPage() {
       </section>
 
       {/* Migration Process */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Migration Process</h2>
+      <section className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="text-center mb-10 sm:mb-12">
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              PROCESS
+            </div>
+            <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">Our Migration <span className="gradient-text">Process</span></h2>
+          </div>
           <div className="space-y-8">
             {migrationData.process.map((step, index) => (
               <motion.div
@@ -131,7 +155,7 @@ export default function MigrationPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
                 className="flex items-start"
               >
                 <div className="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white font-bold mr-6 flex-shrink-0">
@@ -139,7 +163,7 @@ export default function MigrationPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-gray-600 mb-2">{step.description}</p>
+                  <p className="text-muted-foreground mb-2">{step.description}</p>
                   <span className="text-sm text-secondary font-medium">Duration: {step.duration}</span>
                 </div>
               </motion.div>
@@ -149,11 +173,11 @@ export default function MigrationPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Modernize Your Systems?</h2>
-          <p className="text-xl mb-8">Get a free migration assessment and cost estimate</p>
-          <Button size="lg" variant="secondary" onClick={() => window.location.href = '/contact'}>
+      <section className="py-12 sm:py-16 bg-muted/50">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
+          <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl mb-6">Ready to Modernize Your <span className="gradient-text">Systems</span>?</h2>
+          <p className="text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl mb-8">Get a free migration assessment and cost estimate</p>
+          <Button size="lg" variant="gradient" onClick={() => window.location.href = '/contact'}>
             Get Free Assessment
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

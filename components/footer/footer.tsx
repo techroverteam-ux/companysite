@@ -4,18 +4,18 @@ import { ThemeToggle } from '@/components/ui/theme-toggle'
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-border bg-muted/30 text-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="border-t border-border bg-muted/30 text-foreground">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 sm:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#0557d6] to-[#00a995] shadow-sm">
                 <span className="text-white font-bold text-lg">T</span>
               </div>
               <span className="text-xl font-bold tracking-tight">Techrover</span>
             </div>
-            <p className="mb-4 max-w-md text-muted-foreground">
+            <p className="mb-4 max-w-md text-sm sm:text-base text-muted-foreground">
               Global technology partner delivering cutting-edge AI, ERP, Web Development, 
               and Digital Marketing solutions to businesses worldwide.
             </p>
@@ -51,8 +51,8 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-secondary" />
-                <span className="text-muted-foreground">hello@techrover.co.in</span>
+                <Mail className="h-4 w-4 text-secondary flex-shrink-0" />
+                <span className="text-muted-foreground text-sm sm:text-base break-all">hello@techrover.co.in</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-secondary" />
@@ -66,7 +66,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border pt-8 text-center">
+        <div className="mt-6 border-t border-border pt-6 text-center">
           <p className="text-muted-foreground">
             © 2025 Techrover. All rights reserved. | 
             <Link href="/privacy-policy" className="transition-colors hover:text-foreground"> Privacy Policy</Link> | 

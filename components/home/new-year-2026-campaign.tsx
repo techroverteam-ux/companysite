@@ -58,30 +58,30 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
   return (
     <section className="py-20 bg-gradient-to-br from-[#02224f] via-[#004AAD] to-[#00A892] relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-secondary/25 rounded-full blur-xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-primary/25 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 w-60 h-60 bg-secondary/[0.15] rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 sm:left-20 w-20 h-20 sm:w-32 sm:h-32 bg-secondary/25 rounded-full blur-xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 sm:right-20 w-24 h-24 sm:w-40 sm:h-40 bg-primary/25 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 w-32 h-32 sm:w-60 sm:h-60 bg-secondary/[0.15] rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="flex items-center justify-center mb-6">
-            <Sparkles className="h-8 w-8 text-secondary mr-3 animate-spin" />
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <div className="flex items-center justify-center mb-4 sm:mb-6">
+            <Sparkles className="h-5 w-5 sm:h-8 sm:w-8 text-secondary mr-2 sm:mr-3 animate-spin" />
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white">
               {campaign.title}
             </h2>
-            <Sparkles className="h-8 w-8 text-secondary ml-3 animate-spin" />
+            <Sparkles className="h-5 w-5 sm:h-8 sm:w-8 text-secondary ml-2 sm:ml-3 animate-spin" />
           </div>
           
-          <p className="text-xl text-gray-200 max-w-4xl mx-auto mb-8">
+          <p className="text-base sm:text-xl text-gray-200 max-w-4xl mx-auto mb-6 sm:mb-8">
             {campaign.subtitle}
           </p>
 
@@ -97,13 +97,13 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-10 sm:mb-16"
         >
-          <h3 className="text-2xl font-bold text-white text-center mb-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-6 sm:mb-8">
             🚀 Revolutionary 2026 Innovations
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {campaign.uniqueFeatures.map((feature, index) => {
               const IconComponent = getIcon(feature.icon)
               return (
@@ -112,7 +112,7 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-100px" }}
                   whileHover={{ y: -5, transition: { duration: 0.3 } }}
                 >
                   <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white h-full">
@@ -131,15 +131,15 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
         </motion.div>
 
         {/* New Year Offers */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-16">
           {campaign.offers.map((offer, index) => (
             <motion.div
               key={offer.title}
               initial={{ opacity: 0, y: 30, rotateY: -15 }}
               whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.3 } }}
             >
               <Card className="h-full bg-white/95 backdrop-blur-sm border-2 border-secondary/50 hover:border-secondary transition-all duration-300 relative overflow-hidden">
                 {/* Badge */}
@@ -152,7 +152,7 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
                     <Gift className="h-8 w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl text-gray-800">{offer.title}</CardTitle>
-                  <p className="text-gray-600 text-sm">{offer.description}</p>
+                  <p className="text-muted-foreground text-sm">{offer.description}</p>
                 </CardHeader>
 
                 <CardContent className="text-center">
@@ -174,7 +174,7 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
                     <h4 className="font-semibold text-gray-800 mb-3">What's Included:</h4>
                     <ul className="space-y-2">
                       {offer.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center text-sm text-gray-600">
+                        <li key={idx} className="flex items-center text-sm text-muted-foreground">
                           <Star className="h-4 w-4 text-secondary mr-2 flex-shrink-0" />
                           {feature}
                         </li>
@@ -201,10 +201,10 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <Card className="bg-gradient-to-r from-primary via-[#0f65cf] to-secondary text-white border-0">
-            <CardContent className="p-8 text-center">
+            <CardContent className="p-5 sm:p-8 text-center">
               <h3 className="text-3xl font-bold mb-4">
                 🎊 Ready to Transform Your Business in 2026?
               </h3>
@@ -215,7 +215,7 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button 
                   size="lg" 
-                  className="bg-white text-primary hover:bg-gray-100 font-bold px-8 py-4"
+                  variant="secondary"
                   onClick={() => window.location.href = '/contact?campaign=newyear2026'}
                 >
                   <Rocket className="mr-2 h-5 w-5" />
@@ -225,7 +225,6 @@ export function NewYear2026Campaign({ campaign }: NewYear2026CampaignProps) {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary font-bold px-8 py-4"
                   onClick={() => window.location.href = '/schedule'}
                 >
                   <Calendar className="mr-2 h-5 w-5" />

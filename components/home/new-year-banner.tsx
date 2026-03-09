@@ -25,15 +25,15 @@ export function NewYearBanner({ campaign }: NewYearBannerProps) {
       transition={{ duration: 0.5 }}
       className="fixed left-0 right-0 top-0 z-[60] bg-gradient-to-r from-primary via-[#0f65cf] to-secondary text-white shadow-lg"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-2 py-2.5 sm:py-3">
           <div className="flex min-w-0 items-center space-x-2 sm:space-x-3">
             <Sparkles className="h-5 w-5 text-secondary animate-pulse" />
             <div className="flex min-w-0 flex-col sm:flex-row sm:items-center sm:space-x-2">
-              <span className="truncate font-bold text-xs sm:text-base">
+              <span className="truncate font-bold text-sm sm:text-base">
                 🎊 {campaign.title}
               </span>
-              <span className="truncate text-[11px] text-white/80 sm:text-sm">
+              <span className="truncate text-xs text-white/80 sm:text-sm">
                 Limited time offer ends {campaign.endDate}
               </span>
             </div>

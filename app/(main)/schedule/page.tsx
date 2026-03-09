@@ -65,22 +65,30 @@ export default function SchedulePage() {
         isVisible={toast.isVisible}
         onClose={() => setToast({ ...toast, isVisible: false })}
       />
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Calendar className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Schedule a Call</h1>
-            <p className="text-xl">Book a free consultation with our experts</p>
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              BOOK A MEETING
+            </div>
+            <Calendar className="h-16 w-16 mx-auto mb-6 text-primary" />
+            <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold tracking-[-0.03em] sm:text-5xl">
+              Schedule a <span className="gradient-text">Call</span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-4xl text-base leading-[1.85] text-muted-foreground sm:text-lg">
+              Book a free consultation with our experts
+            </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
           {step === 1 && (
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -98,11 +106,11 @@ export default function SchedulePage() {
                         key={type.id}
                         onClick={() => setSelectedType(type.id)}
                         className={`p-4 border rounded-lg cursor-pointer transition-all ${
-                          selectedType === type.id ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-primary/50'
+                          selectedType === type.id ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
                         }`}
                       >
                         <h3 className="font-semibold">{type.name}</h3>
-                        <p className="text-sm text-gray-600 mb-2">{type.description}</p>
+                        <p className="text-sm text-muted-foreground mb-2">{type.description}</p>
                         <div className="flex items-center text-sm text-secondary">
                           <Clock className="h-4 w-4 mr-1" />
                           {type.duration}
@@ -158,7 +166,7 @@ export default function SchedulePage() {
                               className={`p-2 text-sm border rounded transition-all ${
                                 selectedTime === time 
                                   ? 'border-primary bg-primary text-white' 
-                                  : 'border-gray-200 hover:border-primary'
+                                  : 'border-border hover:border-primary'
                               }`}
                             >
                               {time}
@@ -255,9 +263,9 @@ export default function SchedulePage() {
                       />
                     </div>
 
-                    <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="bg-muted/50 p-4 rounded-lg">
                       <h4 className="font-semibold mb-2">Meeting Summary:</h4>
-                      <div className="space-y-1 text-sm text-gray-600">
+                      <div className="space-y-1 text-sm text-muted-foreground">
                         <p><strong>Type:</strong> {Array.isArray(scheduleData.meetingTypes) ? scheduleData.meetingTypes.find(t => t.id === selectedType)?.name : 'N/A'}</p>
                         <p><strong>Date:</strong> {new Date(selectedDate).toLocaleDateString()}</p>
                         <p><strong>Time:</strong> {selectedTime}</p>

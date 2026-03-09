@@ -51,7 +51,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
@@ -129,29 +129,37 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="space-y-1 border-t border-border bg-background px-2 pb-3 pt-2 sm:px-3">
+            <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-border bg-background px-2 pb-4 pt-2 sm:px-3">
               {navItems.map((item) => (
                 <div key={item.label}>
                   {item.dropdown ? (
                     <div>
-                      <div className="border-b border-border px-3 py-2 font-medium text-foreground">
+                      <button
+                        className="flex w-full items-center justify-between px-3 py-3 font-medium text-foreground"
+                        onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                      >
                         {item.label}
-                      </div>
-                      {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.href}
-                          href={subItem.href}
-                          className="block px-6 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
+                      </button>
+                      {activeDropdown === item.label && (
+                        <div className="mb-1 space-y-0.5 border-l-2 border-primary/20 ml-3">
+                          {item.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.href}
+                              href={subItem.href}
+                              className="block px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground active:bg-accent"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <Link
                       href={item.href!}
-                      className="block px-3 py-2 font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      className="block px-3 py-3 font-medium text-muted-foreground transition-colors hover:text-foreground active:bg-accent"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
@@ -159,9 +167,9 @@ export function Navbar() {
                   )}
                 </div>
               ))}
-              <div className="px-3 py-2">
-                <Button asChild variant="gradient" size="sm" className="w-full">
-                  <Link href="/contact">Get Quote</Link>
+              <div className="px-3 pt-3">
+                <Button asChild variant="gradient" size="sm" className="w-full h-11">
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>Get Quote</Link>
                 </Button>
               </div>
             </div>

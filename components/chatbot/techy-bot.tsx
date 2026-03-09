@@ -667,7 +667,7 @@ Learn more: /about | Meet our team: /team`
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
-            className="fixed bottom-4 right-4 z-50 flex h-[78vh] w-[calc(100vw-2rem)] max-w-[24rem] flex-col rounded-lg border bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-950 sm:bottom-6 sm:right-6 sm:h-[500px]"
+            className="fixed bottom-4 right-4 z-50 flex h-[78vh] w-[calc(100vw-2rem)] max-w-[24rem] flex-col rounded-lg border border-border bg-background shadow-2xl sm:bottom-6 sm:right-6 sm:h-[500px]"
           >
             <div className="gradient-bg text-white p-4 rounded-t-lg flex items-center justify-between">
               <div className="flex items-center">

@@ -47,7 +47,7 @@ export function StatsSection({ stats }: StatsSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -65,7 +65,7 @@ export function StatsSection({ stats }: StatsSectionProps) {
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               className="text-center"
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">

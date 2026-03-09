@@ -84,23 +84,23 @@ export default function CostCalculatorPage() {
     <>
       <Navbar />
       <div className="pt-16">
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Calculator className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Project Cost Calculator</h1>
-            <p className="text-xl">Get instant estimates with timeline and team allocation</p>
+            <Calculator className="h-16 w-16 mx-auto mb-6 text-primary" />
+            <h1 className="text-4xl font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl mb-4">Project Cost <span className="gradient-text">Calculator</span></h1>
+            <p className="text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl">Get instant estimates with timeline and team allocation</p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {/* Calculator Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -115,7 +115,7 @@ export default function CostCalculatorPage() {
                   <div>
                     <Label>Select Service</Label>
                     <select 
-                      className="w-full mt-2 p-3 border rounded-lg"
+                      className="w-full mt-2 p-3 border rounded-lg bg-background text-foreground text-sm sm:text-base"
                       value={selectedService}
                       onChange={(e) => setSelectedService(e.target.value)}
                     >
@@ -131,18 +131,18 @@ export default function CostCalculatorPage() {
                       <Label>Project Complexity</Label>
                       <div className="mt-2 space-y-2">
                         {Object.entries(calculatorData.services.find(s => s.id === selectedService)?.complexity || {}).map(([key, data]) => (
-                          <label key={key} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                          <label key={key} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-muted/50">
                             <input
                               type="radio"
                               name="complexity"
                               value={key}
                               checked={complexity === key}
                               onChange={(e) => setComplexity(e.target.value)}
-                              className="mr-3"
+                              className="mr-3 flex-shrink-0"
                             />
                             <div>
                               <div className="font-medium capitalize">{key}</div>
-                              <div className="text-sm text-gray-600">{data.description}</div>
+                              <div className="text-sm text-muted-foreground">{data.description}</div>
                             </div>
                           </label>
                         ))}
@@ -154,7 +154,7 @@ export default function CostCalculatorPage() {
                     <Label>Additional Features</Label>
                     <div className="mt-2 space-y-2">
                       {calculatorData.additionalFeatures.map(feature => (
-                        <label key={feature.name} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                        <label key={feature.name} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-muted/50">
                           <input
                             type="checkbox"
                             checked={features.includes(feature.name)}
@@ -199,7 +199,7 @@ export default function CostCalculatorPage() {
                       <div className="text-3xl font-bold text-primary mb-2">
                         ₹{estimate.totalCost.toLocaleString('en-IN')}
                       </div>
-                      <div className="flex items-center text-gray-600">
+                      <div className="flex items-center text-muted-foreground">
                         <Clock className="mr-2 h-4 w-4" />
                         {estimate.totalHours} hours • {estimate.timeline}
                       </div>
@@ -216,7 +216,7 @@ export default function CostCalculatorPage() {
                     <CardContent>
                       <div className="space-y-3">
                         {estimate.teamEffort.map((member, index) => (
-                          <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                          <div key={index} className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                             <div>
                               <div className="font-medium">{member.role}</div>
                               <div className="text-sm text-gray-600">{member.member}</div>

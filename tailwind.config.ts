@@ -24,12 +24,14 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#004AAD",
+          DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          brand: "#004AAD",
         },
         secondary: {
-          DEFAULT: "#00C6AE",
+          DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          brand: "#00C6AE",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

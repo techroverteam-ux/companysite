@@ -1,13 +1,12 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { 
   Zap, 
   Target, 
   TrendingUp, 
-  Sparkles,
   ArrowRight,
   Brain,
   Rocket,
@@ -17,40 +16,31 @@ import {
   Eye,
   Users
 } from 'lucide-react'
-import { useRef } from 'react'
 
 const strategies = [
   {
     icon: Zap,
     title: "Quantum-First Marketing",
     description: "Leading the quantum computing revolution",
-    color: "from-blue-500 to-cyan-500",
     features: ["Quantum-ready solutions", "Future-proof architecture", "Advanced encryption"],
-    gradient: "bg-gradient-to-br from-blue-50 to-cyan-50"
   },
   {
     icon: Brain,
     title: "AI-Powered Personalization",
     description: "Hyper-personalized customer experiences",
-    color: "from-primary to-secondary",
     features: ["Dynamic content", "Predictive analytics", "Smart recommendations"],
-    gradient: "bg-gradient-to-br from-blue-50 to-teal-50"
   },
   {
     icon: Globe,
     title: "Metaverse Presence",
     description: "Virtual world business solutions",
-    color: "from-[#0f65cf] to-secondary",
     features: ["Virtual offices", "AR/VR demos", "Immersive experiences"],
-    gradient: "bg-gradient-to-br from-blue-50 to-cyan-50"
   },
   {
     icon: Leaf,
     title: "Sustainability Leadership",
     description: "Eco-friendly technology solutions",
-    color: "from-green-500 to-emerald-500",
     features: ["Carbon-neutral hosting", "Green computing", "Environmental impact"],
-    gradient: "bg-gradient-to-br from-green-50 to-emerald-50"
   }
 ]
 
@@ -62,133 +52,71 @@ const innovations = [
 ]
 
 export function MarketingStrategyShowcase() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const sectionEase = [0.22, 1, 0.36, 1] as const
 
   return (
-    <section ref={containerRef} className="py-20 bg-gradient-to-br from-[#02224f] via-[#004AAD] to-[#012a63] relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <motion.div 
-          className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360]
-          }}
-          transition={{ duration: 20, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0]
-          }}
-          transition={{ duration: 25, repeat: Infinity }}
-        />
+    <section className="relative overflow-hidden bg-muted/50 py-14 sm:py-16 lg:py-20">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-32 top-0 h-48 w-48 sm:h-72 sm:w-72 lg:h-96 lg:w-96 rounded-full bg-primary/[0.04] blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-48 w-48 sm:h-64 sm:w-64 lg:h-80 lg:w-80 rounded-full bg-secondary/[0.05] blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
-          style={{ y, opacity }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, ease: sectionEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-10 text-center sm:mb-12"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center mb-6"
-          >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="h-12 w-12 text-secondary mr-4" />
-            </motion.div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white">
-              2026 Marketing
-              <span className="bg-gradient-to-r from-secondary to-white bg-clip-text text-transparent"> Revolution</span>
-            </h2>
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="h-12 w-12 text-secondary ml-4" />
-            </motion.div>
-          </motion.div>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-xl text-gray-300 max-w-4xl mx-auto"
-          >
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+            2026 STRATEGY
+          </div>
+
+          <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+            Marketing <span className="gradient-text">Revolution</span>
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-[1.85] text-muted-foreground sm:text-lg">
             Revolutionary strategies powered by quantum computing, AI personalization, and sustainable innovation
-          </motion.p>
+          </p>
         </motion.div>
 
         {/* Strategy Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {strategies.map((strategy, index) => {
             const IconComponent = strategy.icon
-            
+
             return (
               <motion.div
                 key={strategy.title}
-                initial={{ opacity: 0, y: 50, rotateY: -15 }}
-                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.05,
-                  rotateY: 5,
-                  transition: { duration: 0.3 }
-                }}
-                className="group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.08, ease: sectionEase }}
+                viewport={{ once: true, margin: "-100px" }}
               >
-                <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 hover:border-white/40 transition-all duration-500 overflow-hidden">
-                  <div className={`h-2 bg-gradient-to-r ${strategy.color}`} />
-                  
+                <Card className="group h-full border-border/70 bg-card/80 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
                   <CardContent className="p-6 text-center">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.6 }}
-                      className={`w-16 h-16 bg-gradient-to-r ${strategy.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-2xl`}
-                    >
-                      <IconComponent className="h-8 w-8 text-white" />
-                    </motion.div>
-                    
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-secondary/20 transition-transform duration-300 group-hover:scale-110">
+                      <IconComponent className="h-7 w-7 text-primary" />
+                    </div>
+
+                    <h3 className="mb-2 text-lg font-semibold text-foreground">
                       {strategy.title}
                     </h3>
-                    <p className="text-gray-300 text-sm mb-4">{strategy.description}</p>
-                    
+                    <p className="mb-4 text-sm leading-[1.75] text-muted-foreground">{strategy.description}</p>
+
                     <div className="space-y-2">
                       {strategy.features.map((feature, idx) => (
-                        <motion.div
+                        <div
                           key={idx}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 * idx }}
-                          className="flex items-center text-xs text-gray-400"
+                          className="flex items-center justify-center gap-2 text-xs text-muted-foreground"
                         >
-                          <div className={`w-2 h-2 bg-gradient-to-r ${strategy.color} rounded-full mr-2`} />
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
                           {feature}
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </CardContent>
@@ -200,103 +128,77 @@ export function MarketingStrategyShowcase() {
 
         {/* Innovation Showcase */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16"
+          transition={{ duration: 0.75, ease: sectionEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-14"
         >
-          <h3 className="text-3xl font-bold text-white text-center mb-8">
-            🚀 Revolutionary <span className="text-secondary">Innovations</span>
+          <h3 className="mb-8 text-center text-2xl font-bold tracking-[-0.02em]">
+            Revolutionary <span className="gradient-text">Innovations</span>
           </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5">
             {innovations.map((innovation, index) => {
               const IconComponent = innovation.icon
-              
+
               return (
                 <motion.div
                   key={innovation.title}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
-                  }}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-secondary/60 transition-all duration-300"
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: index * 0.08, ease: sectionEase }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="group rounded-xl border border-border/80 bg-card/70 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 15, scale: 1.1 }}
-                    className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center mb-4"
-                  >
-                    <IconComponent className="h-6 w-6 text-white" />
-                  </motion.div>
-                  <h4 className="text-white font-semibold mb-2">{innovation.title}</h4>
-                  <p className="text-gray-400 text-sm">{innovation.desc}</p>
+                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-secondary/20 transition-transform duration-300 group-hover:scale-110">
+                    <IconComponent className="h-5 w-5 text-primary" />
+                  </div>
+                  <h4 className="mb-1 text-sm font-semibold text-foreground">{innovation.title}</h4>
+                  <p className="text-xs leading-[1.7] text-muted-foreground">{innovation.desc}</p>
                 </motion.div>
               )
             })}
           </div>
         </motion.div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: sectionEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="rounded-2xl border border-border/80 bg-card/70 p-8 text-center backdrop-blur sm:p-10"
         >
-          <Card className="bg-gradient-to-r from-primary via-[#0f65cf] to-secondary border-0 overflow-hidden relative">
-            <motion.div
-              animate={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-            />
-            
-            <CardContent className="p-8 text-center relative z-10">
-              <motion.h3
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="text-3xl font-bold text-white mb-4"
-              >
-                Ready to Experience the Future?
-              </motion.h3>
-              <p className="text-white/90 text-lg mb-6">
-                Join the revolution with cutting-edge marketing strategies and innovative solutions
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button 
-                    size="lg" 
-                    className="bg-white text-primary hover:bg-gray-100 font-bold px-8 py-4 shadow-2xl"
-                    onClick={() => window.location.href = '/new-year-2026'}
-                  >
-                    <Target className="mr-2 h-5 w-5" />
-                    Explore 2026 Strategy
-                  </Button>
-                </motion.div>
-                
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button 
-                    size="lg" 
-                    variant="glass"
-                    className="font-bold px-8 py-4"
-                    onClick={() => window.location.href = '/contact?strategy=2026'}
-                  >
-                    <TrendingUp className="mr-2 h-5 w-5" />
-                    Get Strategic Consultation
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </motion.div>
-              </div>
-            </CardContent>
-          </Card>
+          <h3 className="mb-3 text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+            Ready to Experience the <span className="gradient-text">Future</span>?
+          </h3>
+          <p className="mx-auto mb-7 max-w-2xl text-base leading-[1.85] text-muted-foreground">
+            Join the revolution with cutting-edge marketing strategies and innovative solutions
+          </p>
+
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button
+              size="lg"
+              variant="gradient"
+              className="h-12 px-8 font-semibold sm:h-14"
+              onClick={() => window.location.href = '/new-year-2026'}
+            >
+              <Target className="mr-2 h-5 w-5" />
+              Explore 2026 Strategy
+            </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-12 px-8 font-semibold sm:h-14"
+              onClick={() => window.location.href = '/contact?strategy=2026'}
+            >
+              <TrendingUp className="mr-2 h-5 w-5" />
+              Get Strategic Consultation
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

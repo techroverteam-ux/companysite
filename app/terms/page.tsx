@@ -8,22 +8,22 @@ import termsData from '@/data/terms.json'
 export default function TermsPage() {
   return (
     <div className="pt-16">
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            <FileText className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms & Conditions</h1>
-            <p className="text-xl">Last updated: {termsData.lastUpdated}</p>
+            <FileText className="h-16 w-16 mx-auto mb-6 text-primary" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms & <span className="gradient-text">Conditions</span></h1>
+            <p className="text-lg text-muted-foreground">Last updated: {termsData.lastUpdated}</p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="space-y-8">
             {termsData.sections.map((section, index) => (
               <motion.div
@@ -31,14 +31,14 @@ export default function TermsPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <Card>
                   <CardHeader>
                     <CardTitle className="gradient-text">{section.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 leading-relaxed">{section.content}</p>
+                    <p className="text-muted-foreground leading-relaxed">{section.content}</p>
                   </CardContent>
                 </Card>
               </motion.div>

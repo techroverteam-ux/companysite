@@ -1,7 +1,6 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { Card, CardContent } from '@/components/ui/card'
 import { TrendingUp, Users, Globe, Award } from 'lucide-react'
 import { useRef, useEffect, useState } from 'react'
 
@@ -38,131 +37,97 @@ function AnimatedCounter({ end, duration = 2 }: { end: number; duration?: number
 }
 
 export function EnhancedStatsSection({ stats }: EnhancedStatsSectionProps) {
+  const sectionEase = [0.22, 1, 0.36, 1] as const
+
   return (
-    <section className="py-20 bg-gradient-to-br from-[#02224f] via-[#004AAD] to-[#012a63] relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <motion.div 
-          className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-          transition={{ duration: 20, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-20 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"
-          animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
-          transition={{ duration: 25, repeat: Infinity }}
-        />
+    <section className="relative overflow-hidden bg-background py-14 sm:py-16 lg:py-20">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-primary/[0.04] blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-secondary/[0.05] blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.75, ease: sectionEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-10 text-center sm:mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our <span className="bg-gradient-to-r from-secondary to-white bg-clip-text text-transparent">Impact</span>
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+            OUR IMPACT
+          </div>
+
+          <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+            Numbers That Speak <span className="gradient-text">Excellence</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Numbers that showcase our commitment to excellence and innovation
+
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-[1.85] text-muted-foreground sm:text-lg">
+            Our commitment to innovation and quality reflected in every metric
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 lg:grid-cols-4">
           {stats.map((stat, index) => {
             const IconComponent = icons[index % icons.length]
             const numericValue = parseInt(stat.number.replace(/[^\d]/g, ''))
-            
+
             return (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: sectionEase }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="group rounded-xl border border-border/80 bg-card/70 px-5 py-7 text-center backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
-                <Card className="h-full bg-white/10 backdrop-blur-xl border border-white/20 hover:border-secondary/60 transition-all duration-500 group">
-                  <CardContent className="p-8 text-center">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.6 }}
-                      className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-2xl"
-                    >
-                      <IconComponent className="h-8 w-8 text-white" />
-                    </motion.div>
-                    
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      className="text-4xl md:text-5xl font-bold text-white mb-2"
-                    >
-                      {numericValue > 0 ? (
-                        <>
-                          <AnimatedCounter end={numericValue} />
-                          {stat.number.includes('+') && '+'}
-                          {stat.number.includes('K') && 'K'}
-                          {stat.number.includes('%') && '%'}
-                        </>
-                      ) : (
-                        stat.number
-                      )}
-                    </motion.div>
-                    
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                      className="text-gray-300 font-medium group-hover:text-secondary transition-colors"
-                    >
-                      {stat.label}
-                    </motion.p>
-                  </CardContent>
-                </Card>
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-secondary/20 transition-transform duration-300 group-hover:scale-110">
+                  <IconComponent className="h-6 w-6 text-primary" />
+                </div>
+
+                <div className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                  {numericValue > 0 ? (
+                    <>
+                      <AnimatedCounter end={numericValue} />
+                      {stat.number.includes('+') && '+'}
+                      {stat.number.includes('K') && 'K'}
+                      {stat.number.includes('%') && '%'}
+                    </>
+                  ) : (
+                    stat.number
+                  )}
+                </div>
+
+                <div className="mt-1.5 text-xs tracking-[0.06em] text-muted-foreground sm:text-sm">
+                  {stat.label}
+                </div>
               </motion.div>
             )
           })}
         </div>
 
-        {/* Additional Achievement Badges */}
+        {/* Achievement Pills */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.6, delay: 0.4, ease: sectionEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
         >
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "🏆 Industry Leader",
-              "🚀 Innovation Award",
-              "⭐ 5-Star Rated",
-              "🌟 Client Favorite"
-            ].map((badge, index) => (
-              <motion.div
-                key={badge}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-                whileHover={{ scale: 1.1 }}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 text-white font-medium hover:border-secondary/60 transition-all duration-300"
-              >
-                {badge}
-              </motion.div>
-            ))}
-          </div>
+          {[
+            "🏆 Industry Leader",
+            "🚀 Innovation Award",
+            "⭐ 5-Star Rated",
+            "🌟 Client Favorite"
+          ].map((badge) => (
+            <div
+              key={badge}
+              className="rounded-full border border-border/80 bg-card/60 px-4 py-2 text-sm text-muted-foreground backdrop-blur transition-colors duration-200 hover:border-primary/40 hover:text-foreground"
+            >
+              {badge}
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

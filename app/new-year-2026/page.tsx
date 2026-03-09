@@ -19,21 +19,24 @@ export default function NewYear2026Page() {
       <Navbar />
       <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-[#02224f] via-[#004AAD] to-[#00A892] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-muted/50 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              🎊 Welcome to <span className="text-secondary">2026</span>
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              NEW YEAR 2026
+            </div>
+            <h1 className="mx-auto max-w-4xl text-balance text-4xl font-bold tracking-[-0.03em] sm:text-5xl md:text-6xl">
+              🎊 Welcome to <span className="gradient-text">2026</span>
             </h1>
-            <p className="text-2xl mb-8 text-gray-200">
+            <p className="mx-auto mt-5 max-w-4xl text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl">
               The Future of Technology Starts Now
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <a href="#offers">
                 <Button 
                   size="lg" 
                   variant="gradient"
-                  className="font-bold px-8 py-4"
                 >
                   View Exclusive Offers
                 </Button>
@@ -42,7 +45,6 @@ export default function NewYear2026Page() {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary font-bold px-8 py-4"
                 >
                   Get Free Consultation
                 </Button>
@@ -58,13 +60,17 @@ export default function NewYear2026Page() {
       </div>
 
       {/* Why Choose TechRover for 2026 */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="py-12 sm:py-16 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="text-center mb-10 sm:mb-12">
+            <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-border bg-card/70 px-4 py-1.5 text-xs tracking-[0.12em] text-muted-foreground backdrop-blur">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+              WHY US
+            </div>
+            <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl">
               Why Choose <span className="gradient-text">TechRover</span> for 2026?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="mx-auto mt-3 max-w-3xl text-base leading-[1.85] text-muted-foreground sm:text-lg">
               We're not just building for today – we're creating solutions for tomorrow
             </p>
           </div>
@@ -106,7 +112,7 @@ export default function NewYear2026Page() {
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -115,37 +121,37 @@ export default function NewYear2026Page() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="py-12 sm:py-16 bg-muted/50">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
+          <h2 className="text-3xl font-bold tracking-[-0.02em] sm:text-4xl mb-6">
             Ready to Transform Your Business in 2026?
           </h2>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-base leading-[1.85] text-muted-foreground sm:text-lg md:text-xl mb-8">
             Don't miss out on these exclusive New Year offers. Limited time and slots available!
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+            <Card className="bg-card/80 border-border">
               <CardContent className="p-6 text-center">
                 <Phone className="h-8 w-8 mx-auto mb-3 text-secondary" />
                 <h3 className="font-semibold mb-2">Call Us</h3>
-                <p className="text-white/90">+91 9252891189</p>
+                <p className="text-muted-foreground">+91 9252891189</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+            <Card className="bg-card/80 border-border">
               <CardContent className="p-6 text-center">
                 <Mail className="h-8 w-8 mx-auto mb-3 text-secondary" />
                 <h3 className="font-semibold mb-2">Email Us</h3>
-                <p className="text-white/90">hello@techrover.co.in</p>
+                <p className="text-muted-foreground">hello@techrover.co.in</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+            <Card className="bg-card/80 border-border">
               <CardContent className="p-6 text-center">
                 <Calendar className="h-8 w-8 mx-auto mb-3 text-secondary" />
                 <h3 className="font-semibold mb-2">Schedule</h3>
-                <p className="text-white/90">Free Consultation</p>
+                <p className="text-muted-foreground">Free Consultation</p>
               </CardContent>
             </Card>
           </div>
@@ -155,7 +161,6 @@ export default function NewYear2026Page() {
               <Button 
                 size="lg" 
                 variant="gradient"
-                className="font-bold px-8 py-4"
               >
                 Claim Your 2026 Offer Now
               </Button>
@@ -164,7 +169,6 @@ export default function NewYear2026Page() {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary font-bold px-8 py-4"
               >
                 Schedule Free Consultation
               </Button>

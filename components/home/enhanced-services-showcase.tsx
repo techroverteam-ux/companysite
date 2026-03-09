@@ -33,13 +33,13 @@ export function EnhancedServicesShowcase() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Our <span className="gradient-text">Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
             Comprehensive technology solutions designed to transform your business and drive sustainable growth
           </p>
         </motion.div>
@@ -53,9 +53,9 @@ export function EnhancedServicesShowcase() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
               >
-                <Card className="h-full hover:shadow-xl transition-all duration-300 group cursor-pointer overflow-hidden">
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer overflow-hidden">
                   {/* Service Image */}
                   <div className="relative h-48 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 z-10" />
@@ -138,7 +138,7 @@ export function EnhancedServicesShowcase() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12"
         >
           <div className="text-center">
@@ -163,7 +163,7 @@ export function EnhancedServicesShowcase() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center"
         >
           <Button size="lg" variant="gradient" onClick={() => window.location.href = '/services'}>
