@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
@@ -54,11 +55,15 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#0557d6] to-[#00a995] shadow-sm">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <span className="text-[1.1rem] font-semibold tracking-tight text-foreground sm:text-xl">Techrover</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logos/tec-rover/techrover-fulllogo.png"
+              alt="Techrover"
+              width={180}
+              height={45}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

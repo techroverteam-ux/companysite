@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 
@@ -9,12 +10,15 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#0557d6] to-[#00a995] shadow-sm">
-                <span className="text-white font-bold text-lg">T</span>
-              </div>
-              <span className="text-xl font-bold tracking-tight">Techrover</span>
-            </div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/logos/tec-rover/techrover-fulllogo.png"
+                alt="Techrover"
+                width={180}
+                height={45}
+                className="h-10 w-auto object-contain"
+              />
+            </Link>
             <p className="mb-4 max-w-md text-sm sm:text-base text-muted-foreground">
               Global technology partner delivering cutting-edge AI, ERP, Web Development, 
               and Digital Marketing solutions to businesses worldwide.
