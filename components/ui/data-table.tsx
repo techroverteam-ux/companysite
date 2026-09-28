@@ -24,6 +24,23 @@ export function DataTable({ data, columns, onAdd, onEdit, onDelete, title }: Dat
     )
   )
 
+  const [editingItem, setEditingItem] = useState<any | null>(null)
+  const [editingIndex, setEditingIndex] = useState<number | null>(null)
+
+  const handleOpenEdit = (item: any, index: number) => {
+    setEditingItem({ ...item })
+    setEditingIndex(index)
+  }
+
+  const handleSaveEdit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (onEdit && editingItem !== null && editingIndex !== null) {
+      onEdit(editingItem, editingIndex)
+      setEditingItem(null)
+      setEditingIndex(null)
+    }
+  }
+
   return (
     <div className="space-y-4">
       <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
@@ -73,8 +90,8 @@ export function DataTable({ data, columns, onAdd, onEdit, onDelete, title }: Dat
               {filteredData.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50 dark:hover:bg-slate-900/60">
                   {columns.map(col => (
-                    <td key={col.key} className="border border-gray-200 px-4 py-2 dark:border-slate-700">
-                      {String(item[col.key] || '-')}
+                    <td key={col.key} className="border border-gray-200 px-4 py-2 dark:border-slate-700 max-w-xs truncate">
+                      {Array.isArray(item[col.key]) ? item[col.key].join(', ') : String(item[col.key] ?? '-')}
                     </td>
                   ))}
                   {(onEdit || onDelete) && (
@@ -84,7 +101,7 @@ export function DataTable({ data, columns, onAdd, onEdit, onDelete, title }: Dat
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => onEdit(item, index)}
+                            onClick={() => handleOpenEdit(item, index)}
                           >
                             <Edit className="h-3 w-3" />
                           </Button>
@@ -113,7 +130,7 @@ export function DataTable({ data, columns, onAdd, onEdit, onDelete, title }: Dat
               {columns.map(col => (
                 <div key={col.key} className="mb-2">
                   <span className="text-sm font-medium text-gray-600 dark:text-slate-300">{col.label}:</span>
-                  <span className="ml-2">{String(item[col.key] || '-')}</span>
+                  <span className="ml-2 text-sm">{Array.isArray(item[col.key]) ? item[col.key].join(', ') : String(item[col.key] ?? '-')}</span>
                 </div>
               ))}
               {(onEdit || onDelete) && (
@@ -122,7 +139,7 @@ export function DataTable({ data, columns, onAdd, onEdit, onDelete, title }: Dat
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => onEdit(item, index)}
+                      onClick={() => handleOpenEdit(item, index)}
                     >
                       <Edit className="h-3 w-3 mr-1" />
                       Edit
@@ -142,6 +159,59 @@ export function DataTable({ data, columns, onAdd, onEdit, onDelete, title }: Dat
               )}
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Edit Item Dialog */}
+      {editingItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm">
+          <div className="w-full max-w-lg rounded-xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl text-zinc-100 max-h-[90vh] overflow-y-auto">
+            <h3 className="text-lg font-bold text-white mb-4">Edit {title} Record</h3>
+            <form onSubmit={handleSaveEdit} className="space-y-4">
+              {columns.map((col) => (
+                <div key={col.key}>
+                  <label className="text-xs font-semibold text-zinc-400 block mb-1">{col.label}</label>
+                  {typeof editingItem[col.key] === 'boolean' ? (
+                    <select
+                      value={editingItem[col.key] ? 'true' : 'false'}
+                      onChange={(e) =>
+                        setEditingItem({ ...editingItem, [col.key]: e.target.value === 'true' })
+                      }
+                      className="w-full rounded-md border border-zinc-800 bg-zinc-900 p-2 text-xs text-white focus:border-indigo-500 focus:outline-none"
+                    >
+                      <option value="true">Active / Yes</option>
+                      <option value="false">Inactive / No</option>
+                    </select>
+                  ) : String(editingItem[col.key] || '').length > 60 ? (
+                    <textarea
+                      rows={3}
+                      value={String(editingItem[col.key] || '')}
+                      onChange={(e) =>
+                        setEditingItem({ ...editingItem, [col.key]: e.target.value })
+                      }
+                      className="w-full rounded-md border border-zinc-800 bg-zinc-900 p-2 text-xs text-white focus:border-indigo-500 focus:outline-none"
+                    />
+                  ) : (
+                    <Input
+                      value={String(editingItem[col.key] || '')}
+                      onChange={(e) =>
+                        setEditingItem({ ...editingItem, [col.key]: e.target.value })
+                      }
+                      className="border-zinc-800 bg-zinc-900 text-xs text-white"
+                    />
+                  )}
+                </div>
+              ))}
+              <div className="flex justify-end gap-2 pt-4 border-t border-zinc-800">
+                <Button variant="outline" type="button" onClick={() => setEditingItem(null)} className="border-zinc-800 text-xs text-zinc-300">
+                  Cancel
+                </Button>
+                <Button type="submit" className="bg-indigo-600 text-xs text-white hover:bg-indigo-500">
+                  Save Changes
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
     </div>

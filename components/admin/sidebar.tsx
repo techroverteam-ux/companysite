@@ -14,16 +14,31 @@ interface SidebarProps {
   onClose: () => void
 }
 
-const menuItems = [
-  { id: 'services', label: 'Services', icon: Briefcase },
-  { id: 'portfolio', label: 'Portfolio', icon: Package },
-  { id: 'case-studies', label: 'Case Studies', icon: FileText },
-  { id: 'reviews', label: 'Reviews', icon: Star },
-  { id: 'clients', label: 'Clients', icon: Building2 },
-  { id: 'team', label: 'Team', icon: Users },
-  { id: 'contacts', label: 'Contacts', icon: MessageSquare },
-  { id: 'schedule', label: 'Schedule', icon: Calendar },
-  { id: 'settings', label: 'Settings', icon: Settings },
+const menuGroups = [
+  {
+    category: 'CRM & Client Operations',
+    items: [
+      { id: 'clients', label: 'Clients & Accounts', icon: Building2 },
+      { id: 'contacts', label: 'Inquiries & Leads', icon: MessageSquare },
+      { id: 'schedule', label: 'Meetings & Schedule', icon: Calendar },
+    ],
+  },
+  {
+    category: 'Portfolio & Growth',
+    items: [
+      { id: 'services', label: 'Services Catalog', icon: Briefcase },
+      { id: 'portfolio', label: 'Projects & Deliverables', icon: Package },
+      { id: 'case-studies', label: 'Case Studies', icon: FileText },
+      { id: 'reviews', label: 'Testimonials & Reviews', icon: Star },
+    ],
+  },
+  {
+    category: 'Organization',
+    items: [
+      { id: 'team', label: 'Team Members', icon: Users },
+      { id: 'settings', label: 'System Settings', icon: Settings },
+    ],
+  },
 ]
 
 export function AdminSidebar({ activeTab, setActiveTab, onLogout, isOpen, onClose }: SidebarProps) {
@@ -32,56 +47,84 @@ export function AdminSidebar({ activeTab, setActiveTab, onLogout, isOpen, onClos
       {isOpen && (
         <button
           type="button"
-          className="fixed inset-0 z-30 bg-slate-950/50 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-30 bg-slate-950/70 backdrop-blur-sm lg:hidden"
           onClick={onClose}
           aria-label="Close sidebar"
         />
       )}
       <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-64 border-r border-slate-700 bg-slate-900 transition-transform duration-300 ${
+        className={`fixed left-0 top-0 z-40 h-screen w-64 border-r border-zinc-800 bg-zinc-950 transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0`}
+        } lg:translate-x-0 flex flex-col justify-between`}
       >
-      <div className="flex items-center justify-between border-b p-6 lg:block">
-        <h2 className="text-xl font-bold text-white">TechRover Admin</h2>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="text-slate-300 hover:bg-slate-800 hover:text-white lg:hidden"
-          onClick={onClose}
-          aria-label="Close menu"
-        >
-          <X className="h-5 w-5" />
-        </Button>
-      </div>
-      
-      <nav className="mt-6">
-        {menuItems.map((item) => {
-          const Icon = item.icon
-          return (
-            <button
-              key={item.id}
-              onClick={() => {
-                setActiveTab(item.id)
-                onClose()
-              }}
-              className={`w-full flex items-center px-6 py-3 text-left hover:bg-slate-800 ${
-                activeTab === item.id ? 'bg-blue-600 text-white' : 'text-slate-300'
-              }`}
+        <div>
+          <div className="flex items-center justify-between border-b border-zinc-800 p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-md shadow-indigo-500/20">
+                <span className="font-bold text-white text-lg">T</span>
+              </div>
+              <div>
+                <h2 className="text-base font-bold text-white tracking-tight">Techrover</h2>
+                <p className="text-[10px] uppercase tracking-wider text-indigo-400 font-semibold">Enterprise Admin</p>
+              </div>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-zinc-400 hover:bg-zinc-800 hover:text-white lg:hidden"
+              onClick={onClose}
+              aria-label="Close menu"
             >
-              <Icon className="h-5 w-5 mr-3" />
-              {item.label}
-            </button>
-          )
-        })}
-      </nav>
-      
-      <div className="absolute bottom-6 left-6 right-6">
-        <Button onClick={onLogout} variant="outline" className="w-full border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white">
-          <LogOut className="h-4 w-4 mr-2" />
-          Logout
-        </Button>
-      </div>
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
+          
+          <nav className="p-4 space-y-6 overflow-y-auto max-h-[calc(100vh-140px)]">
+            {menuGroups.map((group) => (
+              <div key={group.category} className="space-y-1">
+                <h3 className="px-3 text-[10px] font-bold uppercase tracking-wider text-zinc-500">
+                  {group.category}
+                </h3>
+                {group.items.map((item) => {
+                  const Icon = item.icon
+                  const isActive = activeTab === item.id
+
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => {
+                        setActiveTab(item.id)
+                        onClose()
+                      }}
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                        isActive
+                          ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20 font-semibold'
+                          : 'text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Icon className={`h-4 w-4 ${isActive ? 'text-white' : 'text-zinc-400'}`} />
+                        {item.label}
+                      </div>
+                      {item.id === 'clients' && (
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? 'bg-indigo-700 text-white' : 'bg-zinc-800 text-zinc-400'}`}>
+                          CRM
+                        </span>
+                      )}
+                    </button>
+                  )
+                })}
+              </div>
+            ))}
+          </nav>
+        </div>
+        
+        <div className="p-4 border-t border-zinc-800 bg-zinc-950">
+          <Button onClick={onLogout} variant="outline" className="w-full border-zinc-800 bg-zinc-900 text-xs text-zinc-300 hover:bg-zinc-800 hover:text-white">
+            <LogOut className="h-3.5 w-3.5 mr-2 text-rose-400" />
+            Logout
+          </Button>
+        </div>
       </aside>
     </>
   )

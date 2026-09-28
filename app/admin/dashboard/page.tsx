@@ -15,15 +15,18 @@ import { Toast } from '@/components/ui/toast'
 import { Calendar } from 'lucide-react'
 import { DataTable } from '@/components/ui/data-table'
 
+import { ClientManagement, ClientRecord } from '@/components/admin/client-management'
+
 export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [activeTab, setActiveTab] = useState('services')
+  const [activeTab, setActiveTab] = useState('clients')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [services, setServices] = useState<any[]>([])
   const [portfolio, setPortfolio] = useState<any[]>([])
+  const [caseStudies, setCaseStudies] = useState<any[]>([])
   const [reviews, setReviews] = useState<any[]>([])
-  const [clients, setClients] = useState<any[]>([])
+  const [clients, setClients] = useState<ClientRecord[]>([])
   const [team, setTeam] = useState<any[]>([])
   const [contacts, setContacts] = useState<any[]>([])
   const [schedule, setSchedule] = useState<any>({})
@@ -66,14 +69,15 @@ export default function AdminDashboard() {
 
   const fetchData = async () => {
     try {
-      const [servicesData, portfolioData, reviewsData, clientsData, teamData, contactData, scheduleData] = await Promise.all([
+      const [servicesData, portfolioData, reviewsData, clientsData, teamData, contactData, scheduleData, caseStudiesData] = await Promise.all([
         import('@/data/services.json'),
         import('@/data/portfolio.json'),
         import('@/data/reviews.json'),
         import('@/data/clients.json'),
         import('@/data/team.json'),
         import('@/data/contact.json'),
-        import('@/data/schedule.json')
+        import('@/data/schedule.json'),
+        import('@/data/case-studies.json')
       ])
       
       const parseData = (data: any) => {
@@ -81,17 +85,18 @@ export default function AdminDashboard() {
           const decrypted = decrypt(data.data)
           return decrypted || []
         }
-        return data || []
+        return data.default || data || []
       }
       
-      setServices(Array.isArray(parseData(servicesData.default)) ? parseData(servicesData.default) : [])
-      setPortfolio(Array.isArray(parseData(portfolioData.default)) ? parseData(portfolioData.default) : [])
-      setReviews(Array.isArray(parseData(reviewsData.default)) ? parseData(reviewsData.default) : [])
-      setClients(Array.isArray(parseData(clientsData.default)) ? parseData(clientsData.default) : [])
-      setTeam(Array.isArray(parseData(teamData.default)) ? parseData(teamData.default) : [])
-      const contactDataParsed = parseData(contactData.default) || {}
+      setServices(Array.isArray(parseData(servicesData)) ? parseData(servicesData) : [])
+      setPortfolio(Array.isArray(parseData(portfolioData)) ? parseData(portfolioData) : [])
+      setReviews(Array.isArray(parseData(reviewsData)) ? parseData(reviewsData) : [])
+      setClients(Array.isArray(parseData(clientsData)) ? parseData(clientsData) : [])
+      setTeam(Array.isArray(parseData(teamData)) ? parseData(teamData) : [])
+      setCaseStudies(Array.isArray(parseData(caseStudiesData)) ? parseData(caseStudiesData) : [])
+      const contactDataParsed = parseData(contactData) || {}
       setContacts(Array.isArray(contactDataParsed.inquiries) ? contactDataParsed.inquiries : [])
-      setSchedule(parseData(scheduleData.default) || {})
+      setSchedule(parseData(scheduleData) || {})
     } catch (error) {
       console.error('Error fetching data:', error)
       setServices([])
@@ -160,23 +165,23 @@ export default function AdminDashboard() {
                 ]}
                 title="Services"
                 onAdd={() => {
-                  const newService = { title: 'New Service', startingPrice: '₹0', description: 'Description', isActive: true }
-                  setServices([...services, newService])
+                  const newService = { id: `service-${Date.now()}`, title: 'New Service', startingPrice: '₹10,000', description: 'Description', isActive: true }
+                  const updated = [...services, newService]
+                  setServices(updated)
+                  saveData('services', updated)
+                }}
+                onEdit={(updatedItem, index) => {
+                  const updated = [...services]
+                  updated[index] = updatedItem
+                  setServices(updated)
+                  saveData('services', updated)
                 }}
                 onDelete={(index) => {
                   const updated = services.filter((_, i) => i !== index)
                   setServices(updated)
+                  saveData('services', updated)
                 }}
               />
-              <div className="mt-4">
-                <Button 
-                  onClick={() => saveData('services', services)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >
-                  <Save className="mr-2 h-4 w-4" />
-                  Save Changes
-                </Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -198,9 +203,16 @@ export default function AdminDashboard() {
                   { key: 'status', label: 'Status' }
                 ]}
                 title="Contact Submissions"
+                onEdit={(updatedItem, index) => {
+                  const updated = [...contacts]
+                  updated[index] = updatedItem
+                  setContacts(updated)
+                  saveData('contact', { inquiries: updated })
+                }}
                 onDelete={(index) => {
                   const updated = contacts.filter((_, i) => i !== index)
                   setContacts(updated)
+                  saveData('contact', { inquiries: updated })
                 }}
               />
             </CardContent>
@@ -215,21 +227,21 @@ export default function AdminDashboard() {
             </CardHeader>
             <CardContent>
               <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-                <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600">3</div>
-                  <div className="text-sm text-gray-600">Total</div>
+                <div className="text-center p-4 bg-blue-50 rounded-lg dark:bg-blue-950/40">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
                 </div>
-                <div className="text-center p-4 bg-green-50 rounded-lg">
-                  <div className="text-2xl font-bold text-green-600">3</div>
-                  <div className="text-sm text-gray-600">Confirmed</div>
+                <div className="text-center p-4 bg-green-50 rounded-lg dark:bg-green-950/40">
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">3</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Confirmed</div>
                 </div>
-                <div className="text-center p-4 bg-yellow-50 rounded-lg">
-                  <div className="text-2xl font-bold text-yellow-600">0</div>
-                  <div className="text-sm text-gray-600">Pending</div>
+                <div className="text-center p-4 bg-yellow-50 rounded-lg dark:bg-yellow-950/40">
+                  <div className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">0</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Pending</div>
                 </div>
-                <div className="text-center p-4 bg-red-50 rounded-lg">
-                  <div className="text-2xl font-bold text-red-600">0</div>
-                  <div className="text-sm text-gray-600">Cancelled</div>
+                <div className="text-center p-4 bg-red-50 rounded-lg dark:bg-red-950/40">
+                  <div className="text-2xl font-bold text-red-600 dark:text-red-400">0</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Cancelled</div>
                 </div>
               </div>
               <DataTable
@@ -264,23 +276,23 @@ export default function AdminDashboard() {
                 ]}
                 title="Projects"
                 onAdd={() => {
-                  const newProject = { title: 'New Project', industry: 'Technology', description: 'Project description', status: 'Active' }
-                  setPortfolio([...portfolio, newProject])
+                  const newProject = { id: `project-${Date.now()}`, title: 'New Project', industry: 'Technology', description: 'Project description', status: 'Active' }
+                  const updated = [...portfolio, newProject]
+                  setPortfolio(updated)
+                  saveData('portfolio', updated)
+                }}
+                onEdit={(updatedItem, index) => {
+                  const updated = [...portfolio]
+                  updated[index] = updatedItem
+                  setPortfolio(updated)
+                  saveData('portfolio', updated)
                 }}
                 onDelete={(index) => {
                   const updated = portfolio.filter((_, i) => i !== index)
                   setPortfolio(updated)
+                  saveData('portfolio', updated)
                 }}
               />
-              <div className="mt-4">
-                <Button 
-                  onClick={() => saveData('portfolio', portfolio)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >
-                  <Save className="mr-2 h-4 w-4" />
-                  Save Changes
-                </Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -302,63 +314,41 @@ export default function AdminDashboard() {
                 ]}
                 title="Client Reviews"
                 onAdd={() => {
-                  const newReview = { clientName: 'New Client', company: 'Company', rating: 5, review: 'Great service!' }
-                  setReviews([...reviews, newReview])
+                  const newReview = { id: `review-${Date.now()}`, clientName: 'New Client', company: 'Company', rating: 5, review: 'Great service!' }
+                  const updated = [...reviews, newReview]
+                  setReviews(updated)
+                  saveData('reviews', updated)
+                }}
+                onEdit={(updatedItem, index) => {
+                  const updated = [...reviews]
+                  updated[index] = updatedItem
+                  setReviews(updated)
+                  saveData('reviews', updated)
                 }}
                 onDelete={(index) => {
                   const updated = reviews.filter((_, i) => i !== index)
                   setReviews(updated)
+                  saveData('reviews', updated)
                 }}
               />
-              <div className="mt-4">
-                <Button 
-                  onClick={() => saveData('reviews', reviews)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >
-                  <Save className="mr-2 h-4 w-4" />
-                  Save Changes
-                </Button>
-              </div>
             </CardContent>
           </Card>
         )}
 
         {activeTab === 'clients' && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Client Management</CardTitle>
-              <CardDescription>Manage client information</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <DataTable
-                data={clients}
-                columns={[
-                  { key: 'name', label: 'Client Name' },
-                  { key: 'country', label: 'Country' },
-                  { key: 'industry', label: 'Industry' },
-                  { key: 'email', label: 'Email' }
-                ]}
-                title="Clients"
-                onAdd={() => {
-                  const newClient = { name: 'New Client', country: 'India', industry: 'Technology', email: 'client@example.com' }
-                  setClients([...clients, newClient])
-                }}
-                onDelete={(index) => {
-                  const updated = clients.filter((_, i) => i !== index)
-                  setClients(updated)
-                }}
-              />
-              <div className="mt-4">
-                <Button 
-                  onClick={() => saveData('clients', clients)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >
-                  <Save className="mr-2 h-4 w-4" />
-                  Save Changes
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+          <ClientManagement
+            clients={clients}
+            portfolioData={portfolio}
+            caseStudiesData={caseStudies}
+            servicesData={services}
+            onSaveClients={(updatedClients) => {
+              setClients(updatedClients)
+              saveData('clients', updatedClients)
+            }}
+            onTriggerToast={(message, type) => {
+              setToast({ isVisible: true, message, type })
+            }}
+          />
         )}
 
         {activeTab === 'team' && (
@@ -378,23 +368,23 @@ export default function AdminDashboard() {
                 ]}
                 title="Team Members"
                 onAdd={() => {
-                  const newMember = { name: 'New Member', role: 'Developer', email: 'member@techrover.com', bio: 'Team member bio' }
-                  setTeam([...team, newMember])
+                  const newMember = { id: `team-${Date.now()}`, name: 'New Member', role: 'Developer', email: 'member@techrover.com', bio: 'Team member bio' }
+                  const updated = [...team, newMember]
+                  setTeam(updated)
+                  saveData('team', updated)
+                }}
+                onEdit={(updatedItem, index) => {
+                  const updated = [...team]
+                  updated[index] = updatedItem
+                  setTeam(updated)
+                  saveData('team', updated)
                 }}
                 onDelete={(index) => {
                   const updated = team.filter((_, i) => i !== index)
                   setTeam(updated)
+                  saveData('team', updated)
                 }}
               />
-              <div className="mt-4">
-                <Button 
-                  onClick={() => saveData('team', team)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >
-                  <Save className="mr-2 h-4 w-4" />
-                  Save Changes
-                </Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -441,6 +431,13 @@ export default function AdminDashboard() {
           </Card>
         )}
       </div>
+
+      <Toast
+        isVisible={toast.isVisible}
+        message={toast.message}
+        type={toast.type}
+        onClose={() => setToast((prev) => ({ ...prev, isVisible: false }))}
+      />
     </div>
   )
 }
