@@ -32,6 +32,7 @@ export interface ClientRecord {
   totalValue: string
   numericValue?: number
   pipelineValue?: string
+  description?: string
   billingAddress?: string
   slaTier?: 'Enterprise' | 'Gold' | 'Standard' | 'Custom'
   contractEnd?: string
