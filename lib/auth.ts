@@ -1,52 +1,24 @@
 import CryptoJS from 'crypto-js'
 
-const SECRET_KEY = process.env.NEXT_PUBLIC_SECRET_KEY || 'techrover-admin-2024'
-const ADMIN_CREDENTIALS = {
-  username: 'TechRover2025',
-  password: 'TechRover@2026'
-}
+/**
+ * LEGACY content helpers only.
+ *
+ * Some public content files (data/reviews.json, data/portfolio.json) were stored
+ * "encrypted" with a key that ships to the browser. That is NOT a security measure;
+ * these helpers only exist so those files can still be read. New data is stored as
+ * plain JSON. Staff authentication lives in lib/session.ts and app/api/auth/*.
+ */
+const LEGACY_CONTENT_KEY = process.env.NEXT_PUBLIC_SECRET_KEY || 'techrover-admin-2024'
 
-export const encrypt = (data: any): string => {
-  return CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString()
+export const encrypt = (data: unknown): string => {
+  return CryptoJS.AES.encrypt(JSON.stringify(data), LEGACY_CONTENT_KEY).toString()
 }
 
 export const decrypt = (encryptedData: string): any => {
   try {
-    const bytes = CryptoJS.AES.decrypt(encryptedData, SECRET_KEY)
+    const bytes = CryptoJS.AES.decrypt(encryptedData, LEGACY_CONTENT_KEY)
     return JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
   } catch {
     return null
   }
-}
-
-export const validateCredentials = (username: string, password: string): boolean => {
-  return username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password
-}
-
-export const generateToken = (): string => {
-  const payload = {
-    user: ADMIN_CREDENTIALS.username,
-    timestamp: Date.now(),
-    expires: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
-  }
-  return encrypt(payload)
-}
-
-export const validateToken = (token: string): boolean => {
-  const payload = decrypt(token)
-  if (!payload) return false
-  
-  return payload.user === ADMIN_CREDENTIALS.username && payload.expires > Date.now()
-}
-
-export const setAuthToken = (token: string): void => {
-  localStorage.setItem('admin_token', token)
-}
-
-export const getAuthToken = (): string | null => {
-  return localStorage.getItem('admin_token')
-}
-
-export const removeAuthToken = (): void => {
-  localStorage.removeItem('admin_token')
 }

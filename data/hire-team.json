@@ -137,74 +137,7 @@
       "location": "Mumbai, India"
     }
   ],
-  "requests": [
-    {
-      "id": "req-001",
-      "projectTitle": "E-commerce Mobile App",
-      "clientName": "John Doe",
-      "assignedTo": "Nitesh Verma",
-      "email": "john@example.com",
-      "phone": "+91 98765 43210",
-      "budget": "₹2,50,000",
-      "timeline": "4 months",
-      "description": "Need a complete e-commerce mobile app with payment integration",
-      "selectedRoles": [
-        "Frontend Developer",
-        "Backend Developer",
-        "UI/UX Designer"
-      ],
-      "preferredTeam": [
-        "Nitesh Verma",
-        "Yashshvi Singh",
-        "Yashashvi Parihar"
-      ],
-      "status": "pending",
-      "submittedAt": "2024-12-20T10:30:00Z",
-      "assignedTeam": []
-    },
-    {
-      "id": "req-1760945104939",
-      "projectTitle": "General Insurance ",
-      "description": "njn",
-      "budget": "10000",
-      "timeline": "",
-      "contactName": "jjkmkn",
-      "email": "ashokverma.an.2001@gmail.com",
-      "phone": "07014265848",
-      "selectedRoles": [],
-      "status": "pending",
-      "submittedAt": "2025-10-20T07:25:04.939Z",
-      "assignedTeam": []
-    },
-    {
-      "id": "req-1760949544101",
-      "projectTitle": "Benefit Plus",
-      "description": "jnj",
-      "budget": "10000",
-      "timeline": "",
-      "contactName": "Ashok Verma",
-      "email": "ashokverma.an.2001@gmail.com",
-      "phone": "07014265848",
-      "selectedRoles": [],
-      "status": "pending",
-      "submittedAt": "2025-10-20T08:39:04.102Z",
-      "assignedTeam": []
-    },
-    {
-      "id": "req-1760949566153",
-      "projectTitle": "Benefit Plus",
-      "description": "jnjhn",
-      "budget": "10000",
-      "timeline": "",
-      "contactName": "Radhika Machine Tools",
-      "email": "9983813366@ybl",
-      "phone": "07014265848",
-      "selectedRoles": [],
-      "status": "pending",
-      "submittedAt": "2025-10-20T08:39:26.153Z",
-      "assignedTeam": []
-    }
-  ],
+  "requests": [],
   "engagementModels": [
     {
       "type": "dedicated",

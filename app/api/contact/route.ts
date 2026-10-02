@@ -1,33 +1,22 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { NextResponse } from 'next/server'
+import { clientIp, parseBody, rateLimit, route } from '@/lib/api'
+import { contactLead } from '@/lib/leads'
+import { Lead } from '@/lib/models'
 
-export async function POST(request: NextRequest) {
-  try {
-    const data = await request.json()
-    const filePath = path.join(process.cwd(), 'data', 'contact.json')
-    
-    const fileContents = await fs.readFile(filePath, 'utf8')
-    const contactData = JSON.parse(fileContents)
-    
-    const newInquiry = {
-      id: Date.now().toString(),
-      ...data,
-      timestamp: new Date().toISOString(),
-      status: 'new'
-    }
-    
-    contactData.inquiries = contactData.inquiries || []
-    contactData.inquiries.push(newInquiry)
-    
-    await fs.writeFile(filePath, JSON.stringify(contactData, null, 2))
-    
-    return NextResponse.json({ success: true, message: 'Contact form submitted successfully' })
-  } catch (error) {
-    console.error('Error saving contact form:', error)
-    return NextResponse.json(
-      { error: 'Failed to submit form' },
-      { status: 500 }
-    )
-  }
-}
+export const POST = route(async (req) => {
+  const ip = clientIp(req)
+  rateLimit(`lead:${ip}`, 5, 60_000)
+  const data = await parseBody(req, contactLead)
+  if (data.website) return NextResponse.json({ success: true }) // bot
+
+  await Lead.create({
+    type: 'contact',
+    name: [data.firstName, data.lastName].filter(Boolean).join(' '),
+    email: data.email,
+    company: data.company,
+    message: data.message,
+    details: { service: data.service },
+    ip,
+  })
+  return NextResponse.json({ success: true, message: 'Contact form submitted successfully' })
+})

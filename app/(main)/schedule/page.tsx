@@ -41,7 +41,7 @@ export default function SchedulePage() {
       })
       
       if (response.ok) {
-        setToast({ message: 'Meeting scheduled successfully! You will receive a confirmation email shortly.', type: 'success', isVisible: true })
+        setToast({ message: 'Meeting request received! Our team will confirm your slot shortly.', type: 'success', isVisible: true })
         setStep(1)
         setSelectedDate('')
         setSelectedTime('')

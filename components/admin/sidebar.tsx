@@ -1,8 +1,9 @@
 'use client'
 
-import { 
-  Users, MessageSquare, Calendar, Settings, 
-  Briefcase, Star, Building2, Package, LogOut, FileText, X
+import {
+  Users, MessageSquare, Calendar, Settings,
+  Briefcase, Star, Building2, Package, LogOut, FileText, X,
+  LayoutDashboard, FolderKanban, KanbanSquare, Clock, ShieldCheck
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -12,11 +13,24 @@ interface SidebarProps {
   onLogout: () => void
   isOpen: boolean
   onClose: () => void
+  role: 'owner' | 'manager' | 'member'
 }
 
 const menuGroups = [
   {
+    category: 'Workspace',
+    managerOnly: false,
+    items: [
+      { id: 'my-work', label: 'My Work', icon: LayoutDashboard },
+      { id: 'tasks', label: 'Task Board', icon: KanbanSquare },
+      { id: 'projects', label: 'Projects', icon: FolderKanban },
+      { id: 'timesheets', label: 'Timesheets', icon: Clock },
+      { id: 'staff', label: 'Staff & Roles', icon: ShieldCheck, managerOnly: true },
+    ],
+  },
+  {
     category: 'CRM & Client Operations',
+    managerOnly: true,
     items: [
       { id: 'clients', label: 'Clients & Accounts', icon: Building2 },
       { id: 'contacts', label: 'Inquiries & Leads', icon: MessageSquare },
@@ -24,7 +38,8 @@ const menuGroups = [
     ],
   },
   {
-    category: 'Portfolio & Growth',
+    category: 'Website Content',
+    managerOnly: true,
     items: [
       { id: 'services', label: 'Services Catalog', icon: Briefcase },
       { id: 'portfolio', label: 'Projects & Deliverables', icon: Package },
@@ -33,15 +48,24 @@ const menuGroups = [
     ],
   },
   {
-    category: 'Organization',
+    category: 'Website Settings',
+    managerOnly: true,
     items: [
-      { id: 'team', label: 'Team Members', icon: Users },
+      { id: 'site-team', label: 'Team Page Profiles', icon: Users },
       { id: 'settings', label: 'System Settings', icon: Settings },
     ],
   },
-]
+] as {
+  category: string
+  managerOnly: boolean
+  items: { id: string; label: string; icon: typeof Users; managerOnly?: boolean }[]
+}[]
 
-export function AdminSidebar({ activeTab, setActiveTab, onLogout, isOpen, onClose }: SidebarProps) {
+export function AdminSidebar({ activeTab, setActiveTab, onLogout, isOpen, onClose, role }: SidebarProps) {
+  const manager = role === 'owner' || role === 'manager'
+  const groups = menuGroups
+    .filter((g) => manager || !g.managerOnly)
+    .map((g) => ({ ...g, items: g.items.filter((i) => manager || !i.managerOnly) }))
   return (
     <>
       {isOpen && (
@@ -65,7 +89,7 @@ export function AdminSidebar({ activeTab, setActiveTab, onLogout, isOpen, onClos
               </div>
               <div>
                 <h2 className="text-base font-bold text-white tracking-tight">Techrover</h2>
-                <p className="text-[10px] uppercase tracking-wider text-indigo-400 font-semibold">Enterprise Admin</p>
+                <p className="text-[10px] uppercase tracking-wider text-indigo-400 font-semibold">Workspace</p>
               </div>
             </div>
             <Button
@@ -80,7 +104,7 @@ export function AdminSidebar({ activeTab, setActiveTab, onLogout, isOpen, onClos
           </div>
           
           <nav className="p-4 space-y-6 overflow-y-auto max-h-[calc(100vh-140px)]">
-            {menuGroups.map((group) => (
+            {groups.map((group) => (
               <div key={group.category} className="space-y-1">
                 <h3 className="px-3 text-[10px] font-bold uppercase tracking-wider text-zinc-500">
                   {group.category}

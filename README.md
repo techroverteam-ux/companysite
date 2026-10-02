@@ -50,21 +50,37 @@ A modern, responsive website for Techrover - a global technology solutions provi
    npm install
    ```
 
-2. **Run Development Server**
+2. **Set environment variables** — copy `.env.example` to `.env.local` and fill in
+   `MONGODB_URI`, `AUTH_SECRET`, `ADMIN_EMAIL` and `ADMIN_PASSWORD` (see comments in the file).
+
+3. **Run Development Server**
    ```bash
    npm run dev
    ```
 
-3. **Open Browser**
+4. **Open Browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 📊 Admin Panel
+## 📊 Admin Panel & Team Workspace
 
-Access the admin panel at `/admin/dashboard` to manage:
-- Services and pricing
-- Portfolio projects
-- Client reviews
-- Website settings
+Log in at `/admin/login`. The first time, use `ADMIN_EMAIL` / `ADMIN_PASSWORD` from the environment —
+that creates the **owner** account. Then add your team under **Staff & Roles**.
+
+| Role | Can do |
+| --- | --- |
+| Owner | Everything, including adding owners and deleting projects |
+| Manager | All projects, create projects, assign tasks to anyone, team reports with cost, leads, website content |
+| Team member | Only projects they are on; create tasks for themselves, move their tasks, log their own time |
+
+**Workspace screens**
+- **My Work** — my open tasks (overdue / this week / later), start-stop timer, quick time entry, recent activity; managers also see team workload vs weekly capacity.
+- **Task Board** — Kanban (To do → In progress → Code review → QA → Done) with drag and drop, filters, list view. Each task has assignees, priority, due date, estimate, labels, a GitHub/Figma link, time log and discussion.
+- **Projects** — client, team, lead, budget hours, progress and hours used vs budget.
+- **Timesheets** — weekly grid per person, add/edit entries, and reports by member / project / day with CSV export (managers see cost from hourly rates).
+- **Staff & Roles** — add people, set role, hourly cost and weekly capacity, reset passwords, deactivate.
+- **Inquiries & Leads / Meetings** — every website form submission (stored in MongoDB) with status, owner and notes.
+
+Website content (services, portfolio, reviews, team bios) is still edited from the JSON files in `/data`.
 
 ## 🎨 Design System
 
@@ -120,10 +136,11 @@ npm start
 
 ## 🔒 Security
 
-- Input validation
-- XSS protection
-- CSRF protection
-- Secure headers
+- Staff log in with their own email and a bcrypt-hashed password; sessions are signed, httpOnly cookies (`AUTH_SECRET`)
+- `/admin` pages and `/api/admin/*` require a session (see `proxy.ts`); every API also re-checks the user and role in the database
+- Public forms are validated (zod), rate-limited per IP and have a honeypot field
+- Only an allow-list of content files is readable through `/api/data/*`; form submissions are never stored in the repo
+- Secure headers on admin pages
 
 ## 📞 Support
 
