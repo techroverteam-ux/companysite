@@ -114,7 +114,7 @@ export function EnhancedHeroSection({ data }: EnhancedHeroSectionProps) {
               size="lg"
               variant="gradient"
             >
-              <Link href="/new-year-2026">
+              <Link href="/contact">
                 <Target className="mr-2 h-5 w-5" />
                 {data.ctaText}
                 <ArrowRight className="ml-2 h-5 w-5" />

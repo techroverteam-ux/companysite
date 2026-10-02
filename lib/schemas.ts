@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { zId } from '@/lib/api'
-import { PROJECT_STATUSES, TASK_PRIORITIES, TASK_STATUSES } from '@/lib/models'
+import { PROJECT_HEALTH, PROJECT_STAGES, PROJECT_STATUSES, TASK_PRIORITIES, TASK_STATUSES, TASK_TYPES } from '@/lib/models'
 
 /*
  * Each entity has a field set WITHOUT defaults (used for PATCH, so untouched fields stay as they are)
@@ -22,6 +22,11 @@ const projectFields = {
   lead: zId.nullable().optional(),
   members: z.array(zId).max(100),
   repoUrl: url,
+  clientRef: zId.nullable().optional(),
+  stage: z.enum(PROJECT_STAGES),
+  health: z.enum(PROJECT_HEALTH),
+  value: z.coerce.number().min(0).max(1e9),
+  stagingUrl: url,
 }
 export const projectInput = z.object({
   ...projectFields,
@@ -31,6 +36,10 @@ export const projectInput = z.object({
   budgetHours: projectFields.budgetHours.default(0),
   members: projectFields.members.default([]),
   repoUrl: projectFields.repoUrl.default(''),
+  stage: projectFields.stage.default('onboarding'),
+  health: projectFields.health.default('on_track'),
+  value: projectFields.value.default(0),
+  stagingUrl: projectFields.stagingUrl.default(''),
 })
 export const projectPatch = z.object(projectFields).partial()
 
@@ -46,6 +55,8 @@ const taskFields = {
   estimateHours: z.coerce.number().min(0).max(1000),
   labels: z.array(z.string().trim().min(1).max(30)).max(10),
   link: url,
+  type: z.enum(TASK_TYPES),
+  milestone: zId.nullable().optional(),
 }
 export const taskInput = z.object({
   ...taskFields,
@@ -56,6 +67,7 @@ export const taskInput = z.object({
   estimateHours: taskFields.estimateHours.default(0),
   labels: taskFields.labels.default([]),
   link: taskFields.link.default(''),
+  type: taskFields.type.default('feature'),
 })
 export const taskPatch = z.object(taskFields).partial()
 
@@ -75,3 +87,51 @@ export const timeInput = z.object({
   user: zId.optional(), // managers may log on behalf of someone
 })
 export const timePatch = z.object(timeFields).partial()
+
+/* ---------------- Money documents ---------------- */
+export const lineItems = z
+  .array(z.object({ description: z.string().trim().min(1).max(300), quantity: z.coerce.number().min(0).max(100000), rate: z.coerce.number().min(0).max(1e8) }))
+  .max(50)
+
+const proposalFields = {
+  client: zId,
+  lead: zId.nullable().optional(),
+  title: z.string().trim().min(2).max(200),
+  summary: z.string().max(20000),
+  items: lineItems,
+  discount: z.coerce.number().min(0).max(1e9),
+  gstPercent: z.coerce.number().min(0).max(28),
+  timelineWeeks: z.coerce.number().min(0).max(520),
+  milestones: z
+    .array(z.object({ title: z.string().trim().min(1).max(200), percent: z.coerce.number().min(0).max(100), weeksFromStart: z.coerce.number().min(0).max(520) }))
+    .max(20)
+    .refine((m) => !m.length || Math.round(m.reduce((s, x) => s + x.percent, 0)) === 100, 'Milestone percentages must add up to 100.'),
+  terms: z.string().max(10000),
+  validUntil: z.string().date().nullable().optional(),
+}
+export const proposalInput = z.object({
+  ...proposalFields,
+  summary: proposalFields.summary.default(''),
+  discount: proposalFields.discount.default(0),
+  gstPercent: proposalFields.gstPercent.default(18),
+  timelineWeeks: proposalFields.timelineWeeks.default(0),
+  milestones: proposalFields.milestones.default([]),
+  terms: proposalFields.terms.default(''),
+})
+export const proposalPatch = z.object(proposalFields).partial()
+
+const invoiceFields = {
+  project: zId,
+  milestone: zId.nullable().optional(),
+  items: lineItems,
+  gstPercent: z.coerce.number().min(0).max(28),
+  dueDate: z.string().date().nullable().optional(),
+  notes: z.string().max(5000),
+}
+export const invoiceInput = z.object({
+  ...invoiceFields,
+  items: invoiceFields.items.default([]),
+  gstPercent: invoiceFields.gstPercent.default(18),
+  notes: invoiceFields.notes.default(''),
+})
+export const invoicePatch = z.object(invoiceFields).omit({ project: true }).partial()

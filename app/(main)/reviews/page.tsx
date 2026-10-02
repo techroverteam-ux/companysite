@@ -1,6 +1,8 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { BadgeCheck } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Star, Quote } from 'lucide-react'
 import reviewsDataRaw from '@/data/reviews.json'
@@ -8,12 +10,44 @@ import { decrypt } from '@/lib/auth'
 
 export default function ReviewsPage() {
   // Decrypt reviews data if encrypted
-  const reviewsData = reviewsDataRaw.data && typeof reviewsDataRaw.data === 'string' 
+  const legacy: any[] = reviewsDataRaw.data && typeof reviewsDataRaw.data === 'string'
     ? decrypt(reviewsDataRaw.data) || []
-    : reviewsDataRaw || []
+    : (reviewsDataRaw as any) || []
+
+  // Verified reviews collected through client review links (published from the admin).
+  const [verified, setVerified] = useState<any[]>([])
+  useEffect(() => {
+    fetch('/api/public/reviews')
+      .then((r) => (r.ok ? r.json() : { reviews: [] }))
+      .then((d) => setVerified(d.reviews ?? []))
+      .catch(() => {})
+  }, [])
+  const reviewsData = [...verified, ...(Array.isArray(legacy) ? legacy : [])]
+  const rated = reviewsData.filter((r) => Number(r.rating) > 0)
+  const jsonLd = rated.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'TechRover',
+        url: 'https://techrover.co.in',
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: (rated.reduce((s, r) => s + Number(r.rating), 0) / rated.length).toFixed(1),
+          reviewCount: rated.length,
+          bestRating: 5,
+        },
+        review: rated.slice(0, 20).map((r) => ({
+          '@type': 'Review',
+          author: { '@type': 'Person', name: r.clientName },
+          reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
+          reviewBody: r.review,
+        })),
+      }
+    : null
 
   return (
     <div className="pt-16">
+      {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />}
       <section className="bg-muted/50 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <motion.div
@@ -51,11 +85,14 @@ export default function ReviewsPage() {
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4">
                         <span className="text-white font-bold text-lg">
-                          {review.clientName.charAt(0)}
+                          {String(review.clientName ?? '?').charAt(0)}
                         </span>
                       </div>
                       <div>
-                        <h3 className="font-semibold">{review.clientName}</h3>
+                        <h3 className="flex items-center gap-1 font-semibold">
+                          {review.clientName}
+                          {review.verified && <BadgeCheck className="h-4 w-4 text-sky-500" aria-label="Verified client" />}
+                        </h3>
                         <p className="text-sm text-muted-foreground">{review.company}</p>
                         <p className="text-xs text-muted-foreground/70">{review.country}</p>
                       </div>

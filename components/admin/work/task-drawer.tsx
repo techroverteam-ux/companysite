@@ -19,7 +19,8 @@ import {
 } from './lib'
 import { Avatar, Btn, Drawer, Field, inputCls, PeoplePicker } from './ui'
 
-type Comment = { id: string; user: string; text: string; createdAt: string }
+type Comment = { id: string; user: string | null; authorName?: string; text: string; createdAt: string }
+type MilestoneLite = { id: string; title: string }
 
 type Form = {
   project: string
@@ -32,6 +33,8 @@ type Form = {
   estimateHours: string
   labels: string
   link: string
+  type: 'feature' | 'bug' | 'chore' | 'change'
+  milestone: string
 }
 
 const emptyForm = (p: Partial<Form> = {}): Form => ({
@@ -45,6 +48,8 @@ const emptyForm = (p: Partial<Form> = {}): Form => ({
   estimateHours: '',
   labels: '',
   link: '',
+  type: 'feature',
+  milestone: '',
   ...p,
 })
 
@@ -60,6 +65,8 @@ function toBody(f: Form) {
     estimateHours: Number(f.estimateHours || 0),
     labels: f.labels.split(',').map((s) => s.trim()).filter(Boolean),
     link: f.link.trim(),
+    type: f.type,
+    milestone: f.milestone || null,
   }
 }
 
@@ -96,6 +103,11 @@ function TaskFields({ form, setForm, canAssignOthers, allowProjectChange }: { fo
   // Managers see everyone; members can only toggle themselves.
   const pickable = canAssignOthers ? users : users.filter((u) => u.id === me.id || form.assignees.includes(u.id))
   const disabledIds = canAssignOthers ? [] : pickable.filter((u) => u.id !== me.id).map((u) => u.id)
+  const [milestones, setMilestones] = useState<MilestoneLite[]>([])
+  useEffect(() => {
+    if (!form.project) return setMilestones([])
+    api<{ milestones: MilestoneLite[] }>(`/api/admin/projects/${form.project}/milestones`).then((r) => setMilestones(r.milestones)).catch(() => setMilestones([]))
+  }, [form.project])
   const openProjects = projects.filter((p) => (p.status !== 'completed' && p.status !== 'cancelled') || p.id === form.project)
 
   return (
@@ -134,6 +146,24 @@ function TaskFields({ form, setForm, canAssignOthers, allowProjectChange }: { fo
       </Field>
       <Field label="Due date">
         <input type="date" className={inputCls} value={form.dueDate} onChange={(e) => set({ dueDate: e.target.value })} />
+      </Field>
+      <Field label="Type">
+        <select className={inputCls} value={form.type} onChange={(e) => set({ type: e.target.value as Form['type'] })}>
+          <option value="feature">Feature</option>
+          <option value="bug">Bug</option>
+          <option value="chore">Chore / setup</option>
+          <option value="change">Change request</option>
+        </select>
+      </Field>
+      <Field label="Milestone">
+        <select className={inputCls} value={form.milestone} onChange={(e) => set({ milestone: e.target.value })}>
+          <option value="">None</option>
+          {milestones.map((m) => (
+            <option key={m.id} value={m.id}>
+              {m.title}
+            </option>
+          ))}
+        </select>
       </Field>
       <Field label="Estimate (hours)">
         <input type="number" min={0} step={0.5} className={inputCls} value={form.estimateHours} onChange={(e) => set({ estimateHours: e.target.value })} placeholder="0" />
@@ -231,6 +261,8 @@ function TaskDetail({ id }: { id: string }) {
           estimateHours: res.task.estimateHours ? String(res.task.estimateHours) : '',
           labels: res.task.labels.join(', '),
           link: res.task.link,
+          type: res.task.type ?? 'feature',
+          milestone: res.task.milestone ?? '',
         })
       )
     } catch (e: any) {
@@ -259,6 +291,8 @@ function TaskDetail({ id }: { id: string }) {
             estimateHours: task.estimateHours ? String(task.estimateHours) : '',
             labels: task.labels.join(', '),
             link: task.link,
+            type: task.type ?? 'feature',
+            milestone: task.milestone ?? '',
           })
         )
       )
@@ -339,7 +373,7 @@ function TaskDetail({ id }: { id: string }) {
 
   return (
     <div>
-      <Header title={project ? `${project.name} · Task` : 'Task'} onClose={closeTaskDrawer} />
+      <Header title={`${task.number ? `TR-${task.number} · ` : ''}${project ? project.name : 'Task'}`} onClose={closeTaskDrawer} />
       <div className="space-y-6 p-5">
         {/* Time summary + timer */}
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-zinc-800 bg-zinc-950/60 p-4">
@@ -384,6 +418,12 @@ function TaskDetail({ id }: { id: string }) {
             Save changes
           </Btn>
         </div>
+
+        {task.number && (
+          <p className="rounded-lg bg-zinc-950/60 px-3 py-2 text-[11px] text-zinc-500">
+            Mention <code className="text-indigo-300">TR-{task.number}</code> in a commit message or pull request title and it appears here automatically (GitHub webhook).
+          </p>
+        )}
 
         {/* Log time manually */}
         <section className="space-y-3">
@@ -430,13 +470,14 @@ function TaskDetail({ id }: { id: string }) {
             <MessageSquare className="h-4 w-4 text-zinc-400" /> Discussion
           </h3>
           {comments.map((c) => {
-            const u = userMap.get(c.user)
+            const u = c.user ? userMap.get(c.user) : undefined
+            const name = u?.name ?? c.authorName ?? 'Former member'
             return (
               <div key={c.id} className="flex gap-3">
-                <Avatar user={u} size={26} />
+                <Avatar user={u ?? { name, color: '#3f3f46' }} size={26} />
                 <div className="min-w-0 flex-1 rounded-lg bg-zinc-950/70 px-3 py-2">
                   <div className="text-xs text-zinc-500">
-                    <span className="font-medium text-zinc-300">{u?.name ?? 'Former member'}</span> ·{' '}
+                    <span className="font-medium text-zinc-300">{name}</span> ·{' '}
                     {new Date(c.createdAt).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}
                   </div>
                   <p className="mt-1 whitespace-pre-wrap text-sm text-zinc-200">{c.text}</p>

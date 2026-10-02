@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { ApiError, logActivity, oid, parseBody, requireUser, route, zId } from '@/lib/api'
 import { LEAD_STATUSES, Lead } from '@/lib/models'
+import { notify } from '@/lib/workflow'
 
 type Ctx = { params: Promise<{ id: string }> }
 
@@ -9,6 +10,7 @@ const schema = z.object({
   status: z.enum(LEAD_STATUSES).optional(),
   owner: zId.nullable().optional(),
   notes: z.string().max(5000).optional(),
+  followUpAt: z.string().date().nullable().optional(),
 })
 
 export const PATCH = route<Ctx>(async (req, { params }) => {
@@ -19,6 +21,10 @@ export const PATCH = route<Ctx>(async (req, { params }) => {
   if (input.status) lead.status = input.status
   if (input.owner !== undefined) lead.set('owner', input.owner || undefined)
   if (input.notes !== undefined) lead.notes = input.notes
+  if (input.followUpAt !== undefined) lead.set('followUpAt', input.followUpAt ? new Date(`${input.followUpAt}T09:00:00+05:30`) : undefined)
+  if (input.owner && input.owner !== me.id) {
+    await notify([input.owner], { title: `New lead assigned to you: ${lead.name || lead.email}`, body: lead.message?.slice(0, 160) ?? '', tab: 'contacts' }, { email: true })
+  }
   await lead.save()
   await logActivity(me, 'lead.updated', 'Lead', lead._id, `${me.name} updated lead ${lead.name || lead.email}${input.status ? ` → ${input.status}` : ''}`)
   return NextResponse.json({ ok: true })

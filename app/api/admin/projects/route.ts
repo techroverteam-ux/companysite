@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { Types } from 'mongoose'
 import { logActivity, parseBody, requireUser, route, visibleProjectIds } from '@/lib/api'
 import { projectInput } from '@/lib/schemas'
-import { PROJECT_STATUSES, Project, Task, TimeLog } from '@/lib/models'
+import { DEFAULT_ONBOARDING, PROJECT_STATUSES, Project, Task, TimeLog } from '@/lib/models'
 
 
 export const GET = route(async (req) => {
@@ -52,6 +52,15 @@ export const GET = route(async (req) => {
         lead: p.lead ? String(p.lead) : null,
         members: (p.members ?? []).map(String),
         repoUrl: p.repoUrl,
+        clientRef: p.clientRef ? String(p.clientRef) : null,
+        stage: p.stage ?? 'onboarding',
+        health: p.health ?? 'on_track',
+        value: p.value ?? 0,
+        stagingUrl: p.stagingUrl ?? '',
+        deliveredAt: p.deliveredAt ?? null,
+        warrantyEndsAt: p.warrantyEndsAt ?? null,
+        onboardingDone: (p.onboarding ?? []).filter((o) => o.done).length,
+        onboardingTotal: (p.onboarding ?? []).length,
         stats: {
           tasks: s?.total ?? 0,
           done: s?.done ?? 0,
@@ -73,7 +82,9 @@ export const POST = route(async (req) => {
     startDate: input.startDate || undefined,
     dueDate: input.dueDate || undefined,
     lead: input.lead || undefined,
+    clientRef: input.clientRef || undefined,
     members,
+    onboarding: DEFAULT_ONBOARDING.map((o) => ({ ...o, done: false })),
     createdBy: me._id,
   })
   await logActivity(me, 'project.created', 'Project', project._id, `${me.name} created project ${project.name}`, project._id)

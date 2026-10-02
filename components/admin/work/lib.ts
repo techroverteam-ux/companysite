@@ -44,6 +44,15 @@ export type Project = {
   lead: string | null
   members: string[]
   repoUrl: string
+  clientRef: string | null
+  stage: ProjectStage
+  health: 'on_track' | 'at_risk' | 'blocked'
+  value: number
+  stagingUrl: string
+  deliveredAt: string | null
+  warrantyEndsAt: string | null
+  onboardingDone: number
+  onboardingTotal: number
   stats: { tasks: number; done: number; overdue: number; estimateHours: number; loggedMinutes: number }
 }
 
@@ -65,6 +74,9 @@ export type Task = {
   createdAt: string
   updatedAt: string
   loggedMinutes: number
+  number: number | null
+  type: 'feature' | 'bug' | 'chore' | 'change'
+  milestone: string | null
 }
 
 export type TimeLog = {
@@ -203,3 +215,64 @@ export function downloadCsv(filename: string, rows: (string | number)[][]) {
   a.click()
   URL.revokeObjectURL(url)
 }
+
+/* ------------------------------------------------------------------ */
+/* Delivery workflow types                                             */
+/* ------------------------------------------------------------------ */
+export type ProjectStage = 'onboarding' | 'development' | 'qa_uat' | 'delivery' | 'support' | 'closed'
+export const STAGES: { id: ProjectStage; label: string }[] = [
+  { id: 'onboarding', label: 'Onboarding' },
+  { id: 'development', label: 'Development' },
+  { id: 'qa_uat', label: 'QA & UAT' },
+  { id: 'delivery', label: 'Delivery' },
+  { id: 'support', label: 'Support' },
+  { id: 'closed', label: 'Closed' },
+]
+export const HEALTH: Record<string, { label: string; cls: string }> = {
+  on_track: { label: 'On track', cls: 'border-emerald-800 bg-emerald-950/50 text-emerald-300' },
+  at_risk: { label: 'At risk', cls: 'border-amber-800 bg-amber-950/50 text-amber-300' },
+  blocked: { label: 'Blocked', cls: 'border-rose-800 bg-rose-950/50 text-rose-300' },
+}
+export type LineItem = { description: string; quantity: number; rate: number }
+export type Milestone = { id: string; project: string; title: string; description: string; dueDate: string | null; percent: number; status: 'pending' | 'in_progress' | 'ready_for_uat' | 'approved' | 'changes_requested'; order: number; clientDecisionAt: string | null; clientDecisionBy: string; clientNote: string; tasks: number; tasksDone: number }
+export const MILESTONE_STATUS: Record<Milestone['status'], { label: string; cls: string }> = {
+  pending: { label: 'Not started', cls: 'border-zinc-700 text-zinc-400' },
+  in_progress: { label: 'In progress', cls: 'border-sky-800 bg-sky-950/50 text-sky-300' },
+  ready_for_uat: { label: 'Waiting for client', cls: 'border-violet-800 bg-violet-950/50 text-violet-300' },
+  approved: { label: 'Approved by client', cls: 'border-emerald-800 bg-emerald-950/50 text-emerald-300' },
+  changes_requested: { label: 'Changes requested', cls: 'border-amber-800 bg-amber-950/50 text-amber-300' },
+}
+export type ChangeRequest = { id: string; project: string; title: string; description: string; source: 'client' | 'staff'; requesterName: string; estimateHours: number; cost: number; daysAdded: number; status: 'submitted' | 'estimated' | 'approved' | 'rejected' | 'done'; decidedAt: string | null; decidedBy: string; task: string | null; createdAt: string }
+export const CHANGE_STATUS: Record<ChangeRequest['status'], { label: string; cls: string }> = {
+  submitted: { label: 'Needs estimate', cls: 'border-sky-800 bg-sky-950/50 text-sky-300' },
+  estimated: { label: 'Waiting for client', cls: 'border-violet-800 bg-violet-950/50 text-violet-300' },
+  approved: { label: 'Approved', cls: 'border-emerald-800 bg-emerald-950/50 text-emerald-300' },
+  rejected: { label: 'Declined', cls: 'border-zinc-700 text-zinc-500' },
+  done: { label: 'Done', cls: 'border-indigo-800 bg-indigo-950/50 text-indigo-300' },
+}
+export type Invoice = { id: string; number: string; project: string; client: string | null; milestone: string | null; items: LineItem[]; gstPercent: number; subtotal: number; gstAmount: number; total: number; status: 'draft' | 'sent' | 'paid' | 'cancelled'; issueDate: string | null; dueDate: string | null; paymentLink: string; paidAt: string | null; paymentRef: string; notes: string; createdAt: string; projectName?: string; clientName?: string; overdue?: boolean }
+export const INVOICE_STATUS: Record<Invoice['status'], { label: string; cls: string }> = {
+  draft: { label: 'Draft', cls: 'border-zinc-700 text-zinc-400' },
+  sent: { label: 'Unpaid', cls: 'border-amber-800 bg-amber-950/50 text-amber-300' },
+  paid: { label: 'Paid', cls: 'border-emerald-800 bg-emerald-950/50 text-emerald-300' },
+  cancelled: { label: 'Cancelled', cls: 'border-zinc-800 text-zinc-600' },
+}
+export type ProjectFile = { id: string; project: string; title: string; url: string; kind: string; visibleToClient: boolean; stored: boolean; size: number; contentType: string; addedByClient: string; addedBy: string | null; createdAt: string }
+export type ClientLite = { id: string; name: string; contactPerson: string; email: string; phone: string; accountStatus: string }
+
+export function lineTotals(items: LineItem[], gstPercent: number, discount = 0) {
+  const gross = items.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.rate) || 0), 0)
+  const subtotal = Math.max(0, gross - discount)
+  const gst = Math.round(subtotal * gstPercent) / 100
+  return { gross, subtotal, gst, total: subtotal + gst }
+}
+export const fmtBytes = (n: number) => (n > 1e6 ? `${(n / 1e6).toFixed(1)} MB` : n > 1e3 ? `${Math.round(n / 1e3)} KB` : `${n} B`)
+export function copyText(text: string) {
+  try {
+    navigator.clipboard.writeText(text)
+    return true
+  } catch {
+    return false
+  }
+}
+export const whatsappLink = (text: string, phone = '') => `https://wa.me/${phone.replace(/[^\d]/g, '')}?text=${encodeURIComponent(text)}`

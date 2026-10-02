@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { clientIp, parseBody, rateLimit, route } from '@/lib/api'
 import { hireTeamLead } from '@/lib/leads'
 import { Lead } from '@/lib/models'
+import { alertNewLead } from '@/lib/workflow'
 
 export const POST = route(async (req) => {
   const ip = clientIp(req)
@@ -23,5 +24,6 @@ export const POST = route(async (req) => {
     },
     ip,
   })
+  await alertNewLead(lead).catch((e) => console.error('[lead alert]', e))
   return NextResponse.json({ success: true, message: 'Request submitted successfully', requestId: String(lead._id) })
 })

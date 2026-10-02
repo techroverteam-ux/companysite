@@ -8,6 +8,7 @@ import Link from 'next/link'
 import marketingData from '@/data/marketing.json'
 
 export const metadata = {
+  robots: { index: false, follow: true }, // campaign ended 31 Jan 2026
   title: 'New Year 2026 Special Offers | TechRover - Future-Ready Solutions',
   description: 'Welcome 2026 with revolutionary technology solutions. Get exclusive discounts on AI-powered business suites, next-gen web experiences, and smart mobile ecosystems.',
   keywords: 'New Year 2026, AI solutions, quantum computing, future technology, special offers, TechRover',

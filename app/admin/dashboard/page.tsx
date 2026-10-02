@@ -15,10 +15,10 @@ import { Toast } from '@/components/ui/toast'
 import { DataTable } from '@/components/ui/data-table'
 import { ClientManagement, ClientRecord } from '@/components/admin/client-management'
 import { WorkspaceProvider } from '@/components/admin/work/context'
-import { WorkspaceScreens, WORKSPACE_TABS } from '@/components/admin/work/screens'
+import { DARK_TABS, WorkspaceScreens } from '@/components/admin/work/screens'
 import { api, isManager, type Me } from '@/components/admin/work/lib'
 
-const MANAGER_ONLY_TABS = ['clients', 'contacts', 'schedule', 'services', 'portfolio', 'case-studies', 'reviews', 'site-team', 'settings', 'staff']
+const MANAGER_ONLY_TABS = ['clients', 'contacts', 'schedule', 'services', 'portfolio', 'case-studies', 'reviews', 'site-team', 'settings', 'staff', 'proposals', 'invoices', 'client-reviews']
 
 export default function AdminDashboard() {
   const router = useRouter()
@@ -30,6 +30,7 @@ export default function AdminDashboard() {
   const [caseStudies, setCaseStudies] = useState<any[]>([])
   const [reviews, setReviews] = useState<any[]>([])
   const [clients, setClients] = useState<ClientRecord[]>([])
+  const [clientsVersion, setClientsVersion] = useState(0)
   const [team, setTeam] = useState<any[]>([])
   const [toast, setToast] = useState({
     isVisible: false,
@@ -63,11 +64,11 @@ export default function AdminDashboard() {
 
   async function fetchContent() {
     try {
-      const [servicesData, portfolioData, reviewsData, clientsData, teamData, caseStudiesData] = await Promise.all([
+      const [servicesData, portfolioData, reviewsData, clientsRes, teamData, caseStudiesData] = await Promise.all([
         import('@/data/services.json'),
         import('@/data/portfolio.json'),
         import('@/data/reviews.json'),
-        import('@/data/clients.json'),
+        api<{ clients: ClientRecord[] }>('/api/admin/clients').catch(() => ({ clients: [] as ClientRecord[] })),
         import('@/data/team.json'),
         import('@/data/case-studies.json'),
       ])
@@ -84,7 +85,8 @@ export default function AdminDashboard() {
       setServices(asArray(parseData(servicesData)))
       setPortfolio(asArray(parseData(portfolioData)))
       setReviews(asArray(parseData(reviewsData)))
-      setClients(asArray(parseData(clientsData)))
+      setClients(clientsRes.clients)
+      setClientsVersion((v) => v + 1)
       setTeam(asArray(parseData(teamData)))
       setCaseStudies(asArray(parseData(caseStudiesData)))
     } catch (error) {
@@ -112,7 +114,6 @@ export default function AdminDashboard() {
     return <div className="flex min-h-screen items-center justify-center bg-zinc-950 text-zinc-400">Loading…</div>
   }
 
-  const isWorkspaceTab = WORKSPACE_TABS.includes(activeTab)
 
   return (
     <WorkspaceProvider me={me} notify={notify}>
@@ -125,9 +126,9 @@ export default function AdminDashboard() {
           onClose={() => setIsSidebarOpen(false)}
           role={me.role}
         />
-        <AdminNavbar activeTab={activeTab} onOpenSidebar={() => setIsSidebarOpen(true)} me={me} notify={notify} />
+        <AdminNavbar activeTab={activeTab} onOpenSidebar={() => setIsSidebarOpen(true)} me={me} notify={notify} onNavigate={setActiveTab} />
 
-        <div className={`p-4 lg:ml-64 lg:p-6 ${isWorkspaceTab || activeTab === 'clients' || activeTab === 'contacts' || activeTab === 'schedule' ? 'min-h-[calc(100vh-81px)] bg-zinc-950' : ''}`}>
+        <div className={`p-4 lg:ml-64 lg:p-6 ${DARK_TABS.includes(activeTab) ? 'min-h-[calc(100vh-81px)] bg-zinc-950' : ''}`}>
           <WorkspaceScreens activeTab={activeTab} setActiveTab={setActiveTab} />
 
           {activeTab === 'services' && (
@@ -243,13 +244,21 @@ export default function AdminDashboard() {
           )}
           {activeTab === 'clients' && (
             <ClientManagement
+              key={clientsVersion}
               clients={clients}
               portfolioData={portfolio}
               caseStudiesData={caseStudies}
               servicesData={services}
-              onSaveClients={(updatedClients) => {
-                setClients(updatedClients)
-                saveData('clients', updatedClients)
+              onSaveClients={async (updatedClients) => {
+                try {
+                  const res = await api<{ clients: ClientRecord[] }>('/api/admin/clients', { method: 'PUT', body: { clients: updatedClients } })
+                  setClients(res.clients)
+                  // Remount only when new ids came back (so edits keep their place).
+                  if (res.clients.length !== updatedClients.length || updatedClients.some((c) => !/^[a-f\d]{24}$/i.test(String(c.id)))) setClientsVersion((v) => v + 1)
+                  notify('Clients saved.')
+                } catch (e: any) {
+                  notify(e.message, 'error')
+                }
               }}
               onTriggerToast={(message, type) => {
                 notify(message, type)

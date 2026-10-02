@@ -41,7 +41,7 @@ export function TaskBoard({ initialProject = '', initialAssignee = '' }: { initi
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase()
-    return (tasks ?? []).filter((t) => (!needle || t.title.toLowerCase().includes(needle) || t.labels.some((l) => l.toLowerCase().includes(needle))) && (!hideDone || t.status !== 'done'))
+    return (tasks ?? []).filter((t) => (!needle || t.title.toLowerCase().includes(needle) || `tr-${t.number}` === needle || t.labels.some((l) => l.toLowerCase().includes(needle))) && (!hideDone || t.status !== 'done'))
   }, [tasks, q, hideDone])
 
   const byCol = useMemo(() => {
@@ -210,7 +210,10 @@ export function TaskBoard({ initialProject = '', initialAssignee = '' }: { initi
                   .sort((a, b) => (a.status === 'done' ? 1 : 0) - (b.status === 'done' ? 1 : 0) || (a.dueDate ?? '9').localeCompare(b.dueDate ?? '9'))
                   .map((t) => (
                     <tr key={t.id} onClick={() => openTask(t.id)} className="cursor-pointer text-zinc-200 hover:bg-zinc-800/40">
-                      <td className="max-w-[320px] truncate px-4 py-3 font-medium">{t.title}</td>
+                      <td className="max-w-[320px] truncate px-4 py-3 font-medium">
+                        {t.number && <span className="mr-2 font-mono text-[11px] text-zinc-500">TR-{t.number}</span>}
+                        {t.title}
+                      </td>
                       <td className="px-4 py-3 text-zinc-400">{projectMap.get(t.project)?.name}</td>
                       <td className="px-4 py-3">
                         <select
@@ -284,7 +287,14 @@ function TaskCard({
       onClick={onOpen}
       className={`group cursor-pointer rounded-lg border bg-zinc-900 p-3 shadow-sm transition-colors hover:border-zinc-600 ${timing ? 'border-emerald-700' : 'border-zinc-800'}`}
     >
-      {showProject && projectName && <div className="mb-1 truncate text-[10px] font-semibold uppercase tracking-wider text-indigo-300/80">{projectName}</div>}
+      <div className="mb-1 flex items-center justify-between gap-2 text-[10px] font-semibold uppercase tracking-wider">
+        <span className="truncate text-indigo-300/80">{showProject && projectName ? projectName : ''}</span>
+        <span className="shrink-0 font-mono text-zinc-500">
+          {task.type === 'bug' && <span className="mr-1 rounded bg-rose-950 px-1 text-rose-300">bug</span>}
+          {task.type === 'change' && <span className="mr-1 rounded bg-violet-950 px-1 text-violet-300">change</span>}
+          {task.number ? `TR-${task.number}` : ''}
+        </span>
+      </div>
       <div className="text-sm font-medium leading-snug text-zinc-100">{task.title}</div>
       {task.labels.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1">

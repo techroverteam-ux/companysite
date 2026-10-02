@@ -3,7 +3,8 @@
 import {
   Users, MessageSquare, Calendar, Settings,
   Briefcase, Star, Building2, Package, LogOut, FileText, X,
-  LayoutDashboard, FolderKanban, KanbanSquare, Clock, ShieldCheck
+  LayoutDashboard, FolderKanban, KanbanSquare, Clock, ShieldCheck,
+  CalendarCheck, FileSignature, Receipt, BadgeCheck
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -25,16 +26,20 @@ const menuGroups = [
       { id: 'tasks', label: 'Task Board', icon: KanbanSquare },
       { id: 'projects', label: 'Projects', icon: FolderKanban },
       { id: 'timesheets', label: 'Timesheets', icon: Clock },
+      { id: 'attendance', label: 'Attendance & Leave', icon: CalendarCheck },
       { id: 'staff', label: 'Staff & Roles', icon: ShieldCheck, managerOnly: true },
     ],
   },
   {
-    category: 'CRM & Client Operations',
+    category: 'Clients & Sales',
     managerOnly: true,
     items: [
-      { id: 'clients', label: 'Clients & Accounts', icon: Building2 },
       { id: 'contacts', label: 'Inquiries & Leads', icon: MessageSquare },
-      { id: 'schedule', label: 'Meetings & Schedule', icon: Calendar },
+      { id: 'schedule', label: 'Meeting Requests', icon: Calendar },
+      { id: 'clients', label: 'Clients & Accounts', icon: Building2 },
+      { id: 'proposals', label: 'Proposals', icon: FileSignature },
+      { id: 'invoices', label: 'Invoices', icon: Receipt },
+      { id: 'client-reviews', label: 'Client Reviews', icon: BadgeCheck },
     ],
   },
   {
@@ -44,7 +49,7 @@ const menuGroups = [
       { id: 'services', label: 'Services Catalog', icon: Briefcase },
       { id: 'portfolio', label: 'Projects & Deliverables', icon: Package },
       { id: 'case-studies', label: 'Case Studies', icon: FileText },
-      { id: 'reviews', label: 'Testimonials & Reviews', icon: Star },
+      { id: 'reviews', label: 'Old Testimonials (JSON)', icon: Star },
     ],
   },
   {

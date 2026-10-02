@@ -22,6 +22,9 @@ import aboutData from '@/data/about.json'
 import marketingData from '@/data/marketing.json'
 import { decrypt } from '@/lib/auth'
 
+// Re-check campaign dates every hour instead of only at build time.
+export const revalidate = 3600
+
 export default function HomePage() {
   // Decrypt reviews data if encrypted
   const reviewsData = reviewsDataRaw.data && typeof reviewsDataRaw.data === 'string' 

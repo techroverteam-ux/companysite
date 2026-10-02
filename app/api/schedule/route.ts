@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { ApiError, clientIp, parseBody, rateLimit, route } from '@/lib/api'
 import { meetingLead } from '@/lib/leads'
 import { Lead } from '@/lib/models'
+import { alertNewLead } from '@/lib/workflow'
 
 export const POST = route(async (req) => {
   const ip = clientIp(req)
@@ -20,7 +21,7 @@ export const POST = route(async (req) => {
   })
   if (clash) throw new ApiError(409, 'That time slot was just booked. Please pick another time.')
 
-  await Lead.create({
+  const lead = await Lead.create({
     type: 'meeting',
     name: data.name,
     email: data.email,
@@ -33,5 +34,6 @@ export const POST = route(async (req) => {
     ip,
   })
   // Status starts as "new" (pending): a team member confirms the meeting from the admin.
+  await alertNewLead(lead).catch((e) => console.error('[lead alert]', e))
   return NextResponse.json({ success: true, message: 'Meeting request received' })
 })

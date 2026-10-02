@@ -3,6 +3,7 @@ import { ApiError, assertProjectAccess, isManager, logActivity, oid, parseBody, 
 import { taskPatch } from '@/lib/schemas'
 import { Comment, Task, TimeLog, User } from '@/lib/models'
 import { addToProject, ensureActiveUsers, serializeTask } from '@/lib/tasks'
+import { managerIds, notify } from '@/lib/workflow'
 
 type Ctx = { params: Promise<{ id: string }> }
 
@@ -41,7 +42,7 @@ export const GET = route<Ctx>(async (req, { params }) => {
       running: l.running,
       startedAt: l.startedAt,
     })),
-    comments: comments.map((c) => ({ id: String(c._id), user: String(c.user), text: c.text, createdAt: c.createdAt })),
+    comments: comments.map((c) => ({ id: String(c._id), user: c.user ? String(c.user) : null, authorName: c.authorName ?? '', text: c.text, createdAt: c.createdAt })),
   })
 })
 
@@ -52,6 +53,7 @@ export const PATCH = route<Ctx>(async (req, { params }) => {
   const input = await parseBody(req, taskPatch)
   const manager = isManager(me)
   const changes: string[] = []
+  let newlyAssigned: string[] = []
 
   if (input.project && input.project !== String(task.project)) {
     if (!manager) throw new ApiError(403, 'Only a manager can move a task to another project.')
@@ -70,6 +72,7 @@ export const PATCH = route<Ctx>(async (req, { params }) => {
     }
     await ensureActiveUsers(next)
     await addToProject(task.project, next)
+    newlyAssigned = next.filter((x) => !prev.includes(x))
     if (next.sort().join(',') !== prev.sort().join(',')) {
       const names = (await User.find({ _id: { $in: next } }, { name: 1 }).lean()).map((u) => u.name)
       changes.push(next.length ? `assigned to ${names.join(', ')}` : 'unassigned')
@@ -83,16 +86,25 @@ export const PATCH = route<Ctx>(async (req, { params }) => {
     task.set('completedAt', input.status === 'done' ? new Date() : undefined)
   }
 
-  const { project: _p, assignees: _a, status: _s, dueDate, ...rest } = input
+  const { project: _p, assignees: _a, status: _s, dueDate, milestone, ...rest } = input
   Object.assign(task, rest)
   if (dueDate !== undefined) task.set('dueDate', dueDate || undefined)
-  if (Object.keys(rest).length || dueDate !== undefined) changes.push('edited details')
+  if (milestone !== undefined) task.set('milestone', milestone || undefined)
+  if (Object.keys(rest).length || dueDate !== undefined || milestone !== undefined) changes.push('edited details')
 
   // Optional explicit board position (drag and drop).
   const position = Number(req.nextUrl.searchParams.get('position'))
   if (Number.isFinite(position) && req.nextUrl.searchParams.has('position')) task.position = position
 
   await task.save()
+  const label = `TR-${task.number ?? ''} ${task.title}`.trim()
+  if (newlyAssigned.length) {
+    await notify(newlyAssigned, { title: `New task for you: ${label}`, body: `${me.name} assigned you in ${project.name}.`, tab: 'tasks', task: task._id, project: project._id }, { skip: me.id, email: true })
+  }
+  if (input.status === 'review' || input.status === 'qa') {
+    const reviewers = [...(project.lead ? [String(project.lead)] : []), ...(await managerIds())]
+    await notify(reviewers, { title: `${label} is ready for ${input.status === 'review' ? 'code review' : 'QA'}`, body: `Moved by ${me.name}.`, tab: 'tasks', task: task._id, project: project._id }, { skip: me.id })
+  }
   if (changes.length) {
     await logActivity(me, 'task.updated', 'Task', task._id, `${me.name} ${changes.join(', ')}: “${task.title}”`, project._id)
   }

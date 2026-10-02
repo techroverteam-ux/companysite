@@ -25,8 +25,14 @@ export const PATCH = route<Ctx>(async (req, { params }) => {
   const project = await Project.findById(id)
   if (!project) throw new ApiError(404, 'Project not found.')
 
-  const { startDate, dueDate, lead, members, ...rest } = input
+  const { startDate, dueDate, lead, members, clientRef, ...rest } = input
+  if (rest.stage && rest.stage !== project.stage && rest.stage === 'support' && !project.deliveredAt) {
+    // Delivery signed off: warranty / support period starts.
+    project.deliveredAt = new Date()
+    project.warrantyEndsAt = new Date(Date.now() + Number(process.env.WARRANTY_DAYS || 90) * 864e5)
+  }
   Object.assign(project, rest)
+  if (clientRef !== undefined) project.set('clientRef', clientRef || undefined)
   if (startDate !== undefined) project.set('startDate', startDate || undefined)
   if (dueDate !== undefined) project.set('dueDate', dueDate || undefined)
   if (lead !== undefined) project.set('lead', lead || undefined)

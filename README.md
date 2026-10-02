@@ -65,22 +65,34 @@ A modern, responsive website for Techrover - a global technology solutions provi
 
 Log in at `/admin/login`. The first time, use `ADMIN_EMAIL` / `ADMIN_PASSWORD` from the environment —
 that creates the **owner** account. Then add your team under **Staff & Roles**.
+Data lives in **MongoDB**; uploaded files live in **Vercel Blob**. All settings are listed in `.env.example`.
 
 | Role | Can do |
 | --- | --- |
-| Owner | Everything, including adding owners and deleting projects |
-| Manager | All projects, create projects, assign tasks to anyone, team reports with cost, leads, website content |
-| Team member | Only projects they are on; create tasks for themselves, move their tasks, log their own time |
+| Owner | Everything, including adding owners, deleting projects and leads |
+| Manager | All projects, assign work, approve leave, leads, clients, proposals, invoices, reviews, reports with cost |
+| Team member | Only projects they are on; their own tasks, time, attendance and leave |
 
-**Workspace screens**
-- **My Work** — my open tasks (overdue / this week / later), start-stop timer, quick time entry, recent activity; managers also see team workload vs weekly capacity.
-- **Task Board** — Kanban (To do → In progress → Code review → QA → Done) with drag and drop, filters, list view. Each task has assignees, priority, due date, estimate, labels, a GitHub/Figma link, time log and discussion.
-- **Projects** — client, team, lead, budget hours, progress and hours used vs budget.
-- **Timesheets** — weekly grid per person, add/edit entries, and reports by member / project / day with CSV export (managers see cost from hourly rates).
-- **Staff & Roles** — add people, set role, hourly cost and weekly capacity, reset passwords, deactivate.
-- **Inquiries & Leads / Meetings** — every website form submission (stored in MongoDB) with status, owner and notes.
+**Staff**
+- **My Work** — check in with today's plan, my tasks (overdue / this week / later), timer, quick time entry; managers see team workload.
+- **Task Board** — Kanban with drag and drop. Tasks are numbered `TR-12`; mention that in a commit or PR and it shows on the task (GitHub webhook).
+- **Timesheets** — weekly grid and reports (by member, project, day; cost for managers; CSV).
+- **Attendance & Leave** — check-in/out with plan and summary, team grid, leave requests and approvals.
+- **Notifications** — bell in the top bar: assignments, mentions (`@Name` in comments), approvals, client actions, payments.
+- **Staff & Roles** — accounts, roles, hourly cost, weekly capacity, password resets.
 
-Website content (services, portfolio, reviews, team bios) is still edited from the JSON files in `/data`.
+**Client workflow** (Lead → Proposal → Onboarding → Development → QA & UAT → Delivery → Review)
+- **Inquiries & Leads** — every website form; follow-up dates; *Convert & propose* creates the client and a proposal.
+- **Proposals** — line items, discount, GST, payment milestones; a private link (`/p/…`) lets the client accept online.
+  Acceptance creates the project, its milestones and the advance invoice.
+- **Projects** — stage, health, value, onboarding checklist, milestones (client approves at `/portal/…`),
+  change requests (estimate → client approves → task), invoices, files (Vercel Blob uploads or links), client links.
+- **Invoices** — GST invoices per milestone, printable view (`/admin/invoices/<id>`), Razorpay payment links, mark paid.
+- **Client portal** `/portal/<token>` — progress, milestone approvals, change requests, invoices with *Pay now*, file uploads, delivery sign-off.
+- **Client Reviews** — one-time review links (`/review/<token>`, 14 days). 4–5★ wait for approval, then show on `/reviews`
+  marked verified (with schema.org rating data); 3★ or less go privately to the owner.
+
+Website content (services, portfolio, team bios) is still edited from the JSON files in `/data`.
 
 ## 🎨 Design System
 

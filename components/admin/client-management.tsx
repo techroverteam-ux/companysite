@@ -82,27 +82,21 @@ export function ClientManagement({
   onTriggerToast,
 }: ClientManagementProps) {
   const [clients, setClients] = useState<ClientRecord[]>(() => {
+    // Empty fields stay empty: never invent contact details or notes.
     return initialClients.map((c) => ({
       ...c,
-      contactPerson: c.contactPerson || 'Primary Contact',
-      phone: c.phone || '+1 (555) 234-5678',
-      website: c.website || 'https://example.com',
-      accountStatus: c.accountStatus || 'Active',
-      region: c.region || c.country || 'Global',
-      billingAddress: c.billingAddress || '100 Innovation Way, Tech Park',
-      slaTier: c.slaTier || 'Enterprise',
-      contractEnd: c.contractEnd || '2026-12-31',
-      activeProjectsCount: c.activeProjectsCount ?? 1,
+      contactPerson: c.contactPerson || '',
+      phone: c.phone || '',
+      website: c.website || '',
+      accountStatus: c.accountStatus || 'Lead',
+      region: c.region || c.country || '',
+      billingAddress: c.billingAddress || '',
+      slaTier: c.slaTier || 'Standard',
+      contractEnd: c.contractEnd || '',
+      activeProjectsCount: c.activeProjectsCount ?? 0,
       associatedPortfolioIds: c.associatedPortfolioIds || [],
       associatedCaseStudyIds: c.associatedCaseStudyIds || [],
-      notes: c.notes || [
-        {
-          id: '1',
-          date: '2026-09-10',
-          author: 'Admin',
-          text: 'Quarterly review completed. Client expressed interest in upgrading AI Agent workflows.',
-        },
-      ],
+      notes: c.notes || [],
     }))
   })
 

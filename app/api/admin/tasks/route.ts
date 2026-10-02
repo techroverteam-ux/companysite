@@ -13,6 +13,7 @@ import {
 import { taskInput } from '@/lib/schemas'
 import { TASK_PRIORITIES, TASK_STATUSES, Task, TimeLog } from '@/lib/models'
 import { addToProject, ensureActiveUsers, serializeTask } from '@/lib/tasks'
+import { nextSeq, notify } from '@/lib/workflow'
 
 export const GET = route(async (req) => {
   const me = await requireUser(req)
@@ -40,6 +41,11 @@ export const GET = route(async (req) => {
 
   const priority = sp.get('priority')
   if (priority && (TASK_PRIORITIES as readonly string[]).includes(priority)) filter.priority = priority
+
+  const milestone = sp.get('milestone')
+  if (milestone) filter.milestone = oid(milestone, 'milestone')
+  const type = sp.get('type')
+  if (type) filter.type = type
 
   const q = sp.get('q')?.trim()
   if (q) filter.title = { $regex: q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), $options: 'i' }
@@ -72,10 +78,13 @@ export const POST = route(async (req) => {
     project: projectId,
     assignees,
     dueDate: input.dueDate || undefined,
+    milestone: input.milestone || undefined,
+    number: await nextSeq('task'),
     position: (last?.position ?? 0) + 1000,
     completedAt: input.status === 'done' ? new Date() : undefined,
     createdBy: me._id,
   })
+  await notify(assignees, { title: `New task for you: TR-${task.number} ${task.title}`, body: `${me.name} assigned you in ${project.name}.`, tab: 'tasks', task: task._id, project: projectId }, { skip: me.id, email: true })
   await logActivity(me, 'task.created', 'Task', task._id, `${me.name} created “${task.title}” in ${project.name}`, projectId)
   return NextResponse.json({ task: serializeTask(task.toObject()) }, { status: 201 })
 })

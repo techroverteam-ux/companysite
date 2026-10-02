@@ -5,9 +5,11 @@ import { KeyRound, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { api, ROLE_LABEL, type Me } from '@/components/admin/work/lib'
 import { Avatar, Btn, Field, inputCls, Modal } from '@/components/admin/work/ui'
+import { NotificationBell } from '@/components/admin/work/notifications'
 
 interface NavbarProps {
   activeTab: string
+  onNavigate: (tab: string) => void
   onOpenSidebar: () => void
   me: Me
   notify: (message: string, type?: 'success' | 'error') => void
@@ -19,9 +21,13 @@ const tabTitles: Record<string, [string, string]> = {
   projects: ['Projects', 'Client projects, teams, budgets and progress'],
   timesheets: ['Timesheets', 'Weekly time logs and reports'],
   staff: ['Staff & Roles', 'Who can log in, their role, rate and capacity'],
+  attendance: ['Attendance & Leave', 'Check-in, daily plan, leave requests and approvals'],
+  proposals: ['Proposals', 'Quotes the client accepts online — acceptance starts the project'],
+  invoices: ['Invoices', 'Milestone billing, GST, payment links and what is outstanding'],
+  'client-reviews': ['Client Reviews', 'Verified reviews from client links; approve to publish'],
   services: ['Services Management', 'Services shown on the website'],
   portfolio: ['Portfolio Management', 'Projects shown on the website'],
-  reviews: ['Reviews Management', 'Client testimonials on the website'],
+  reviews: ['Old Testimonials', 'Testimonials stored in data/reviews.json'],
   clients: ['Client Management', 'Accounts and contacts'],
   'site-team': ['Team Page Profiles', 'Public bios on the Team page'],
   contacts: ['Inquiries & Leads', 'Every website form submission'],
@@ -30,7 +36,7 @@ const tabTitles: Record<string, [string, string]> = {
   settings: ['System Settings', 'Global website settings'],
 }
 
-export function AdminNavbar({ activeTab, onOpenSidebar, me, notify }: NavbarProps) {
+export function AdminNavbar({ activeTab, onOpenSidebar, me, notify, onNavigate }: NavbarProps) {
   const [title, subtitle] = tabTitles[activeTab] ?? ['Dashboard', '']
   const [open, setOpen] = useState(false)
   const [pw, setPw] = useState({ currentPassword: '', newPassword: '', confirm: '' })
@@ -65,6 +71,7 @@ export function AdminNavbar({ activeTab, onOpenSidebar, me, notify }: NavbarProp
         </div>
 
         <div className="flex items-center gap-3">
+          <NotificationBell onNavigate={onNavigate} />
           <button onClick={() => setOpen(true)} className="hidden items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs text-zinc-400 hover:bg-zinc-800 hover:text-white sm:flex" title="Change password">
             <KeyRound className="h-3.5 w-3.5" /> Change password
           </button>

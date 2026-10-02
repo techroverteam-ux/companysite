@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import { AlertTriangle, CalendarDays, ExternalLink, FolderKanban, Pencil, Plus, Trash2 } from 'lucide-react'
 import { useWorkspace } from './context'
-import { api, dayOnly, fmtDate, fmtHours, isManager, PROJECT_STATUS, type Project, type ProjectStatus } from './lib'
+import { api, dayOnly, fmtDate, fmtHours, HEALTH, isManager, PROJECT_STATUS, STAGES, type Project, type ProjectStatus } from './lib'
 import { Avatar, AvatarStack, Btn, Empty, Field, inputCls, Modal, PeoplePicker, Pill } from './ui'
 
 type Form = {
@@ -21,7 +21,7 @@ type Form = {
 
 const blank: Form = { name: '', client: '', description: '', status: 'active', startDate: '', dueDate: '', budgetHours: '', lead: '', members: [], repoUrl: '' }
 
-export function ProjectsView({ onOpenBoard }: { onOpenBoard: (projectId: string) => void }) {
+export function ProjectsView({ onOpenBoard, onOpenProject }: { onOpenBoard: (projectId: string) => void; onOpenProject: (projectId: string) => void }) {
   const { me, users, userMap, projects, refreshProjects, notify, bump } = useWorkspace()
   const [status, setStatus] = useState<'open' | ProjectStatus | 'all'>('open')
   const [editing, setEditing] = useState<Project | null>(null)
@@ -131,12 +131,26 @@ export function ProjectsView({ onOpenBoard }: { onOpenBoard: (projectId: string)
             return (
               <div key={p.id} className="flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 shadow-xl">
                 <div className="flex items-start justify-between gap-2">
-                  <div className="min-w-0">
-                    <h3 className="truncate text-base font-semibold text-white">{p.name}</h3>
+                  <button className="min-w-0 text-left" onClick={() => onOpenProject(p.id)}>
+                    <h3 className="truncate text-base font-semibold text-white hover:underline">{p.name}</h3>
                     <p className="truncate text-xs text-zinc-500">{p.client || 'Internal'}</p>
+                  </button>
+                  <div className="flex flex-col items-end gap-1">
+                    <Pill className={PROJECT_STATUS[p.status].cls}>{PROJECT_STATUS[p.status].label}</Pill>
+                    {p.health && p.health !== 'on_track' && <Pill className={HEALTH[p.health].cls}>{HEALTH[p.health].label}</Pill>}
                   </div>
-                  <Pill className={PROJECT_STATUS[p.status].cls}>{PROJECT_STATUS[p.status].label}</Pill>
                 </div>
+                <div className="mt-2 flex items-center gap-1">
+                  {STAGES.map((s) => {
+                    const idx = STAGES.findIndex((x) => x.id === (p.stage ?? 'onboarding'))
+                    const i = STAGES.findIndex((x) => x.id === s.id)
+                    return <span key={s.id} title={s.label} className={`h-1 flex-1 rounded-full ${i < idx ? 'bg-indigo-700' : i === idx ? 'bg-indigo-400' : 'bg-zinc-800'}`} />
+                  })}
+                </div>
+                <p className="mt-1 text-[11px] text-zinc-500">
+                  Stage: <span className="text-zinc-300">{STAGES.find((x) => x.id === (p.stage ?? 'onboarding'))?.label}</span>
+                  {p.onboardingTotal ? ` · onboarding ${p.onboardingDone}/${p.onboardingTotal}` : ''}
+                </p>
                 {p.description && <p className="mt-2 line-clamp-2 text-xs text-zinc-400">{p.description}</p>}
 
                 <div className="mt-4 space-y-3">
@@ -199,8 +213,11 @@ export function ProjectsView({ onOpenBoard }: { onOpenBoard: (projectId: string)
                         <Pencil className="h-3.5 w-3.5" />
                       </Btn>
                     )}
-                    <Btn variant="outline" size="sm" onClick={() => onOpenBoard(p.id)}>
+                    <Btn variant="ghost" size="sm" onClick={() => onOpenBoard(p.id)}>
                       <FolderKanban className="h-3.5 w-3.5" /> Tasks
+                    </Btn>
+                    <Btn variant="outline" size="sm" onClick={() => onOpenProject(p.id)}>
+                      Open
                     </Btn>
                   </div>
                 </div>

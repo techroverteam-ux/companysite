@@ -5,6 +5,7 @@ import { Activity, AlertTriangle, CalendarDays, Play, Plus, Square, Users } from
 import { useWorkspace } from './context'
 import { addDays, api, dayOnly, fmtDate, fmtHours, fmtMinutes, isManager, isOverdue, isoDay, PRIORITY, TASK_COLUMNS, type Task, type TaskStatus } from './lib'
 import { Avatar, Btn, Empty, inputCls, Loading, Panel, Pill, Stat } from './ui'
+import { CheckInCard } from './attendance'
 
 type Overview = {
   me: { openTasks: number; overdueTasks: number; minutesToday: number; minutesThisWeek: number; weeklyCapacityHours: number }
@@ -104,6 +105,8 @@ export function MyWork({ onShowTeamMember, onShowUnassigned }: { onShowTeamMembe
           <Plus className="h-4 w-4" /> New task
         </Btn>
       </div>
+
+      <CheckInCard compact />
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Stat label="My open tasks" value={overview.me.openTasks} />

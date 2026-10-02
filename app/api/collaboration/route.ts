@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { clientIp, parseBody, rateLimit, route } from '@/lib/api'
 import { collaborationLead } from '@/lib/leads'
 import { Lead } from '@/lib/models'
+import { alertNewLead } from '@/lib/workflow'
 
 export const POST = route(async (req) => {
   const ip = clientIp(req)
@@ -9,7 +10,7 @@ export const POST = route(async (req) => {
   const data = await parseBody(req, collaborationLead)
   if (data.website) return NextResponse.json({ success: true }) // bot
 
-  await Lead.create({
+  const lead = await Lead.create({
     type: 'collaboration',
     name: data.name,
     email: data.email,
@@ -22,5 +23,6 @@ export const POST = route(async (req) => {
     },
     ip,
   })
+  await alertNewLead(lead).catch((e) => console.error('[lead alert]', e))
   return NextResponse.json({ success: true, message: 'Collaboration proposal submitted successfully' })
 })

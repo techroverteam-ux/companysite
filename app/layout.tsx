@@ -15,8 +15,16 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SITE_URL || 'https://techrover.co.in'),
   title: 'Techrover - Global Technology Solutions | AI, ERP, Web Development',
   description: 'Leading technology partner delivering AI solutions, ERP systems, web development, and digital marketing services to businesses worldwide.',
+  openGraph: {
+    title: 'Techrover - Global Technology Solutions',
+    description: 'AI solutions, ERP systems, web development and digital marketing for businesses worldwide.',
+    siteName: 'TechRover',
+    type: 'website',
+    images: ['/logos/tec-rover/techrover-fulllogo.png'],
+  },
 }
 
 export default function RootLayout({

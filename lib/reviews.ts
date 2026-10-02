@@ -1,0 +1,17 @@
+export const serializeReview = (r: any, projectName = '') => ({
+  id: String(r._id),
+  project: r.project ? String(r.project) : null,
+  projectName,
+  name: r.name,
+  role: r.role ?? '',
+  company: r.company ?? '',
+  rating: r.rating,
+  whatWeBuilt: r.whatWeBuilt ?? '',
+  text: r.text ?? '',
+  improve: r.improve ?? '',
+  consent: !!r.consent,
+  status: r.status,
+  verified: !!r.verified,
+  publishedAt: r.publishedAt ?? null,
+  createdAt: r.createdAt,
+})

@@ -26,6 +26,8 @@ export const GET = route(async (req) => {
       status: l.status,
       owner: l.owner ? String(l.owner) : null,
       notes: l.notes ?? '',
+      followUpAt: l.followUpAt ?? null,
+      client: l.client ? String(l.client) : null,
       createdAt: l.createdAt,
     })),
   })

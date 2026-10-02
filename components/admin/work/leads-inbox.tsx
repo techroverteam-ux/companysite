@@ -20,6 +20,8 @@ type Lead = {
   status: 'new' | 'contacted' | 'qualified' | 'won' | 'lost' | 'spam'
   owner: string | null
   notes: string
+  followUpAt: string | null
+  client: string | null
   createdAt: string
 }
 
@@ -34,7 +36,7 @@ const STATUS: Record<Lead['status'], string> = {
 }
 
 /** All public form submissions, stored in MongoDB. `meetingsOnly` powers the Meetings tab. */
-export function LeadsInbox({ meetingsOnly = false }: { meetingsOnly?: boolean }) {
+export function LeadsInbox({ meetingsOnly = false, onCreateProposal }: { meetingsOnly?: boolean; onCreateProposal?: (clientId: string, leadId: string, title: string) => void }) {
   const { users, notify } = useWorkspace()
   const [leads, setLeads] = useState<Lead[] | null>(null)
   const [type, setType] = useState<string>(meetingsOnly ? 'meeting' : '')
@@ -59,7 +61,18 @@ export function LeadsInbox({ meetingsOnly = false }: { meetingsOnly?: boolean })
     load()
   }, [load])
 
-  const update = async (lead: Lead, patch: Partial<Pick<Lead, 'status' | 'owner' | 'notes'>>) => {
+  const convert = async (lead: Lead, andPropose: boolean) => {
+    try {
+      const r = await api<{ clientId: string; existing: boolean }>(`/api/admin/leads/${lead.id}/convert`, { method: 'POST' })
+      notify(r.existing ? 'Linked to the existing client.' : 'Client account created.')
+      setLeads((prev) => prev?.map((l) => (l.id === lead.id ? { ...l, client: r.clientId, status: l.status === 'new' || l.status === 'contacted' ? 'qualified' : l.status } : l)) ?? null)
+      if (andPropose && onCreateProposal) onCreateProposal(r.clientId, lead.id, lead.details?.projectTitle || (lead.company ? `${lead.company} — ${lead.details?.service || 'project'}` : ''))
+    } catch (e: any) {
+      notify(e.message, 'error')
+    }
+  }
+
+  const update = async (lead: Lead, patch: Partial<Pick<Lead, 'status' | 'owner' | 'notes'>> & { followUpAt?: string | null }) => {
     setLeads((prev) => prev?.map((l) => (l.id === lead.id ? { ...l, ...patch } : l)) ?? null)
     try {
       await api(`/api/admin/leads/${lead.id}`, { method: 'PATCH', body: patch })
@@ -135,6 +148,10 @@ export function LeadsInbox({ meetingsOnly = false }: { meetingsOnly?: boolean })
                     {fmtDate(l.createdAt)}
                   </div>
                 </div>
+                {l.followUpAt && l.status !== 'won' && l.status !== 'lost' && (
+                  <span className={`text-[11px] ${l.followUpAt.slice(0, 10) <= new Date().toISOString().slice(0, 10) ? 'font-semibold text-amber-300' : 'text-zinc-500'}`}>follow up {fmtDate(l.followUpAt)}</span>
+                )}
+                {l.client && <span className="text-[11px] text-indigo-300">client ✓</span>}
                 <Pill className={STATUS[l.status]}>{l.status}</Pill>
               </button>
               {open === l.id && (
@@ -188,6 +205,26 @@ export function LeadsInbox({ meetingsOnly = false }: { meetingsOnly?: boolean })
                         ))}
                       </select>
                     </label>
+                    <label className="block text-xs text-zinc-400">
+                      Follow up on
+                      <input type="date" className={`${inputCls} mt-1`} value={l.followUpAt ? l.followUpAt.slice(0, 10) : ''} onChange={(e) => update(l, { followUpAt: e.target.value || null })} />
+                    </label>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {l.client ? (
+                        <button className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigo-500" onClick={() => onCreateProposal?.(l.client!, l.id, l.details?.projectTitle || '')}>
+                          Create proposal
+                        </button>
+                      ) : (
+                        <>
+                          <button className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigo-500" onClick={() => convert(l, true)}>
+                            Convert & propose
+                          </button>
+                          <button className="rounded-lg border border-zinc-700 px-3 py-1.5 text-xs text-zinc-300 hover:bg-zinc-800" onClick={() => convert(l, false)}>
+                            Convert to client
+                          </button>
+                        </>
+                      )}
+                    </div>
                     <label className="block text-xs text-zinc-400">
                       Internal notes
                       <textarea
